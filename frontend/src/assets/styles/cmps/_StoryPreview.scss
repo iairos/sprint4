@@ -1,20 +1,24 @@
-// .story-preview {
-    
+.story-preview {
+
+    .user-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+    .story-img {
+
+        width: 300px;
+
+    }
+    .title{
+
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .name{
+        color: $clr2;
+        align-content: end;
+    }
 
     
-   
-// }
-
-.user-img{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
 }
-
-.story-img{
-
-    width: 300px;
-
-}
-
-
