@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 import HomeView from '../pages/HomeView.vue'
 import StoryIndex from '../pages/StoryIndex.vue'
+import StoryDetails from '../pages/StoryDetails.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -10,8 +11,16 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: StoryIndex
+      component: StoryIndex,
+      children:[      
+      {
+        path: 'Details',
+        name: 'Details',
+        component: StoryDetails
+      }
+      ]
     },
+   
     {
       path: '/about',
       name: 'about',
