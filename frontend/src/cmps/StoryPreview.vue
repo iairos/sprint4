@@ -4,9 +4,8 @@
         <img class="user-img" :src="story.by.imgUrl" alt="">
         <h3>{{ story.by.fullname }} likes</h3>
         <img class="story-img" :src="story.imgUrl" alt="">
-        <!-- <span class="svg-icon" v-html="$svg('home')"></span> -->
-        <h3>{{ story.likedBy.length }} likes</h3>
-        <!-- <router-link >comments {{ story.comments.length }}</router-link> -->
+        <span class="svg-icon" v-html="$svg('home')"></span>
+        <router-link to="/details/story._id" >comments {{ story.comments.length }}</router-link>
         <!-- <button @click="goToDetail">details</button> -->
 
     </article>
