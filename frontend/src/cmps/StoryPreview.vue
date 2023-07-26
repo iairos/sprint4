@@ -4,7 +4,7 @@
         <img class="user-img" :src="story.by.imgUrl" alt="">
         <img class="story-img" :src="story.imgUrl" alt="">
         <span class="svg-icon" v-html="$svg('home')"></span>
-        <!-- <router-link >comments {{ story.comments.length }}</router-link> -->
+        <router-link to="/details/story._id" >comments {{ story.comments.length }}</router-link>
         <!-- <button @click="goToDetail">details</button> -->
 
     </article>

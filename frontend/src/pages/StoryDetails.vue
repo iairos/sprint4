@@ -1,6 +1,6 @@
 <template>
     <h1> hi details</h1>
-    
+    <pre>{{ story }}</pre>
        
 </template>
 
