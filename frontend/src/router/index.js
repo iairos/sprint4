@@ -12,13 +12,14 @@ const router = createRouter({
       path: '/',
       name: 'Home',
       component: StoryIndex,
-      children:[      
-      {
-        path: 'Details',
-        name: 'Details',
-        component: StoryDetails
-      }
-      ]
+      children: [
+        {
+          path: 'details/:storyId',
+          name:'story details',
+          component: StoryDetails
+        }
+
+    ]
     },
    
     {

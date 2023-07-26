@@ -1,6 +1,7 @@
 <template>
     <section class="story-index">
         <StoryList @remove="removeStory" :storys="storys"/>
+        <RouterView />
     </section>
 </template>
 
