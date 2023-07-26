@@ -11,8 +11,8 @@
         <h3>{{ story.likedBy.length }} likes</h3>
         <span class="fs14">{{ story.by.fullname }} </span>
         <span>{{ story.txt }}</span>
-        <router-link to="/details/story._id" >comments {{ story.comments.length }}</router-link>
-        <!-- <button @click="goToDetail">details</button> -->
+       <button @click="goToDetail" >comments {{ story.comments.length }}</button>
+        <!-- <router-link  to="/details/story._id" > comments {{ story.comments.length }}</router-link> -->
 
     </article>
 </template>
@@ -22,11 +22,14 @@ export default {
     props: {
         story: { type: Object, required: true },
     },
-    // methods: {
-    // goToDetail() {
-    //   this.$router.push(`/story/${this.story._id}`)
-    // },
+    methods: {
+    goToDetail() {
+      this.$router.push(`/details/${this.story._id}`)
+    }
 }
+
+}
+
 </script>
 
 <style lang="scss">
