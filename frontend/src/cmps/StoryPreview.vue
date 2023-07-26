@@ -5,8 +5,8 @@
         <h3>{{ story.by.fullname }} likes</h3>
         <img class="story-img" :src="story.imgUrl" alt="">
         <span class="svg-icon" v-html="$svg('home')"></span>
-        <router-link to="/details/story._id" >comments {{ story.comments.length }}</router-link>
-        <!-- <button @click="goToDetail">details</button> -->
+       <button @click="goToDetail" >comments {{ story.comments.length }}</button>
+        <!-- <router-link  to="/details/story._id" > comments {{ story.comments.length }}</router-link> -->
 
     </article>
 </template>
@@ -16,11 +16,14 @@ export default {
     props: {
         story: { type: Object, required: true },
     },
-    // methods: {
-    // goToDetail() {
-    //   this.$router.push(`/story/${this.story._id}`)
-    // },
+    methods: {
+    goToDetail() {
+      this.$router.push(`/details/${this.story._id}`)
+    }
 }
+
+}
+
 </script>
 
 <style lang="scss">
