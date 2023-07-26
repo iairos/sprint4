@@ -157,6 +157,7 @@ export const storyService = {
 	remove,
 	save,
 	getEmptyStory,
+	
 }
 
 async function query() {
@@ -207,7 +208,7 @@ function _createUsers()
 		users = gUser
 		utilService.saveToStorage(USER_KEY, users)
 	}
-	return users
+	return users[0]
 }
 
 	

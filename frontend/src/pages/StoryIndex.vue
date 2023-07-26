@@ -1,6 +1,6 @@
 <template>
     <section class="story-index">
-        <StoryList @remove="removeStory" :storys="storys"/>
+        <StoryList @remove="removeStory" @like="likeStory" :storys="storys"/>
         <RouterView />
     </section>
 </template>
@@ -16,8 +16,25 @@ export default {
     },
     methods: {
         removeStory(storyId){
-            this.$store.dispatch({ type: 'removeStory', storyId })
-                .then(console.log('Story removed'))
+            try{
+                this.$store.dispatch({ type: 'removeStory', storyId })
+                console.log('Story removed')
+            }
+            catch{
+                console.log('cannot remove Story')
+            }
+            // this.$store.dispatch({ type: 'removeStory', storyId })
+            //     .then(console.log('Story removed'))
+        },
+        likeStory(storyId){
+            try{
+                this.$store.dispatch({ type: 'likeStory', storyId })
+                console.log('like from index storyId',storyId)
+            }
+            catch{
+                console.log('cannot like Story')
+            }
+            
         }
     },
     computed: {
