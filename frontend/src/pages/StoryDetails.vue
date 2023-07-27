@@ -8,17 +8,17 @@
             <span class="name">{{ story.by.fullname }}</span>
         </div>
     </article>
-    <article class="flex" v-if="story.comments" v-for="comment in story.comments " >
-        <img class="user-img" :src="comment.by.imgUrl" alt="">
-        <span class="name">{{ comment?.by.fullname }}</span>
+    <section class="flex column detail-comments" >
+        <article class="flex" v-if="story.comments" v-for="comment in story.comments " >
+            <img class="user-img" :src="comment.by.imgUrl" alt="">
+            <span class="name">{{ comment?.by.fullname }}</span>
             <span class="txt">  {{ comment?.txt }}</span>
-
-    </article>
-    <article class="actions" >
+        </article>
+    </section>
+        <article class="actions" >
         <section class="action-btns">
             <span class="svg-icon btn" v-html="$svg('heart')" ></span>
             <span class="svg-icon btn" v-html="$svg('comment')"></span>
-            <h3></h3>
         </section>
     </article>
     <article class="detail-comment">
