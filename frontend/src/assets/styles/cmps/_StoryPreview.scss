@@ -5,8 +5,9 @@
     grid-template-rows: 1fr 8fr repeat(4, 0.5fr);
     grid-column-gap: 0px;
     grid-row-gap: 2px;
+    
 
-    width: 468px;
+    
 
 
     .prev-title {
@@ -17,7 +18,7 @@
 
     .prev-img {
         grid-area: 2 / 1 / 3 / 2;
-        max-width: 100%;
+        width: 100%;
         height: auto;
     }
 

@@ -1,7 +1,9 @@
 .story-list {
     // list-style: none;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
+    max-width: 470px;
     li {       
         padding: 5px;
         margin: 5px;

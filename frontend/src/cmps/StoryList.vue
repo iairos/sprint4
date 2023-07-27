@@ -1,6 +1,6 @@
 <template>
     <section class="story-list">
-        <ul>
+        <ul class="clean-list">
             <li v-for="story in storys" :key="story._id">
                 <StoryPreview @like="likeStory" :story="story"/>
                 <section class="actions">

@@ -1,5 +1,5 @@
 <template>
-    <section class="story-index">
+    <section class="story-index flex justify-center">
         <StoryList @remove="removeStory" @like="likeStory" :storys="storys"/>
         <RouterView />
     </section>
@@ -10,29 +10,37 @@ import StoryList from '@/cmps/StoryList.vue'
 
 export default {
     created() {
-        this.$store.dispatch({ type: 'loadStorys' })
-            .then(() => console.log('storys loaded'))
-            .catch(err => console.log(err))
+        this.loadStorys()
+        
     },
     methods: {
+        loadStorys(){
+            try{
+                this.$store.dispatch({ type: 'loadStorys' })
+                // console.log('storys loaded')
+            }
+            catch(err){
+                // console.log(err)
+                console.log('cannot load storys')
+            }
+        },
         removeStory(storyId){
             try{
                 this.$store.dispatch({ type: 'removeStory', storyId })
                 console.log('Story removed')
             }
             catch{
-                console.log('cannot remove Story')
+                console.log('Could not remove Story')
             }
-            // this.$store.dispatch({ type: 'removeStory', storyId })
-            //     .then(console.log('Story removed'))
+            
         },
         likeStory(storyId){
             try{
                 this.$store.dispatch({ type: 'likeStory', storyId })
-                console.log('like from index storyId',storyId)
+                // console.log('like from index storyId',storyId)
             }
             catch{
-                console.log('cannot like Story')
+                console.log('Could not like Story')
             }
             
         }

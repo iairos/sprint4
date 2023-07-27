@@ -180,6 +180,7 @@ async function save(story) {
 	}
 }
 
+
 function getEmptyStory() {
 	return {
 		name: '',
