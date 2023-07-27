@@ -25,9 +25,9 @@ const options = {
             const idx = storys.findIndex(story => story._id === storyId)
             storys.splice(idx, 1)
         },
-        likeStory({ storys }, { updatedStory }) {
-          
-            const idx = storys.findIndex(story => story._id === storyId)
+
+        likeStory({ storys }, { updatedStory }) {  
+            const idx = storys.findIndex(story => story._id === updatedStory._id)
             storys.splice(idx, 1, updatedStory)
         }
     },
@@ -54,11 +54,11 @@ const options = {
 
         },
 
-        async likeStory1({ commit }, { storyId, }) {
-                commit({ type: 'likeStory', storyId })
-                console.log('Story updated')
+        // async likeStory1({ commit }, { storyId, }) {
+        //         commit({ type: 'likeStory', storyId })
+        //         console.log('Story updated')
               
-        },
+        // },
         async likeStory( {commit, getters } , { storyId }) {
             // console.log('context',context)
             const user = getters.getLoggedInUser
@@ -70,8 +70,10 @@ const options = {
             const story = getters.storys.find(story => story._id === storyId)
             const storyToUpdate = JSON.parse(JSON.stringify(story))
             storyToUpdate.likedBy.push(miniUser)
+            console.log('storyToUpdate',storyToUpdate)
             try{
                 const updatedStory = await storyService.save(storyToUpdate) 
+                
                 commit({ type: 'likeStory', updatedStory })
                 console.log('Story updated')
             }

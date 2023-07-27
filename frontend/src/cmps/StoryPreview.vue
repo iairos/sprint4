@@ -7,8 +7,8 @@
         </div>
         <img class="prev-img" :src="story.imgUrl" alt="">
         <div class="prev-act">
-            <span class="svg-icon" v-html="$svg('heart')" @click="like(story._id)"></span>
-            <span class="svg-icon" v-html="$svg('comment')"></span>
+            <span class="svg-icon btn" v-html="$svg('heart')" @click="like(story._id)"></span>
+            <span class="svg-icon btn"  @click="goToDetail" v-html="$svg('comment')"></span>
         </div>
         <h3 class="prev-likes">{{ story.likedBy.length }} likes</h3>
         <div class="prev-txt">
@@ -20,7 +20,7 @@
             <span class="txt">  {{ story.comments[0]?.txt }}</span>
         </div>
 
-       <button @click="goToDetail" >View all {{ story.comments.length }} comments</button>
+       <button @click="goToDetail" >View all comments{{ story.comments.length }} comments</button>
         <!-- <router-link  to="/details/story._id" > comments {{ story.comments.length }}</router-link> -->
 
     </article>

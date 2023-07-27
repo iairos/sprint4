@@ -174,6 +174,7 @@ async function remove(storyId) {
 
 async function save(story) {
 	if (story._id) {
+		// console.log('save')
 		return await storageService.put(STORY_KEY, story)
 	} else {
 		return await storageService.post(STORY_KEY, story)
