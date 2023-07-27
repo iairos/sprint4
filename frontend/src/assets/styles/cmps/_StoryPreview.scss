@@ -1,19 +1,18 @@
 .story-preview {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 8fr repeat(4, 0.5fr);
     grid-column-gap: 0px;
     grid-row-gap: 2px;
 
+    width: 468px;
+
 
     .prev-title {
         grid-area: 1 / 1 / 2 / 2;
 
-        .user-img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
+
     }
 
     .prev-img {
@@ -38,10 +37,6 @@
         grid-area: 6 / 1 / 7 / 2;
     }
 
-    .name{
-         font-size: rem(14px); 
-         font-weight: bold;
-    }
 
     .txt{
         font-size: rem(14px);  

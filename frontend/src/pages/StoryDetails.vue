@@ -1,32 +1,34 @@
 <template>
 <section class="story-details">
-<img src="" alt="">
-<div>
-    <article>
-        <img src="" alt="">
-        <h3></h3>
+    <img class="detail-img" :src="story.imgUrl" alt="">
+
+    <article class="detail-title flex">
+        <img class="user-img" :src="story.by.imgUrl" alt="">
+        <div>    
+            <span class="name">{{ story.by.fullname }}</span>
+        </div>
     </article>
-    <article>
-        <img src="" alt="">
-        <h3></h3>
-        <p></p>
+    <article class="flex" v-if="story.comments" v-for="comment in story.comments " >
+        <img class="user-img" :src="comment.by.imgUrl" alt="">
+        <span class="name">{{ comment?.by.fullname }}</span>
+            <span class="txt">  {{ comment?.txt }}</span>
 
     </article>
-    <article>
+    <article class="actions" >
         <section class="action-btns">
-            <button></button>
-            <button></button>
+            <span class="svg-icon btn" v-html="$svg('heart')" ></span>
+            <span class="svg-icon btn" v-html="$svg('comment')"></span>
             <h3></h3>
         </section>
     </article>
-    <article>
+    <article class="detail-comment">
         <form @submit.prevent="onComment">
             <p style="white-space: pre-line;">{{ commentTxt }}</p>
             <textarea v-model="commentTxt" placeholder="Add a comment..."></textarea>
             <button>Post</button>
         </form>
     </article>
-</div>
+
 </section>
        
 </template>

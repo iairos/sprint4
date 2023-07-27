@@ -1,0 +1,34 @@
+.story-details{
+    position: absolute;
+    top: 50%;
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(11,1fr);
+    max-width:1102px ;
+    max-height: 703px;
+
+    & >*:not(.detail-img){
+        padding: 16px;
+    }
+
+    .detail-img{
+        grid-area: 1/1/12/4;
+        place-self: center;
+
+        aspect-ratio: 1/1;
+        width: 100%;
+    }
+
+    .detail-title{
+        gap:10px ;
+     grid-area: 1/4/3/6;  
+    }
+    .actions{
+        grid-area: 8/4/11/6;
+    }
+    .detail-comment{
+        grid-area: 11/4/12/6;
+        padding: 16px;
+    }
+}
