@@ -20,7 +20,7 @@
             <span class="txt">  {{ story.comments[0]?.txt }}</span>
         </div>
 
-       <button @click="goToDetail" >View all comments{{ story.comments.length }} comments</button>
+       <button v-if="story.comments.length>1" @click="goToDetail" >View all {{ story.comments.length }} comments</button>
         <!-- <router-link  to="/details/story._id" > comments {{ story.comments.length }}</router-link> -->
 
     </article>
