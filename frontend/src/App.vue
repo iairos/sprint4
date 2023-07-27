@@ -3,6 +3,11 @@ import AppHeader from '@/cmps/AppHeader.vue'
 export default {
     components: {
         AppHeader,
+    },
+    methods:{
+        goHome(){
+            this.$router.push('/')
+        }
     }
 }
 </script>
@@ -10,5 +15,5 @@ export default {
 <template>
     <AppHeader />
     <RouterView />
-    <div :class="{'screen-open':$route.name==='storyDetails'}" class="screen"></div>
+    <div @click="goHome" :class="{'screen-open':$route.name==='storyDetails'}" class="screen"></div>
 </template>
