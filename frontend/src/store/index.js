@@ -76,6 +76,7 @@ const options = {
                 
                 commit({ type: 'likeStory', updatedStory })
                 console.log('Story updated')
+                return updatedStory
             }
             catch(err){
                 console.log('Could not update story')

@@ -7,14 +7,15 @@
     background-color: white;
     display: grid;
     grid-template-columns: repeat(5,1fr);
-    grid-template-rows: repeat(11,1fr);
+    grid-template-rows: repeat(11,minmax(0.5fr,1fr));
     max-width:1102px ;
     max-height: 703px;
 
     & >*:not(.detail-img){
         padding: 16px;
         box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
-
+        place-self: start;
+        width: 100%;
     }
 
     .detail-img{

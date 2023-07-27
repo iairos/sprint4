@@ -4,9 +4,9 @@
 
     <article class="detail-title flex">
         <img class="user-img" :src="story.by.imgUrl" alt="">
-        <div>    
+    
             <span class="name">{{ story.by.fullname }}</span>
-        </div>
+
     </article>
     <section class="flex column detail-comments" >
         <article class="flex" v-if="story.comments" v-for="comment in story.comments " >
@@ -17,9 +17,10 @@
     </section>
         <article class="actions" >
         <section class="action-btns">
-            <span class="svg-icon btn" v-html="$svg('heart')" ></span>
+            <span class="svg-icon btn" v-html="$svg('heart')" @click="onLikeStory(story._id)" ></span>
             <span class="svg-icon btn" v-html="$svg('comment')"></span>
         </section>
+        <span>   {{ storyLength }} likes</span>
     </article>
     <article class="detail-comment">
         <form @submit.prevent="onComment">
@@ -39,7 +40,8 @@ export default {
     data(){
         return{
             story:null,
-            commentTxt:''
+            commentTxt:'',
+            storyLength:0
         }
     },
   async created(){
@@ -55,8 +57,22 @@ async loadStory(){
     catch{
         console.log('Could Not load story')
     }
-}
 },
+async onLikeStory(storyId){
+            try{
+             const updatedStory =  await this.$store.dispatch({ type: 'likeStory', storyId })
+                // console.log('like from index storyId',storyId)
+                this.story = updatedStory
+            }
+            catch{
+                console.log('Could not like Story')
+            }
+            
+        }
+},
+computed:{
+    storyLength(){return this.story.likedBy.length}
+}
 }
 </script>
 

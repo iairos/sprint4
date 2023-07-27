@@ -1,7 +1,7 @@
 <template>
     <article class="story-preview">
         <!-- <pre>{{story}}</pre> -->
-        <div class="title">
+        <div class="title flex">
             <img class="user-img" :src="story.by.imgUrl" alt="">
             <span class="name">{{ story.by.fullname }}</span>
         </div>
