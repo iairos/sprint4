@@ -1,6 +1,9 @@
 .story-details{
-    position: absolute;
+    z-index: 20;
+    position: fixed;
     top: 50%;
+    left: 50%;
+    translate: -50% -50%;
     background-color: white;
     display: grid;
     grid-template-columns: repeat(5,1fr);

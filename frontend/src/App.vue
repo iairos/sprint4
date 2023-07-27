@@ -10,4 +10,5 @@ export default {
 <template>
     <AppHeader />
     <RouterView />
+    <div :class="{'screen-open':$route.name==='storyDetails'}" class="screen"></div>
 </template>
