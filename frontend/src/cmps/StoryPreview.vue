@@ -1,26 +1,26 @@
 <template>
     <article class="story-preview">
         <!-- <pre>{{story}}</pre> -->
-        <div class="prev-title">
+        <div class="title">
             <img class="user-img" :src="story.by.imgUrl" alt="">
             <span class="name">{{ story.by.fullname }}</span>
         </div>
-        <img class="prev-img" :src="story.imgUrl" alt="">
-        <div class="prev-act">
+        <img class="img" :src="story.imgUrl" alt="">
+        <div class="act">
             <span class="svg-icon btn" v-html="$svg('heart')" @click="like(story._id)"></span>
             <span class="svg-icon btn"  @click="goToDetail" v-html="$svg('comment')"></span>
         </div>
-        <h3 class="prev-likes">{{ story.likedBy.length }} likes</h3>
-        <div class="prev-txt">
+        <h3 class="likes">{{ story.likedBy.length }} likes</h3>
+        <div class="txt">
             <span class="name">{{ story.by.fullname }} </span>
-            <span class="txt">{{ story.txt }}</span>
+            <span class="txt-msg">{{ story.txt }}</span>
         </div>
-        <div class="prev-comments">
+        <div class="comments">
             <span class="name">{{ story.comments[0]?.by.fullname }}   </span>
-            <span class="txt">  {{ story.comments[0]?.txt }}</span>
+            <span class="txt-msg">  {{ story.comments[0]?.txt }}</span>
         </div>
 
-       <button @click="goToDetail" >View all comments{{ story.comments.length }} comments</button>
+       <button @click="goToDetail" >View all {{ story.comments.length }} comments</button>
         <!-- <router-link  to="/details/story._id" > comments {{ story.comments.length }}</router-link> -->
 
     </article>
