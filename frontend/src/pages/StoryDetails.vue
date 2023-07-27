@@ -1,5 +1,5 @@
 <template>
-<section class="story-details">
+<section v-if="story" class="story-details">
     <img class="detail-img" :src="story.imgUrl" alt="">
 
     <article class="detail-title flex">
@@ -38,7 +38,8 @@ import { storyService} from '../services/story.service.local.js'
 export default {
     data(){
         return{
-            story:null
+            story:null,
+            commentTxt:''
         }
     },
   async created(){

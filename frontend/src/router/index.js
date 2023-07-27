@@ -15,7 +15,7 @@ const router = createRouter({
       children: [
         {
           path: 'details/:storyId',
-          name:'story details',
+          name:'storyDetails',
           component: StoryDetails,
         }
 
