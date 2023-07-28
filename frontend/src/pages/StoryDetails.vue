@@ -53,8 +53,8 @@ methods:{
             const story = await storyService.getById(storyId)
             this.story = story
         }
-        catch{
-            console.log('Could Not load story')
+        catch(err){
+            console.log(err)
         }
     },
     async  onCommentStory(storyId,txt){

@@ -22,12 +22,20 @@
 
        <button v-if="story.comments.length>1" @click="goToDetail" >View all {{ story.comments.length }} comments</button>
         <!-- <router-link  to="/details/story._id" > comments {{ story.comments.length }}</router-link> -->
-
+        <form @submit.prevent="onCommentStory(story._id,txt)">
+            <textarea v-model="txt" placeholder="Add a comment..."></textarea>
+            <button v-if="txt">Post</button>
+        </form>
     </article>
 </template>
 
 <script>
 export default {
+    data(){
+        return{
+            txt:'',
+        }
+    },
     props: {
         story: { type: Object, required: true },
     },
@@ -37,6 +45,9 @@ export default {
     },
     like(storyId) {
       this.$emit('like', storyId)
+    },
+    onCommentStory(storyId,txt){
+        this.$emit('onCommentStory',storyId,txt)
     }
 }
 

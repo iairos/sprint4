@@ -2,7 +2,10 @@
     <section class="story-list">
         <ul class="clean-list">
             <li v-for="story in storys" :key="story._id">
-                <StoryPreview @like="likeStory" :story="story"/>
+                <StoryPreview 
+                @like="likeStory"
+                @onCommentStory="onCommentStory"
+                 :story="story"/>
                 <section class="actions">
                     <button @click="removeStory(story._id)">x</button>
                 </section>
@@ -24,6 +27,9 @@ export default {
         likeStory(storyId){
             
             this.$emit('like', storyId)
+        },
+        onCommentStory(storyId,txt){
+            this.$emit('onCommentStory', storyId,txt)
         }
     },
     components: {

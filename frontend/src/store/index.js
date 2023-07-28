@@ -80,7 +80,8 @@ const options = {
                 return updatedStory
             }
             catch(err){
-                console.log('Could not update story')
+                console.log('Could not update story',err)
+                throw new Error('Service is current not available')
             } 
         },
         async likeStory( {commit, getters } , { storyId }) {

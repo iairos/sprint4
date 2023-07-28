@@ -1,6 +1,10 @@
 <template>
     <section class="story-index flex justify-center">
-        <StoryList @remove="removeStory" @like="likeStory" :storys="storys"/>
+        <StoryList 
+        @remove="removeStory" 
+        @like="likeStory"
+        @onCommentStory="onCommentStory" 
+        :storys="storys"/>
         <RouterView />
     </section>
 </template>
@@ -43,6 +47,16 @@ export default {
                 console.log('Could not like Story')
             }
             
+        },
+        async onCommentStory(storyId,txt){
+            try{
+
+                const updatedStory = await this.$store.dispatch({type:'commentStory',storyId,txt})
+                console.log('success comment',updatedStory)
+            }
+            catch(err){
+                console.log(err)
+            }
         }
     },
     computed: {
