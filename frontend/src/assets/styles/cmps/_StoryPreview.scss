@@ -31,16 +31,20 @@
 
     .txt {
         grid-area: 5 / 1 / 6 / 2;
+        gap: 10px;
+        align-items: center;
     }
 
     .comments {
         grid-area: 6 / 1 / 7 / 2;
+        gap: 10px;
+        align-items: center;
     }
 
 
-    .txt-msg{
-        font-size: rem(14px);  
-    }
+    // .txt-msg{
+    //     font-size: rem(14px);  
+    // }
 
 }
 

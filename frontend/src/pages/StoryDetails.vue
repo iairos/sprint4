@@ -6,9 +6,15 @@
         <img class="user-img" :src="story.by.imgUrl" alt="">
     
             <span class="name">{{ story.by.fullname }}</span>
-
-    </article>
-    <section class="flex column detail-comments" >
+            
+        </article>
+        
+        <section class="flex column detail-comments" >
+            <div class="flex">
+                <img class="user-img" :src="story.by.imgUrl" alt="">
+                <span class="name">{{ story.by.fullname }}</span>
+                <span>{{ story.txt }}</span>
+            </div>
         <article class="flex" v-if="story.comments" v-for="comment in story.comments " >
             <img class="user-img" :src="comment.by.imgUrl" alt="">
             <span class="name">{{ comment?.by.fullname }}</span>

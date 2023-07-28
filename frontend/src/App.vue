@@ -1,8 +1,9 @@
 <script>
-import AppHeader from '@/cmps/AppHeader.vue'
+import StoryNav from '@/cmps/StoryNav.vue';
 export default {
     components: {
-        AppHeader,
+
+        StoryNav,
     },
     methods:{
         goHome(){
@@ -13,7 +14,9 @@ export default {
 </script>
 
 <template>
-    <AppHeader />
-    <RouterView />
-    <div @click="goHome" :class="{'screen-open':$route.name==='storyDetails'}" class="screen"></div>
+    <section>
+        <StoryNav/>
+        <RouterView />
+        <div @click="goHome" :class="{'screen-open':$route.name==='storyDetails'}" class="screen"></div>
+    </section>
 </template>

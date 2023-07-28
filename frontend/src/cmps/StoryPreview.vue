@@ -6,16 +6,16 @@
             <span class="name">{{ story.by.fullname }}</span>
         </div>
         <img class="img" :src="story.imgUrl" alt="">
-        <div class="act">
+        <div class="act action-btns">
             <span class="svg-icon btn" v-html="$svg('heart')" @click="like(story._id)"></span>
             <span class="svg-icon btn"  @click="goToDetail" v-html="$svg('comment')"></span>
         </div>
         <h3 class="likes">{{ story.likedBy.length }} likes</h3>
-        <div class="txt">
+        <div class="txt flex">
             <span class="name">{{ story.by.fullname }} </span>
             <span class="txt-msg">{{ story.txt }}</span>
         </div>
-        <div class="comments">
+        <div class="comments flex">
             <span class="name">{{ story.comments[0]?.by.fullname }}   </span>
             <span class="txt-msg">  {{ story.comments[0]?.txt }}</span>
         </div>
@@ -48,6 +48,7 @@ export default {
     },
     onCommentStory(storyId,txt){
         this.$emit('onCommentStory',storyId,txt)
+        this.txt = ''
     }
 }
 
