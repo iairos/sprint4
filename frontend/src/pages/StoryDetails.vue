@@ -20,12 +20,11 @@
             <span class="svg-icon btn" v-html="$svg('heart')" @click="onLikeStory(story._id)" ></span>
             <span class="svg-icon btn" v-html="$svg('comment')"></span>
         </section>
-        <span>   {{ storyLength }} likes</span>
+        <span>   {{ story.likedBy.length }} likes</span>
     </article>
     <article class="detail-comment">
-        <form @submit.prevent="onComment">
-            <p style="white-space: pre-line;">{{ commentTxt }}</p>
-            <textarea v-model="commentTxt" placeholder="Add a comment..."></textarea>
+        <form @submit.prevent="onCommentStory(story._id,txt)">
+            <textarea v-model="txt" placeholder="Add a comment..."></textarea>
             <button>Post</button>
         </form>
     </article>
@@ -41,37 +40,49 @@ export default {
         return{
             story:null,
             commentTxt:'',
-            storyLength:0
+            txt:'',
         }
     },
   async created(){
     await this.loadStory()
     },
 methods:{
-async loadStory(){
-    try{
-        const {storyId} = this.$route.params
-        const story = await storyService.getById(storyId)
-        this.story = story
-    }
-    catch{
-        console.log('Could Not load story')
-    }
-},
-async onLikeStory(storyId){
-            try{
-             const updatedStory =  await this.$store.dispatch({ type: 'likeStory', storyId })
-                // console.log('like from index storyId',storyId)
-                this.story = updatedStory
-            }
-            catch{
-                console.log('Could not like Story')
-            }
-            
+    async loadStory(){
+        try{
+            const {storyId} = this.$route.params
+            const story = await storyService.getById(storyId)
+            this.story = story
         }
-},
+        catch{
+            console.log('Could Not load story')
+        }
+    },
+    async  onCommentStory(storyId,txt){
+        try{
+            const updatedStory =  await this.$store.dispatch({ type: 'commentStory', storyId,txt })
+            this.story = updatedStory
+            this.txt = ''
+        }
+        catch{
+            console.log('Could not comment Story')
+  
+        }
+  
+    },
+    async onLikeStory(storyId){
+                try{
+                const updatedStory =  await this.$store.dispatch({ type: 'likeStory', storyId })
+                    // console.log('like from index storyId',storyId)
+                    this.story = updatedStory
+                }
+                catch{
+                    console.log('Could not like Story')
+                }
+                
+            }
+    },
 computed:{
-    storyLength(){return this.story.likedBy.length}
+    
 }
 }
 </script>

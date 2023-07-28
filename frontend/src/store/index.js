@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 
 
 import { storyService } from '@/services/story.service.local.js'
-
+import { utilService } from '../services/util.service.js'
 const options = {
     strict: true,
     state() {
@@ -10,10 +10,10 @@ const options = {
             count: 100,
             storys: [],
             user: {
-                			_id: "u105",
-                			fullname: "Bob",
-                			imgUrl: "http://some-img"
-                		  },
+                    _id: "u105",
+                    fullname: "Bob",
+                	imgUrl: "http://some-img"
+                },
         }
     },
     mutations: {
@@ -29,6 +29,10 @@ const options = {
         likeStory({ storys }, { updatedStory }) {  
             const idx = storys.findIndex(story => story._id === updatedStory._id)
             storys.splice(idx, 1, updatedStory)
+        },
+        commentStory({ storys }, { updatedStory }){
+            const idx = storys.findIndex(story => story._id === updatedStory._id)
+            storys.splice(idx, 1, updatedStory)  
         }
     },
     actions: {
@@ -53,23 +57,43 @@ const options = {
             }
 
         },
-
-        // async likeStory1({ commit }, { storyId, }) {
-        //         commit({ type: 'likeStory', storyId })
-        //         console.log('Story updated')
-              
-        // },
-        async likeStory( {commit, getters } , { storyId }) {
-            // console.log('context',context)
-            const user = getters.getLoggedInUser
-            const miniUser ={  
-                _id: user._id,
-                fullname:    user.fullname,
-                imgUrl: user.imgUrl
+        async commentStory({commit, getters } , { storyId,txt }){
+            const loggedUser = getters.getLoggedInUser
+            const user ={  
+                _id: loggedUser._id,
+                fullname:loggedUser.fullname,
+                imgUrl: loggedUser.imgUrl
+            }
+            const comment = {
+                id:utilService.makeId(),
+                by:user,
+                txt
             }
             const story = getters.storys.find(story => story._id === storyId)
             const storyToUpdate = JSON.parse(JSON.stringify(story))
-            storyToUpdate.likedBy.push(miniUser)
+            storyToUpdate.comments.push(comment)
+            try{
+                const updatedStory = await storyService.save(storyToUpdate) 
+                
+                commit({ type: 'commentStory', updatedStory })
+                console.log('Story updated')
+                return updatedStory
+            }
+            catch(err){
+                console.log('Could not update story')
+            } 
+        },
+        async likeStory( {commit, getters } , { storyId }) {
+            // console.log('context',context)
+            const loggedUser = getters.getLoggedInUser
+            const user ={  
+                _id: loggedUser._id,
+                fullname:loggedUser.fullname,
+                imgUrl: loggedUser.imgUrl
+            }
+            const story = getters.storys.find(story => story._id === storyId)
+            const storyToUpdate = JSON.parse(JSON.stringify(story))
+            storyToUpdate.likedBy.push(user)
             console.log('storyToUpdate',storyToUpdate)
             try{
                 const updatedStory = await storyService.save(storyToUpdate) 
