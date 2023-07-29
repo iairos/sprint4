@@ -9,7 +9,7 @@
     <h3>Drag photos and videos here</h3>
    
 
-    <!-- <ImgUploader @uploaded="onUploaded" /> -->
+    <ImgUploader @uploaded="onUploaded" />
     <button class="btn">Select from computer</button>
   </article>
 </template>
