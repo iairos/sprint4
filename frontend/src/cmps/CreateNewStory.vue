@@ -33,10 +33,13 @@ export default {
 };
 </script> -->
 <template>
-<form @submit.prevent="onAddStory">
-  <input v-model="storyToUpload.txt"/>
+<form class="choose-img" @submit.prevent="onAddStory">
+  <input v-model="imgToUpload.txt"/>
   <input type="file" @change="onFileChange"/>
 <button>create</button>
+<div class="img-prev">
+<img v-if="url" :src="url" alt="">
+</div>
 </form>
 
 </template>
@@ -48,13 +51,19 @@ import { storyService } from '../services/story.service.local.js';
 export default{
   data(){
     return{
-      storyToUpload:storyService.getEmptyStory(),
-      file:null
+      imgToUpload:{
+        txt:'',
+        imgUrl:null,
+      },
+      file:null,
+      url:null
+
     }
   },
   methods:{
    async onFileChange(event){
     this.file = event.target.files[0];
+    this.url = URL.createObjectURL(this.file)
     },
     async uploadImage(file) {
       return new Promise((resolve, reject) => {
@@ -67,8 +76,11 @@ export default{
  async onAddStory(){
       if(this.file){
         try{
-          this.storyToUpload.imgUrl = await this.uploadImage(this.file)
-          console.log(this.storyToUpload)
+          this.imgToUpload.imgUrl = await this.uploadImage(this.file)
+         const newImg = JSON.parse(JSON.stringify(this.imgToUpload))
+          console.log(newImg)
+          this.url = null
+          this.imgToUpload.txt = ''
         }
         catch (err){
           console.log(err)
@@ -79,4 +91,10 @@ export default{
   }
 }
 </script>
-<style lang="scss"></style>
+<style scoped lang="scss">
+.choose-img{
+  grid-row: 2;
+  grid-column: 2;
+  place-self: center;
+}
+</style>

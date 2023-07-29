@@ -7,7 +7,6 @@ const options = {
     strict: true,
     state() {
         return {
-            count: 100,
             storys: [],
             user: {
                     _id: "u105",
@@ -26,14 +25,11 @@ const options = {
             storys.splice(idx, 1)
         },
 
-        likeStory({ storys }, { updatedStory }) {  
+        saveStory({ storys }, { updatedStory }) {  
             const idx = storys.findIndex(story => story._id === updatedStory._id)
-            storys.splice(idx, 1, updatedStory)
+            if (idx !== -1) storys.splice(idx, 1, updatedStory)
+            else storys.push(updatedStory)
         },
-        commentStory({ storys }, { updatedStory }){
-            const idx = storys.findIndex(story => story._id === updatedStory._id)
-            storys.splice(idx, 1, updatedStory)  
-        }
     },
     actions: {
         async loadStorys({ commit }) {
@@ -57,6 +53,9 @@ const options = {
             }
 
         },
+        async createStory({commit, getters } , { storyToUpload }){
+
+        },
         async commentStory({commit, getters } , { storyId,txt }){
             const loggedUser = getters.getLoggedInUser
             const user ={  
@@ -75,7 +74,7 @@ const options = {
             try{
                 const updatedStory = await storyService.save(storyToUpdate) 
                 
-                commit({ type: 'commentStory', updatedStory })
+                commit({ type: 'saveStory', updatedStory })
                 console.log('Story updated')
                 return updatedStory
             }
@@ -94,12 +93,13 @@ const options = {
             }
             const story = getters.storys.find(story => story._id === storyId)
             const storyToUpdate = JSON.parse(JSON.stringify(story))
+            if(storyToUpdate.likedBy)
             storyToUpdate.likedBy.push(user)
             console.log('storyToUpdate',storyToUpdate)
             try{
                 const updatedStory = await storyService.save(storyToUpdate) 
                 
-                commit({ type: 'likeStory', updatedStory })
+                commit({ type: 'saveStory', updatedStory })
                 console.log('Story updated')
                 return updatedStory
             }

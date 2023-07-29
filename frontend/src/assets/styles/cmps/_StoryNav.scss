@@ -1,11 +1,11 @@
 .story-nav{
     grid-row: 2;
-    // position: fixed;
     height: 100%;
     width: 200px;
     display: flex;
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.15) 1px  0.5px;
+
     .logo {
         height: 80px;
         span{
