@@ -13,7 +13,7 @@
                 <span>Search</span>
             </div>
             <div  class="nav-btn">
-                <span class="svg-icon" v-html="$svg('create')" @click="$router.push('/')"></span>
+                <span class="svg-icon" v-html="$svg('create')" @click="$router.push('/newStory')"></span>
                 <span>Create</span>
             </div>
             <!-- <div  class="nav-btn">

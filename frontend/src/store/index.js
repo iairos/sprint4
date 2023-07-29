@@ -12,7 +12,7 @@ const options = {
             user: {
                     _id: "u105",
                     fullname: "Bob",
-                	imgUrl: "http://some-img"
+                	imgUrl: "https://media.istockphoto.com/id/1435745704/photo/portrait-of-smiling-mid-adult-businessman-standing-at-corporate-office.webp?b=1&s=170667a&w=0&k=20&c=JGtTfOROhAa32AWDQSZwHK0Un0zX5r4QeDf6nb7_6Nc="
                 },
         }
     },

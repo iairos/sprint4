@@ -3,6 +3,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../pages/HomeView.vue'
 import StoryIndex from '../pages/StoryIndex.vue'
 import StoryDetails from '../pages/StoryDetails.vue'
+import CreateNewStory from '../cmps/CreateNewStory.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -20,6 +21,13 @@ const router = createRouter({
         }
 
     ]
+    },
+    {
+      path: '/newStory',
+      name: 'newStory',
+      component: CreateNewStory,
+      
+    
     },
    
   ]
