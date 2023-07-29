@@ -5,7 +5,7 @@
       <img class="user-img" :src="story.by.imgUrl" alt="" />
       <span class="name">{{ story.by.fullname }}</span>
     </div>
-    <img class="img" :src="story.imgUrl" alt="" />
+    <img class="img" :src="story.imgsUrl[0]" alt="" />
     <div class="act action-btns">
       <span
         v-if="!isLike"

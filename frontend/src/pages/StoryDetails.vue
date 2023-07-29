@@ -1,6 +1,6 @@
 <template>
   <section v-if="story" class="story-details">
-    <img class="detail-img" :src="story.imgUrl" alt="" />
+    <img class="detail-img" :src="story.imgsUrl[0]" alt="" />
 
     <article class="detail-title flex">
       <img class="user-img" :src="story.by.imgUrl" alt="" />
@@ -10,7 +10,7 @@
 
     <section class="flex column detail-comments">
       <div class="flex">
-        <img class="user-img" :src="story.by.imgUrl" alt="" />
+        <img class="user-img" :src="story.by.imgsUrl" alt="" />
         <span class="name">{{ story.by.fullname }}</span>
         <span>{{ story.txt }}</span>
       </div>

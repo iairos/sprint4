@@ -10,7 +10,7 @@ const gStory = [
 	{
 		_id: utilService.makeId(),
 		txt: "love Disney!!!",
-		imgUrl: "https://images.unsplash.com/photo-1605443791607-80a259dd3c3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGRpc25leXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=400&q=60", 
+		imgsUrl: ["https://images.unsplash.com/photo-1605443791607-80a259dd3c3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGRpc25leXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=400&q=60"], 
 		by: {
 		  _id: "u101",
 		  fullname: "shuki",
@@ -32,7 +32,7 @@ const gStory = [
 	{
 		_id: utilService.makeId(),
 		txt: "serfing time",
-		imgUrl: "https://media.istockphoto.com/id/1146669363/photo/collage-of-luggage-for-travel-in-front-of-ocean-view.webp?b=1&s=170667a&w=0&k=20&c=3BPzwbfpAb7bRrFwAjt5zWIJtw3Z7irFAYEZ8CHVo9Q=", 
+		imgsUrl: ["https://media.istockphoto.com/id/1146669363/photo/collage-of-luggage-for-travel-in-front-of-ocean-view.webp?b=1&s=170667a&w=0&k=20&c=3BPzwbfpAb7bRrFwAjt5zWIJtw3Z7irFAYEZ8CHVo9Q="], 
 		by: {
 		  _id: "u101",
 		  fullname: "puki",
@@ -88,7 +88,7 @@ const gStory = [
 	{
 		_id: utilService.makeId(),
 		txt: "coffee with friends",
-		imgUrl: "https://media.istockphoto.com/id/1415483252/photo/portrait-of-a-happy-indian-business-woman-working-on-laptop-at-summer-cafe-remote-work.webp?b=1&s=170667a&w=0&k=20&c=DsqNWMlJpSIZ4hIiHUwDr1r6seFTDzAPhPqTfXg8y1o=",
+		imgsUrl: ["https://media.istockphoto.com/id/1415483252/photo/portrait-of-a-happy-indian-business-woman-working-on-laptop-at-summer-cafe-remote-work.webp?b=1&s=170667a&w=0&k=20&c=DsqNWMlJpSIZ4hIiHUwDr1r6seFTDzAPhPqTfXg8y1o="],
 		by: {
 		  _id: "u101",
 		  fullname: "muki",
