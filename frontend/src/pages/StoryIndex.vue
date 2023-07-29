@@ -1,5 +1,5 @@
 <template>
-    <section class="story-index flex justify-center">
+    <section class="story-index">
         <StoryList 
         @remove="removeStory" 
         @like="likeStory"
