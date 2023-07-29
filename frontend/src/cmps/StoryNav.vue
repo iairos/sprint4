@@ -1,19 +1,19 @@
 <template>
         <section class="story-nav">
-            <div  class="nav-btn logo">
+            <div  class="nav-btn logo" @click="$router.push('/')">
                 <span class=""></span>
-                <span class="svg-icon" v-html="$svg('logo')" @click="$router.push('/')"></span>
+                <span class="svg-icon" v-html="$svg('logo')" ></span>
             </div>
-            <div  class="nav-btn">
-                <span class="svg-icon" v-html="$svg('home')" @click="$router.push('/')"></span>
+            <div  class="nav-btn" @click="$router.push('/')">
+                <span class="svg-icon" v-html="$svg('home')" ></span>
                 <span>Home</span>
             </div>
             <div  class="nav-btn">
                 <span class="svg-icon" v-html="$svg('search')" @click="$router.push('/')"></span>
                 <span>Search</span>
             </div>
-            <div  class="nav-btn">
-                <span class="svg-icon" v-html="$svg('create')" @click="$router.push('/newStory')"></span>
+            <div  class="nav-btn" @click="$router.push('/newStory')">
+                <span class="svg-icon" v-html="$svg('create')" ></span>
                 <span>Create</span>
             </div>
             <!-- <div  class="nav-btn">

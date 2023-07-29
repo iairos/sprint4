@@ -160,6 +160,7 @@ export const storyService = {
 	
 }
 
+
 async function query() {
 	return await storageService.query(STORY_KEY)
 }
@@ -184,13 +185,16 @@ async function save(story) {
 
 function getEmptyStory() {
 	return {
-		name: '',
-		price: 0,
-		labels: [],
-		createdAt: Date.now(),
-		inStock: false,
-	}
-}
+	  txt: "",
+	  imgUrl: "",
+	  by: {
+		id: "101",
+		imgUrl:
+		  "https://resources.premierleague.com/premierleague/photos/players/250x250/p235674.png",
+		fullname: "alibaba",
+	  },
+	};
+  }
 
 function _createStorys() {
 	let story = utilService.loadFromStorage(STORY_KEY)
