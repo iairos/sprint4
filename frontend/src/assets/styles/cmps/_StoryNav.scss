@@ -1,8 +1,8 @@
 .story-nav{
-    position: sticky;
     grid-row: 2;
     height: 100%;
-    width: 200px;
+    width: 244px;
+    margin-inline-start: em(15px,14px);
     display: flex;
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.15) 1px  0.5px;
