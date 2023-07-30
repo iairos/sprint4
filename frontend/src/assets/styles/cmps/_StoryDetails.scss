@@ -28,6 +28,8 @@
     }
 
     .detail-title{
+        display: flex;
+    align-items: center;
         gap:10px ;
      grid-area: 1/4/3/6;  
     }
