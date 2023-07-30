@@ -24,7 +24,6 @@
         // font-size: ;
         border: none;
         // color: #5f6368;
-        cursor: pointer;
         display: flex;
         align-items: center;
         min-width: 48px;
@@ -38,6 +37,7 @@
     
     }
     &>*{
+        cursor: pointer;
         padding: 10px;
     }
 }
