@@ -25,7 +25,10 @@
         v-html="$svg('comment')"
       ></span>
     </div>
-    <h3 class="likes">{{ story.likedBy.length }} likes</h3>
+    <span >{{ story.likedBy.length }} likes</span>
+    
+
+   
     <div class="txt flex">
       <span class="name">{{ story.by.fullname }} </span>
       <span class="txt-msg">{{ story.txt }}</span>

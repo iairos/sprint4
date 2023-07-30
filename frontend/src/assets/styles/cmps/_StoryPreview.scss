@@ -5,6 +5,7 @@
     // grid-row-gap: 5px;
     margin-block-start: 40px;
     border-bottom: #737373 1px solid;
+    font-size: 1em;
    
     .title {
         display: flex;
@@ -33,18 +34,18 @@
         textarea{
             width: 100%;
             resize: none;
-            font: 1em sans-serif;
+            font: inherit;
             outline: none;
             border: none;
             color: #737373;
-            // padding: 5px;
+            padding: 5px;
         }
 
         .post-btn{
             background-color: white;
             color:#0095F6;
             width: 30px;
-            // padding: 2px;
+            padding: 5px;
             font-weight: 600;
         }
     }
