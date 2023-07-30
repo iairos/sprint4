@@ -1,5 +1,7 @@
 <template>
+  <div class="detail-wrap">
   <section v-if="story" class="story-details">
+
     <img class="detail-img" :src="story.imgsUrl[0]" alt="" />
 
     <article class="detail-title flex">
@@ -49,7 +51,9 @@
         <button class="post-btn">Post</button>
       </form>
     </article>
+    
   </section>
+</div>
 </template>
 
 <script>

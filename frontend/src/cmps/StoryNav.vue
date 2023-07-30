@@ -2,8 +2,7 @@
         <section class="story-nav">
 
 
-                <div  class="nav-btn logo" @click="$router.push('/')">
-                    <span class=""></span>
+                <div  class="logo flex" @click="$router.push('/')">
                     <span class="svg-icon" v-html="$svg('logo')" ></span>
                 </div>
                 <div  class="nav-btn" @click="$router.push('/')">

@@ -1,15 +1,16 @@
 .story-nav{
-position: fixed;
-    grid-row: 2;
-    height: 100%;
+    // grid-row: 2;
+    height: 100vh;
     width: 244px;
-    margin-inline-start: em(15px,14px);
+    padding-inline-start: em(15px,14px);
     display: flex;
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.15) 1px  0.5px;
     font-size: em(16px,14px);
     .logo {
         height: 80px;
+        // align-items: start;
+        // justify-items: start;
         span{
             svg{
 
@@ -26,14 +27,17 @@ position: fixed;
         cursor: pointer;
         display: flex;
         align-items: center;
-        gap: 10px;
-        padding: 10px;
         min-width: 48px;
+        gap: 10px;
     
     }
-    &>*:hover {
+
+    &>*:hover:not(.logo) {
         border-radius: 10px;
         background-color: rgba(188, 195, 206, 0.481);
     
+    }
+    &>*{
+        padding: 10px;
     }
 }

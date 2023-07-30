@@ -1,10 +1,15 @@
 <template>
     <section class="story-index">
-        <StoryList 
-        @remove="removeStory" 
-        @like="likeStory"
-        @onCommentStory="onCommentStory" 
-        :storys="storys"/>
+        <div class="flex justify-center">
+            <StoryList 
+            @remove="removeStory" 
+            @like="likeStory"
+            @onCommentStory="onCommentStory" 
+            :storys="storys"/>
+            <div class="suggestions">
+
+            </div>
+        </div>
         <RouterView />
     </section>
 </template>

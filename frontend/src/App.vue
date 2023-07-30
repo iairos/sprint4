@@ -23,8 +23,9 @@ export default {
 
 <style scoped lang="scss">
 .main-layout{
-    display: grid;
-  grid-template-columns: 1fr 4fr 2fr;
-  margin: 0 auto;
+    display: flex;
+    height: 100vh;
+//   grid-template-columns: 1fr 4fr 2fr;
+//   margin: 0 auto;
 }
 </style>
