@@ -1,102 +1,86 @@
-<!-- <template>
+<template>
   <article class="new-story">
-    <h2>Create new post</h2>
-    <span
-      class="svg-icon"
-      v-html="$svg('newPost')"
-      @click="like(story._id)"
-    ></span>
-    <h3>Drag photos and videos here</h3>
-   
+    <div v-if="stage === 1">
+      <h2>Create new post</h2>
 
-    <ImgUploader @uploaded="onUploaded" />
-    <button class="btn">Select from computer</button>
+      <span class="svg-icon" v-html="$svg('newPost')"></span>
+      <h3>Drag photos and videos here</h3>
+
+      <label for="upload-file"> Select from computer </label>
+
+      <input type="file" @change="onFileChange" id="upload-file" hidden />
+    </div>
+    <div v-if="stage === 2">
+      <form class="choose-img" @submit.prevent="onAddStory">
+        <section class="flex">
+          <h2></h2>
+          <h2>Crop</h2>
+          <button>Next</button>
+        </section>
+        <input v-model="imgToUpload.txt" />
+        <div class="img-prev">
+          <img v-if="url" :src="url" alt="" />
+        </div>
+        <!-- <button>create</button> -->
+      </form>
+    </div>
   </article>
 </template>
 
 <script>
-import ImgUploader from "./ImgUploader.vue";
+import { storyService } from "../services/story.service.local.js";
+
 export default {
   data() {
     return {
-      
+      stage: 1,
+      imgToUpload: {
+        txt: "",
+        imgsUrl: [],
+      },
+      file: null,
+      url: null,
     };
   },
-  computed: {
-     
-        },
-  props: {},
-  methods: {},
-  components: {
-    ImgUploader,
-  },
-};
-</script> -->
-<template>
-<form class="choose-img" @submit.prevent="onAddStory">
-  <input v-model="imgToUpload.txt"/>
-  <input type="file" @change="onFileChange"/>
-<button>create</button>
-<div class="img-prev">
-<img v-if="url" :src="url" alt="">
-</div>
-</form>
-
-</template>
-
-<script>
-import { storyService } from '../services/story.service.local.js';
-
-
-export default{
-  data(){
-    return{
-      imgToUpload:{
-        txt:'',
-        imgsUrl:[],
-      },
-      file:null,
-      url:null
-
-    }
-  },
-  methods:{
-   async onFileChange(event){
-    this.file = event.target.files[0];
-    this.url = URL.createObjectURL(this.file)
+  methods: {
+    async onFileChange(event) {
+      this.file = event.target.files[0];
+      this.url = URL.createObjectURL(this.file);
+      this.stage = 2;
     },
     async uploadImage(file) {
       return new Promise((resolve, reject) => {
-        const reader = new FileReader()
-        reader.onload = (event) => resolve(event.target.result)
-        reader.onerror = (error) => reject(error)
-        reader.readAsDataURL(file)
-      })
+        const reader = new FileReader();
+        reader.onload = (event) => resolve(event.target.result);
+        reader.onerror = (error) => reject(error);
+        reader.readAsDataURL(file);
+      });
     },
- async onAddStory(){
-      if(this.file){
-        try{
-          this.imgToUpload.imgsUrl.push( await this.uploadImage(this.file))
-         const storyToUpload = JSON.parse(JSON.stringify(this.imgToUpload))
-          const savedStory = await this.$store.dispatch({type:'AddStory', storyToUpload})
-          console.log('story saved',savedStory)
-          this.url = null
-          this.imgToUpload.txt = ''
-          this.$router.push('/')
+    async onAddStory() {
+      if (this.file) {
+        try {
+          this.imgToUpload.imgsUrl.push(await this.uploadImage(this.file));
+          const storyToUpload = JSON.parse(JSON.stringify(this.imgToUpload));
+          const savedStory = await this.$store.dispatch({
+            type: "AddStory",
+            storyToUpload,
+          });
+          console.log("story saved", savedStory);
+          this.url = null;
+          this.imgToUpload.txt = "";
+          this.$router.push("/");
+        } catch (err) {
+          console.log(err);
         }
-        catch (err){
-          console.log(err)
-        }
-      
-    }
-  }
-  }
-}
+      }
+    },
+  },
+};
 </script>
 <style scoped lang="scss">
-.choose-img{
-  grid-row: 2;
-  grid-column: 2;
-  place-self: center;
-}
+// .choose-img {
+// grid-row: 2;
+// grid-column: 2;
+// place-self: center;
+// }
 </style>

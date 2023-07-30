@@ -51,27 +51,42 @@ export default {
   data() {
     return {
       txt: "",
-      isLike: false,
+      
     };
   },
   props: {
     story: { type: Object, required: true },
+  },
+  created() {
   },
   methods: {
     goToDetail() {
       this.$router.push(`/details/${this.story._id}`);
     },
     like(storyId) {
-      this.isLike = !this.isLike;
       this.$emit("like", storyId);
     },
     onCommentStory(storyId, txt) {
       this.$emit("onCommentStory", storyId, txt);
       this.txt = "";
     },
+   
   },
+  computed: {
+    loggedInUser() {
+      return this.$store.getters.getLoggedInUser;
+    },
+    isLike() {
+      if (this.story.likedBy) {
+        const idx = this.story.likedBy.findIndex(
+          (user) => user._id === this.loggedInUser._id
+        );
+        return idx > -1;
+      }
+    },
+  },
+ 
 };
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

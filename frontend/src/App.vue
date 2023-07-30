@@ -17,7 +17,7 @@ export default {
     <section class="main-layout">
         <StoryNav/>
         <RouterView />
-        <div @click="goHome" :class="{'screen-open':$route.name==='storyDetails'}" class="screen"></div>
+        <div @click="goHome" :class="{'screen-open':$route.name==='storyDetails' || $route.name==='newStory'}" class="screen"></div>
     </section>
 </template>
 

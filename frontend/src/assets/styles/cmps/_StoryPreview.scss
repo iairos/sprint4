@@ -2,18 +2,14 @@
     position: relative;
     display: grid;
     grid-template-columns: 1fr;
-    // grid-template-rows: 1fr 8fr repeat(4, 0.5fr);
-    // grid-column-gap: 0px;
-    grid-row-gap: 5px;
+    // grid-row-gap: 5px;
     margin-block-start: 40px;
-    
-
-
-
+   
     .title {
+        display: flex;
         // grid-area: 1 / 1 / 2 / 2;
         gap: 10px;
-
+        align-items: center;
     }
 
     .img {
@@ -22,6 +18,15 @@
         height: auto;
     }
 
+    textarea{
+        width: 100%;
+        resize: none;
+        font: 1em sans-serif;
+        outline: none;
+        border: none;
+        // :focus-visible{
+        // }
+    }
     .act {
         // grid-area: 3 / 1 / 4 / 2;
     }

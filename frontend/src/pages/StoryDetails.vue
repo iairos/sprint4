@@ -60,7 +60,7 @@ export default {
       story: null,
       commentTxt: "",
       txt: "",
-      isLike: false,
+      // isLike: false,
     };
   },
   async created() {
@@ -72,6 +72,7 @@ export default {
         const { storyId } = this.$route.params;
         const story = await storyService.getById(storyId);
         this.story = story;
+        this.setIsLike()
       } catch (err) {
         console.log(err);
       }
@@ -91,7 +92,7 @@ export default {
     },
     async onLikeStory(storyId) {
       try {
-        this.isLike = !this.isLike
+        // this.isLike = !this.isLike
         const updatedStory = await this.$store.dispatch({
           type: "likeStory",
           storyId,
@@ -102,8 +103,29 @@ export default {
         console.log("Could not like Story");
       }
     },
+    // setIsLike(){
+    //   const loggedInUser = this.loggedInUser
+    //   // console.log('user',user)
+    //   if(this.story.likedBy){
+    //     const idx = this.story.likedBy.findIndex(user => user._id===loggedInUser._id)
+    //     // console.log('idx',idx)
+    //     if (idx >-1) this.isLike = true
+    //   }
+    // }
   },
-  computed: {},
+   computed: {
+    loggedInUser() {
+      return this.$store.getters.getLoggedInUser;
+    },
+    isLike() {
+      if (this.story.likedBy) {
+        const idx = this.story.likedBy.findIndex(
+          (user) => user._id === this.loggedInUser._id
+        );
+        return idx > -1;
+      }
+    },
+  }
 };
 </script>
 

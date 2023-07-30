@@ -18,17 +18,18 @@ const router = createRouter({
           path: 'details/:storyId',
           name:'storyDetails',
           component: StoryDetails,
-        }
+        },
+        {
+          path: 'newStory',
+          name: 'newStory',
+          component: CreateNewStory,
+          
+      
+        },
 
     ]
     },
-    {
-      path: '/newStory',
-      name: 'newStory',
-      component: CreateNewStory,
-      
     
-    },
    
   ]
 })

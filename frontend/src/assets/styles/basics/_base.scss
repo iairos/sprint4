@@ -60,5 +60,7 @@ button,.btn{
     &.screen-open{
         opacity: 1;
         pointer-events: all;
+        
     }
+    overflow: none;
 }

@@ -28,7 +28,8 @@ const options = {
         saveStory({ storys }, { savedStory }) {  
             const idx = storys.findIndex(story => story._id === savedStory._id)
             if (idx !== -1) storys.splice(idx, 1, savedStory)
-            else storys.push(savedStory)
+           
+            else storys.unshift(savedStory)
         },
     },
     actions: {
@@ -104,7 +105,7 @@ const options = {
             } 
         },
         async likeStory( {commit, getters } , { storyId }) {
-            // console.log('context',context)
+            
             const loggedUser = getters.getLoggedInUser
             const user ={  
                 _id: loggedUser._id,
@@ -113,8 +114,12 @@ const options = {
             }
             const story = getters.storys.find(story => story._id === storyId)
             const storyToUpdate = JSON.parse(JSON.stringify(story))
-            if(storyToUpdate.likedBy)
-            storyToUpdate.likedBy.push(user)
+            if(storyToUpdate.likedBy){
+                const idx = storyToUpdate.likedBy.findIndex(user => user._id===loggedUser._id)
+                if (idx ===-1) storyToUpdate.likedBy.push(user)
+                else storyToUpdate.likedBy.splice(idx,1)
+            }
+            
             console.log('storyToUpdate',storyToUpdate)
             try{
                 const savedStory = await storyService.save(storyToUpdate) 
