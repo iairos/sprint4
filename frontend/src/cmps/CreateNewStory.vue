@@ -53,7 +53,7 @@ export default{
     return{
       imgToUpload:{
         txt:'',
-        imgUrl:null,
+        imgsUrl:[],
       },
       file:null,
       url:null
@@ -76,11 +76,13 @@ export default{
  async onAddStory(){
       if(this.file){
         try{
-          this.imgToUpload.imgUrl = await this.uploadImage(this.file)
-         const newImg = JSON.parse(JSON.stringify(this.imgToUpload))
-          console.log(newImg)
+          this.imgToUpload.imgsUrl.push( await this.uploadImage(this.file))
+         const storyToUpload = JSON.parse(JSON.stringify(this.imgToUpload))
+          const savedStory = await this.$store.dispatch({type:'AddStory', storyToUpload})
+          console.log('story saved',savedStory)
           this.url = null
           this.imgToUpload.txt = ''
+          this.$router.push('/')
         }
         catch (err){
           console.log(err)

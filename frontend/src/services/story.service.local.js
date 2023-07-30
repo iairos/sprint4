@@ -183,12 +183,12 @@ async function save(story) {
 }
 
 
-function getEmptyStory() {
+function getEmptyStory(txt,imgUrl) {
 	return {
-	  txt: "",
-	  imgUrl: "",
+	  txt,
+	  imgUrl,
 	  by: {
-		id: "101",
+		_id: "101",
 		imgUrl:
 		  "https://resources.premierleague.com/premierleague/photos/players/250x250/p235674.png",
 		fullname: "alibaba",

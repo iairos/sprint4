@@ -25,10 +25,10 @@ const options = {
             storys.splice(idx, 1)
         },
 
-        saveStory({ storys }, { updatedStory }) {  
-            const idx = storys.findIndex(story => story._id === updatedStory._id)
-            if (idx !== -1) storys.splice(idx, 1, updatedStory)
-            else storys.push(updatedStory)
+        saveStory({ storys }, { savedStory }) {  
+            const idx = storys.findIndex(story => story._id === savedStory._id)
+            if (idx !== -1) storys.splice(idx, 1, savedStory)
+            else storys.push(savedStory)
         },
     },
     actions: {
@@ -53,7 +53,27 @@ const options = {
             }
 
         },
-        async createStory({commit, getters } , { storyToUpload }){
+        async AddStory({commit, getters } , { storyToUpload }){
+            const loggedUser = getters.getLoggedInUser
+            const story = {
+                txt:storyToUpload.txt,
+                imgsUrl:storyToUpload.imgsUrl,
+                by:loggedUser,
+                comments:[],
+                likedBy:[]
+            }
+            const storyToAdd = JSON.parse(JSON.stringify(story))
+            try{
+                const savedStory = await storyService.save(storyToAdd)
+                commit({ type: 'saveStory', savedStory })
+                console.log('Story saved')
+                return savedStory
+
+            }
+            catch(err){
+                console.log(err,'problem on saving story')
+                throw new Error('ups something went wrong, try again later')
+            }
 
         },
         async commentStory({commit, getters } , { storyId,txt }){
@@ -72,11 +92,11 @@ const options = {
             const storyToUpdate = JSON.parse(JSON.stringify(story))
             storyToUpdate.comments.push(comment)
             try{
-                const updatedStory = await storyService.save(storyToUpdate) 
+                const savedStory = await storyService.save(storyToUpdate) 
                 
-                commit({ type: 'saveStory', updatedStory })
+                commit({ type: 'saveStory',  savedStory })
                 console.log('Story updated')
-                return updatedStory
+                return savedStory
             }
             catch(err){
                 console.log('Could not update story',err)
@@ -97,11 +117,11 @@ const options = {
             storyToUpdate.likedBy.push(user)
             console.log('storyToUpdate',storyToUpdate)
             try{
-                const updatedStory = await storyService.save(storyToUpdate) 
+                const savedStory = await storyService.save(storyToUpdate) 
                 
-                commit({ type: 'saveStory', updatedStory })
+                commit({ type: 'saveStory',  savedStory })
                 console.log('Story updated')
-                return updatedStory
+                return savedStory
             }
             catch(err){
                 console.log('Could not update story')
