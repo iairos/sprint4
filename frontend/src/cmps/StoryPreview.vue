@@ -6,9 +6,9 @@
       <span class="name">{{ story.by.fullname }}</span>
     </div>
     <img class="img" :src="story.imgsUrl[0]" alt="" />
-    <div class="act action-btns">
+    <div class="action-btns">
       <span
-        v-if="!isLike"
+        v-if="!isLike"     
         class="svg-icon btn"
         v-html="$svg('heart')"
         @click="like(story._id)"
@@ -30,18 +30,18 @@
       <span class="name">{{ story.by.fullname }} </span>
       <span class="txt-msg">{{ story.txt }}</span>
     </div>
+    <span  v-if="story.comments.length>1" @click="goToDetail" class="comments-btn">
+      View all {{ story.comments.length }} comments
+    </span>
     <div class="comments flex">
       <span class="name">{{ story.comments[0]?.by.fullname }} </span>
       <span class="txt-msg"> {{ story.comments[0]?.txt }}</span>
     </div>
 
-    <button v-if="story.comments.length > 1" @click="goToDetail">
-      View all {{ story.comments.length }} comments
-    </button>
     <!-- <router-link  to="/details/story._id" > comments {{ story.comments.length }}</router-link> -->
-    <form @submit.prevent="onCommentStory(story._id, txt)">
+    <form @submit.prevent="onCommentStory(story._id, txt)" >
       <textarea v-model="txt" placeholder="Add a comment..."></textarea>
-      <button v-if="txt">Post</button>
+      <button class="post-btn" v-if="txt">Post</button>
     </form>
   </article>
 </template>

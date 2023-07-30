@@ -46,7 +46,7 @@
     <article class="detail-comment">
       <form @submit.prevent="onCommentStory(story._id, txt)">
         <textarea v-model="txt" placeholder="Add a comment..."></textarea>
-        <button>Post</button>
+        <button class="post-btn">Post</button>
       </form>
     </article>
   </section>

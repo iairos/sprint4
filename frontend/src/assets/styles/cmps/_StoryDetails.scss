@@ -49,4 +49,25 @@
         grid-area: 11/4/12/6;
         padding: 16px;
     }
+    form{
+        display: flex;
+        justify-content: start;
+        textarea{
+            width: 100%;
+            resize: none;
+            font: 1em sans-serif;
+            outline: none;
+            border: none;
+            color: #737373;
+            padding: 5px;
+        }
+
+        .post-btn{
+            background-color: white;
+            color:#0095F6;
+            width: 30px;
+            padding: 5px;
+            font-weight: 600;
+        }
+    }
 }
