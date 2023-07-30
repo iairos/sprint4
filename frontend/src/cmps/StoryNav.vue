@@ -1,6 +1,6 @@
 <template>
         <section class="story-nav">
-          
+
 
                 <div  class="nav-btn logo" @click="$router.push('/')">
                     <span class=""></span>
@@ -38,8 +38,8 @@
                     <span class=""></span>
                     <span>More</span>
                 </div> -->
-                
-                </section>
+
+        </section>
        
         </template>
    

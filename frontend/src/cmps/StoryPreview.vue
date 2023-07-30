@@ -25,7 +25,7 @@
         v-html="$svg('comment')"
       ></span>
     </div>
-    <span >{{ story.likedBy.length }} likes</span>
+    <span class="likes" >{{ story.likedBy.length }} likes</span>
     
 
    
