@@ -3,7 +3,7 @@
     <div v-if="stage === 1">
       <h2>Create new post</h2>
 
-      <span class="svg-icon" v-html="$svg('newPost')"></span>
+      <span class="drag-icon" v-html="$svg('newPost')"></span>
       <h3>Drag photos and videos here</h3>
 
       <label for="upload-file"> Select from computer </label>
@@ -12,10 +12,12 @@
     </div>
     <div v-if="stage === 2">
       <form class="choose-img" @submit.prevent="onAddStory">
-        <section class="flex">
-          <h2></h2>
-          <h2>Crop</h2>
-          <button>Next</button>
+        <section class="header">
+          <span
+            class="svg-icon btn"
+            v-html="$svg('leftArrow')"
+          ></span>
+          <button >Next</button>
         </section>
         <input v-model="imgToUpload.txt" />
         <div class="img-prev">
