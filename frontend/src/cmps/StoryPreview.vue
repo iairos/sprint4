@@ -25,13 +25,10 @@
         v-html="$svg('comment')"
       ></span>
     </div>
-<<<<<<< HEAD
-    <span v-if="story.likedBy.length>1">{{ story.likedBy.length }} likes</span>
-    <span v-if="story.likedBy.length===1">{{ story.likedBy.length }} like</span>
-=======
-    <span class="likes" >{{ story.likedBy.length }} likes</span>
+    <span class="likes" v-if="story.likedBy.length>1">{{ story.likedBy.length }} likes</span>
+    <span class="likes" v-if="story.likedBy.length===1">{{ story.likedBy.length }} like</span>
+    <!-- <span class="likes" >{{ story.likedBy.length }} likes</span> -->
     
->>>>>>> 97fa3d69b880b389df1cbb6f0f8ad4511326f63b
 
    
     <div class="txt flex">
