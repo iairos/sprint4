@@ -1,4 +1,5 @@
 <template>
+   <ModalBg>  
   <article class="new-story">
     <div class="stage1" v-if="stage === 1">  
       <div class="header">
@@ -38,6 +39,7 @@
         </section>
         </div>
   </article>
+</ModalBg>  
 </template>
 
 <script>
