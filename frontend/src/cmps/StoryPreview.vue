@@ -4,6 +4,11 @@
     <div class="title flex">
       <img class="user-img" :src="story.by.imgUrl" alt="" />
       <span class="name">{{ story.by.fullname }}</span>
+      <span
+        class="svg-icon btn"
+        v-html="$svg('threePoints')"
+        @click="openMenu(story._id)"
+      ></span>
     </div>
     <img class="img" :src="story.imgsUrl[0]" alt="" />
     <div class="action-btns">
@@ -75,6 +80,9 @@ export default {
       this.$emit("onCommentStory", storyId, txt);
       this.txt = "";
     },
+    openMenu(storyId){
+      
+    }
    
   },
   computed: {

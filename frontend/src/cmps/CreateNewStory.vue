@@ -1,31 +1,42 @@
 <template>
   <article class="new-story">
-    <div v-if="stage === 1">
-      <h2>Create new post</h2>
-
-      <span class="drag-icon" v-html="$svg('newPost')"></span>
-      <h3>Drag photos and videos here</h3>
-
-      <label for="upload-file"> Select from computer </label>
-
-      <input type="file" @change="onFileChange" id="upload-file" hidden />
+    <div class="stage1" v-if="stage === 1">  
+      <div class="header">
+        <h2>Create new post</h2>
+      </div>   
+      <div class="main">
+        <span class="drag-icon" v-html="$svg('newPost')"></span>
+        <h3>Drag photos and videos here</h3>
+        <label for="upload-file" class="select-btn"> Select from computer </label>
+        <input type="file" @change="onFileChange" id="upload-file" hidden />
+      </div>
     </div>
-    <div v-if="stage === 2">
-      <form class="choose-img" @submit.prevent="onAddStory">
-        <section class="header">
-          <span
+    <div class="stage2" v-if="stage===2">
+      <div class="header">
+        <span
             class="svg-icon btn"
             v-html="$svg('leftArrow')"
           ></span>
-          <button >Next</button>
-        </section>
-        <input v-model="imgToUpload.txt" />
+        <h2>Create new post</h2>
+        <button class="share-btn">Share</button>
+      </div> 
+      <section class="flex">
+
         <div class="img-prev">
           <img v-if="url" :src="url" alt="" />
+          <!-- <span>123</span> -->
         </div>
-        <!-- <button>create</button> -->
-      </form>
-    </div>
+        <div class="main">
+          <div class="title">
+            <img class="user-img" :src="loggedInUser.imgUrl" alt="" />
+            <span class="name">{{ loggedInUser.fullname }}</span>
+          </div>
+            <form @submit.prevent="onAddStory">
+              <input v-model="imgToUpload.txt" />
+            </form>
+        </div>
+        </section>
+        </div>
   </article>
 </template>
 
@@ -77,6 +88,11 @@ export default {
       }
     },
   },
+  computed: {
+    loggedInUser() {
+      return this.$store.getters.getLoggedInUser;
+    },
+  }
 };
 </script>
 <style scoped lang="scss">
