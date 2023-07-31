@@ -70,7 +70,7 @@ export default {
       story: null,
       commentTxt: "",
       txt: "",
-      isDisabled:false
+      // isDisabled:true
       // isLike: false,
     };
   },
@@ -86,7 +86,6 @@ export default {
         const { storyId } = this.$route.params;
         const story = await storyService.getById(storyId);
         this.story = story;
-        this.setIsLike()
       } catch (err) {
         console.log(err);
       }
@@ -139,9 +138,15 @@ export default {
         return idx > -1;
       }
     },
+    // disabledBtn(){
+      
+    //   if(!this.txt){
+    //     return this.isDisabled
+    //   }
+    // }
     isDisabled(){
       if(!this.txt){
-        return this.isDisabled = true
+        return true
       }
     }
   }
