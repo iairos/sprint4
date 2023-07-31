@@ -3,7 +3,7 @@
   <section v-if="story" class="story-details">
 
     <img class="detail-img" :src="story.imgsUrl[0]" alt="" />
-
+    <div class="info-wrap">
     <article class="detail-title flex">
       <img class="user-img" :src="story.by.imgUrl" alt="" />
 
@@ -48,10 +48,10 @@
     <article class="detail-comment">
       <form @submit.prevent="onCommentStory(story._id, txt)">
         <textarea v-model="txt" placeholder="Add a comment..."></textarea>
-        <button class="post-btn">Post</button>
+        <button :disabled="isDisabled" class="post-btn">Post</button>
       </form>
     </article>
-    
+    </div>
   </section>
 </div>
 </template>
@@ -64,6 +64,7 @@ export default {
       story: null,
       commentTxt: "",
       txt: "",
+      isDisabled:false
       // isLike: false,
     };
   },
@@ -129,6 +130,11 @@ export default {
         return idx > -1;
       }
     },
+    isDisabled(){
+      if(!this.txt){
+        return this.isDisabled = true
+      }
+    }
   }
 };
 </script>
