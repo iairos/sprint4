@@ -1,4 +1,8 @@
 <template>
+  <StoryMenu v-if="isMenuOpen"
+             @cancel="closeMenu"
+             @remove="removeStory"
+             :story="story"/> />
   <article class="story-preview">
     <!-- <pre>{{story}}</pre> -->
     <div class="user-title">
@@ -7,7 +11,7 @@
       <span
         class="svg-icon btn"
         v-html="$svg('threePoints')"
-        @click="openMenu(story._id)"
+        @click="openMenu()"
       ></span>
     </div>
     <img class="img" :src="story.imgsUrl[0]" alt="" />
@@ -54,20 +58,25 @@
       <button class="post-btn" v-if="txt">Post</button>
     </form>
   </article>
+  
 </template>
 
+
 <script>
+import StoryMenu from '@/cmps/StoryMenu.vue'
+
 export default {
   data() {
     return {
       txt: "",
-      
+      isMenuOpen:false
     };
   },
   props: {
     story: { type: Object, required: true },
   },
   created() {
+    
   },
   methods: {
     goToDetail() {
@@ -80,9 +89,17 @@ export default {
       this.$emit("onCommentStory", storyId, txt);
       this.txt = "";
     },
-    openMenu(storyId){
-      
-    }
+    openMenu(){
+      this.isMenuOpen = true
+    },
+    closeMenu(){
+      this.isMenuOpen = false
+    },
+    removeStory(storyId){
+          // console.log('prev',storyId)
+     
+            this.$emit('remove', storyId)
+        },
    
   },
   computed: {
@@ -98,8 +115,13 @@ export default {
       }
     },
   },
- 
+  components: {
+    StoryMenu,
+    // Menu
+  },
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+
+</style>

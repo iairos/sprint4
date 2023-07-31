@@ -27,8 +27,7 @@ const options = {
 
         saveStory({ storys }, { savedStory }) {  
             const idx = storys.findIndex(story => story._id === savedStory._id)
-            if (idx !== -1) storys.splice(idx, 1, savedStory)
-           
+            if (idx !== -1) storys.splice(idx, 1, savedStory)  
             else storys.unshift(savedStory)
         },
     },

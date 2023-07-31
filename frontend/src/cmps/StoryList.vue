@@ -4,11 +4,12 @@
             <li v-for="story in storys" :key="story._id">
                 <StoryPreview 
                 @like="likeStory"
+                @remove="removeStory"
                 @onCommentStory="onCommentStory"
                  :story="story"/>
-                <section class="actions">
+                <!-- <section class="actions">
                     <button @click="removeStory(story._id)">x</button>
-                </section>
+                </section> -->
             </li>
         </ul>
     </section>
@@ -22,6 +23,7 @@ export default {
     },
     methods: {
         removeStory(storyId){
+            // console.log('list',storyId)
             this.$emit('remove', storyId)
         },
         likeStory(storyId){

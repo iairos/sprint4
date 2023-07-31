@@ -1,107 +1,36 @@
-.new-story{
-    z-index: 20;
+.story-menu{
+    z-index: 30;
     position: fixed;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
-    background-color: white;
-    border: 1px solid black;
+    background-color: lightblue;
+    border: 1px solid $gray-line;
     border-radius: 10px;
-    // width: 348px;
-
-    .header{
-
-        border-bottom:$gray-line solid 1px;
-        h2{          
-            font-size: 16px;
-            font-weight: 500;
-            // padding-inline: 130px;
-            padding-block: 12px;
-            text-align: center;
-            margin: auto;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+    h2{
+        font-size: 14px;
+        font-weight: 500;
+        padding-block: 15px;
+        text-align: center;
+        margin: 0;
+        width: 390px;
+        height: 48px;
+        background-color: white;
+        // border-bottom: black solid 1px;
+        cursor: pointer;
            
-        }
     }
-    .stage1{
-        width:348px;
-      
-        .main{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 348px;
-            
-            h3{
-                font-size: 20px;
-                font-weight: 400;
-            }
-            .drag-icon{ 
-                padding-top: 80px; 
-                svg{
-                    
-                    width: 96px;
-                    height: 77px;
-                }
-            }
-            .select-btn{
-                background-color: $blue-btn;
-                color: $clr6;
-                padding: 7px 16px;
-                border-radius: 5px;
-                font-weight: 500;
-                
-            }
-        }  
-    }  
-
-    
-    .stage2{
-        .header{
-            width: 696px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            .share-btn{
-                background-color:$clr6;
-                color: $blue-btn;
-                padding: 16px;
-                border-radius: 10px;
-            }
-            .svg-icon{
-                padding: 8px;
-            }
-        }
-        .img-prev{
-            width: 348px;
-            height: 348px;
-            img{
-                width: 100%;
-                // height: 100%;
-                border-radius: 0 0 0 10px;
-            }
-        }
-        .main{
-            width: 348px; 
-            .user-title{
-
-                width: 260px;
-                height: 60px;
-                margin: 0px 16px;
-            }
-
-            input{
-                border: none;
-                outline: none;
-                margin: 10px;
-                font-size: 1em;
-                
-            }
-            
-        }
+    .red-txt{
+        font-weight: 600;
+        color: $red-txt;
+    }   
+    :not(:last-child){
+        border-bottom: 1px solid $gray-line;
     }
-
-    
-    
-
-
+   
 }
