@@ -68,8 +68,8 @@ export default {
         storys(){ return this.$store.getters.storys }
     },
     components: {
-        StoryList,
-    }
+    StoryList,
+}
 }
 </script>
 

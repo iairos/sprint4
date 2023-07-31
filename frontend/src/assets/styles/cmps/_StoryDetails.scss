@@ -1,44 +1,44 @@
 .detail-wrap{
     z-index: 20;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    height: 100%;
     padding: 20px;
+    max-height: 95vh;
 
 .story-details{
-    background-color: #000;
     display: flex;
     height: 100%;
+    aspect-ratio: 1/.7;
+    max-height: 90vh;
+    width: 100%;
+    max-width: 100vw;
 
     
     .detail-img{
-        grid-area: 1/1/12/4;
     place-self: center;
     aspect-ratio: 1/1;
-    // object-fit: cover;
-    // object-position: center;
     width: 100%;
-    // height: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #000;
 }
     .info-wrap{
     background-color: white;
-    min-width: 60%;
-        display: flex;
-        // align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        height: 100%;
+    min-width:400px ;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+
     .detail-title{
         align-self: start;
-        justify-self: start;
-        margin-block: 10px;
         display: flex;
-    align-items: center;
-    gap:10px ;
+        align-items: center;
+         gap:10px ;
     }
     .detail-comments{
+        overflow: auto;
         flex: 1;
         gap: 20px;
         div{
@@ -58,6 +58,8 @@
     form{
         display: flex;
         justify-content: start;
+        
+        
         textarea{
             width: 100%;
             resize: none;
@@ -65,9 +67,16 @@
             outline: none;
             border: none;
             color: #737373;
-            padding: 5px;
         }
-
+        // ::placeholder{
+        //     margin: 0;
+        //     padding: 5px;
+        // }
+ 
+        .post-btn:disabled{
+            cursor:default;
+            opacity: 0.2;
+        }
         .post-btn{
             background-color: white;
             color:#0095F6;
@@ -78,8 +87,11 @@
     }
     & >*{
         padding-inline: 16px;
-        box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+        padding-block: 5px;
                width: 100%;
+    }
+    & >*:not(.detail-comment){
+        border-bottom: 1px solid rgb(239 239 239) ;
     }
 }
 }

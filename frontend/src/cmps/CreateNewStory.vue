@@ -1,5 +1,6 @@
 <template>
-  <article class="new-story">
+   <ModalBg>
+  <article  class="new-story">
     <div class="stage1" v-if="stage === 1">  
       <div class="header">
         <h2>Create new post</h2>
@@ -26,17 +27,9 @@
           <img v-if="url" :src="url" alt="" />
           <!-- <span>123</span> -->
         </div>
-        <div class="main">
-          <div class="title">
-            <img class="user-img" :src="loggedInUser.imgUrl" alt="" />
-            <span class="name">{{ loggedInUser.fullname }}</span>
-          </div>
-            <form @submit.prevent="onAddStory">
-              <input v-model="imgToUpload.txt" />
-            </form>
-        </div>
-        </section>
-        </div>
+        <!-- <button>create</button> -->
+      </form>
+    </div>
   </article>
 </template>
 
