@@ -7,14 +7,15 @@
   <img class="detail-img" :src="story.imgsUrl[0]" alt="" />
 </div>
     <div class="info-wrap">
-    <article class="detail-title flex">
+    <!-- <article class="detail-title flex"> -->
+      <article class="user-title">
       <img class="user-img" :src="story.by.imgUrl" alt="" />
 
       <span class="name">{{ story.by.fullname }}</span>
     </article>
 
     <section class="flex column detail-comments">
-      <div class="flex">
+      <div class="user-title">
         <img class="user-img" :src="story.by.imgsUrl" alt="" />
         <span class="name">{{ story.by.fullname }}</span>
         <pre>{{ story.txt }}</pre>
