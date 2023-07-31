@@ -6,8 +6,6 @@
     background-color: $clr1;
     color: $clr6;
 }
-
-
 html{
     font-size: 14px;
     font-family: Segoe;
@@ -18,9 +16,15 @@ body {
     overflow: hidden;
 }
 
+pre{
+    margin: 0;
+    font-family:Segoe;        
+    white-space: pre-wrap;
+    word-break: break-all;
+}
 // h1, h2, h3, h4, h5, h6 {
-//     margin: 0 0 0.6em;
-//     line-height: 1;
+    //     margin: 0 0 0.6em;
+    //     line-height: 1;
 // }
 
 
@@ -49,7 +53,7 @@ a:hover {
     text-decoration: underline;
 }
 
-button,.btn{
+button,.btn:hover{
     cursor: pointer;
 }
 

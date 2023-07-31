@@ -1,8 +1,11 @@
 <template>
-  <div class="detail-wrap">
+  <!-- <div @click="goHome" class="modal-bg"> -->
+    <ModalBg>  
+  <div  class="detail-wrap">
   <section v-if="story" class="story-details">
-
-    <img class="detail-img" :src="story.imgsUrl[0]" alt="" />
+<div>
+  <img class="detail-img" :src="story.imgsUrl[0]" alt="" />
+</div>
     <div class="info-wrap">
     <article class="detail-title flex">
       <img class="user-img" :src="story.by.imgUrl" alt="" />
@@ -14,7 +17,7 @@
       <div class="flex">
         <img class="user-img" :src="story.by.imgsUrl" alt="" />
         <span class="name">{{ story.by.fullname }}</span>
-        <span>{{ story.txt }}</span>
+        <pre>{{ story.txt }}</pre>
       </div>
       <article
         class="flex"
@@ -23,7 +26,7 @@
       >
         <img class="user-img" :src="comment.by.imgUrl" alt="" />
         <span class="name">{{ comment?.by.fullname }}</span>
-        <span class="txt"> {{ comment?.txt }}</span>
+        <pre style="" class="txt">{{ comment?.txt }}</pre>
       </article>
     </section>
     <article class="actions">
@@ -54,6 +57,8 @@
     </div>
   </section>
 </div>
+</ModalBg>
+<!-- </div> -->
 </template>
 
 <script>
@@ -72,6 +77,9 @@ export default {
     await this.loadStory();
   },
   methods: {
+    goHome(){
+            this.$router.push('/')
+        },
     async loadStory() {
       try {
         const { storyId } = this.$route.params;

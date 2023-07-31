@@ -1,5 +1,6 @@
 <template>
-  <article class="new-story">
+   <ModalBg>
+  <article  class="new-story">
     <div v-if="stage === 1">
       <h2>Create new post</h2>
 
@@ -27,6 +28,7 @@
       </form>
     </div>
   </article>
+</ModalBg>
 </template>
 
 <script>
