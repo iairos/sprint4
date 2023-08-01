@@ -75,26 +75,48 @@
             width: 348px;
             height: 348px;
             img{
+                border-radius: 0 0 0 10px;
                 width: 100%;
                 // height: 100%;
-                border-radius: 0 0 0 10px;
+                place-self: center;
+                aspect-ratio: 1/1;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                background-color: #000;
             }
         }
         .main{
-            width: 348px; 
+            width: 290px; 
+            margin-inline: 30px;
             .user-title{
 
-                width: 260px;
+                // width: 260px;
                 height: 60px;
-                margin: 0px 16px;
+                // margin: 0px 16px;
             }
-
-            input{
-                border: none;
-                outline: none;
-                margin: 10px;
-                font-size: 1em;
+            .area-holder{
+                height: 168px;
+                overflow-y: scroll;
+                overflow-x: hidden;
+                textarea{  
+                    // padding: 0 16px;
+                    min-width: 290px;
+                    // height: 168px;
+                    
+                }
+                ::placeholder{
+                    color: #C7C7C7;
+                }
                 
+            }
+            .icons{
+
+                display: flex;
+                justify-content: space-between;
+                font-size: 12px;
+                color: #C7C7C7;
+
             }
             
         }

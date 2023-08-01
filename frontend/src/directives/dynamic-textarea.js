@@ -1,7 +1,7 @@
 export const dynamicTextareaDirective = {
     mounted(el) {
         el.setHeight = () => {
-            console.log('hi');
+            // console.log('hi');
             const elTextarea = el
             const tempTextarea = document.createElement('textarea')
             tempTextarea.style.width = `${elTextarea.clientWidth}px`
