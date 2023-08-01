@@ -63,6 +63,7 @@
     </article>
     <article class="detail-comment">
       <form @submit.prevent="onCommentStory(story._id, txt)">
+        <span class="svg-icon btn" v-html="$svg('Emoji')"></span>
         <textarea v-model="txt" v-textarea placeholder="Add a comment..." rows="1"></textarea>
         <button :disabled="isDisabled" class="post-btn">Post</button>
       </form>
