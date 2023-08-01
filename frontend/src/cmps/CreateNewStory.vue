@@ -13,32 +13,40 @@
       </div>
     </div>
     <div class="stage2" v-if="stage===2">
-      <div class="header">
-        <span
-            class="svg-icon btn"
-            v-html="$svg('leftArrow')"
-            @click="onBack"
-          ></span>
-        <h2>Create new post</h2>
-        <button @click="onAddStory" class="share-btn">Share</button>
-      </div> 
-      <section class="flex">
+        <div class="header" v-if="mode==='create'">
+          <span
+              class="svg-icon btn"
+              v-html="$svg('leftArrow')"
+              @click="onBack"
+            ></span>
+          <h2>Create new post</h2>
+          <button @click="onAddStory" class="share-btn">Share</button>
+        </div> 
+        <div class="header" v-if="mode==='edit'">
+          <span
+              Cancel
+              @click="onCancel"
+            ></span>
+          <h2>Edit Info</h2>
+          <button @click="onAddStory" class="share-btn">Done</button>
+        </div> 
+        <section class="flex">
 
-        <div class="img-prev">
-          <img v-if="url" :src="url" alt="" />
-          <!-- <span>123</span> -->
-        </div>
-        <div class="main">
-          <div class="user-title">
-            <img class="user-img" :src="loggedInUser.imgUrl" alt="" />
-            <span class="name">{{ loggedInUser.fullname }}</span>
+          <div class="img-prev">
+            <img v-if="url" :src="url" alt="" />
+            <!-- <span>123</span> -->
           </div>
-            <!-- <form @submit.prevent="onAddStory">             -->
-              <input v-model="imgToUpload.txt" placeholder="Write a caption"/>
-            <!-- </form> -->
-        </div>
+          <div class="main">
+            <div class="user-title">
+              <img class="user-img" :src="loggedInUser.imgUrl" alt="" />
+              <span class="name">{{ loggedInUser.fullname }}</span>
+            </div>
+                <input v-model="imgToUpload.txt" placeholder="Write a caption"/>
+          </div>
         </section>
-        </div>
+    </div>
+   
+
   </article>
 </ModalBg>  
 </template>
@@ -50,6 +58,7 @@ export default {
   data() {
     return {
       stage: 1,
+      mode:'create',
       imgToUpload: {
         txt: "",
         imgsUrl: [],
@@ -63,6 +72,7 @@ export default {
       this.file = event.target.files[0];
       this.url = URL.createObjectURL(this.file);
       this.stage = 2;
+      
     },
     async uploadImage(file) {
       return new Promise((resolve, reject) => {

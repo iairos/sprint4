@@ -6,6 +6,7 @@
             @like="likeStory"
             @onCommentStory="onCommentStory" 
             :storys="storys"/>
+            
             <div class="suggestions">
 
             </div>

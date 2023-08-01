@@ -2,7 +2,7 @@
   <StoryMenu v-if="isMenuOpen"
              @cancel="closeMenu"
              @remove="removeStory"
-             :story="story"/> />
+             :story="story"/> 
   <article class="story-preview">
     <!-- <pre>{{story}}</pre> -->
     <div class="user-title">
@@ -75,6 +75,7 @@ export default {
   props: {
     story: { type: Object, required: true },
   },
+  emits:['onCommentStory','like','remove'],
   created() {
     
   },
