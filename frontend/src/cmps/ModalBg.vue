@@ -1,5 +1,5 @@
 <template>
-    <section @click="$router.push('/')" class="modal-bg">
+    <section @click="close" class="modal-bg">
         <span @click.stop>
             <slot></slot>
         </span>
@@ -9,9 +9,16 @@
 <script>
 export default {
     props: {
+        closeAction: {
+            type: String,
+            default: 'home'
+        }
     },
     methods: {
-     
+     close() {
+        if (this.closeAction === 'home') this.$router.push('/')
+        else this.$emit('closed')
+     },
     },
     components: {
     }

@@ -1,6 +1,7 @@
 import './assets/styles/main.scss'
 import svgPlugin from './plugins/svg-plugin.js'
 import ModalBg from './cmps/ModalBg.vue'
+import { dynamicTextareaDirective } from "./directives/dynamic-textarea.js";
 
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -11,6 +12,7 @@ import store from './store'
 const app = createApp(App)
 
 app.component('ModalBg', ModalBg)
+app.directive('textarea', dynamicTextareaDirective)
 
 app.use(svgPlugin)
 app.use(router)

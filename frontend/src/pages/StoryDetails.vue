@@ -21,7 +21,7 @@
         <pre>{{ story.txt }}</pre>
       </div>
       <article
-        class="flex"
+        class="user-title"
         v-if="story.comments"
         v-for="comment in story.comments"
       >
@@ -51,7 +51,7 @@
     </article>
     <article class="detail-comment">
       <form @submit.prevent="onCommentStory(story._id, txt)">
-        <textarea v-model="txt" placeholder="Add a comment..."></textarea>
+        <textarea v-model="txt" v-textarea placeholder="Add a comment..." rows="1"></textarea>
         <button :disabled="isDisabled" class="post-btn">Post</button>
       </form>
     </article>
