@@ -74,3 +74,22 @@ button,.btn:hover{
 //     }
 //     // overflow: none;
 // }
+
+textarea{
+    resize: none;
+    font: 1em sans-serif;
+    outline: none;
+    border: none;
+    line-height: 18px;
+
+    &::placeholder {
+        color: #737373;
+    }
+}
+
+textarea.temp-textarea {
+    padding: 2px;
+    min-height: 22px;
+    font-size: 1em;
+    line-height: 18px;
+}

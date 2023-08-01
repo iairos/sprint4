@@ -1,9 +1,11 @@
 <template>
-  <StoryMenu v-if="isMenuOpen"
-             @cancel="closeMenu"
-             @remove="removeStory"
-             :story="story"/> />
   <article class="story-preview">
+              
+    <StoryMenu v-if="isMenuOpen"
+               @cancel="closeMenu"
+               @remove="removeStory"
+               :story="story"/> 
+             
     <!-- <pre>{{story}}</pre> -->
     <div class="user-title">
       <img class="user-img" :src="story.by.imgUrl" alt="" />

@@ -34,7 +34,8 @@
             <span class="name">{{ loggedInUser.fullname }}</span>
           </div>
             <!-- <form @submit.prevent="onAddStory">             -->
-              <input v-model="imgToUpload.txt" placeholder="Write a caption"/>
+              <!-- <input v-model="imgToUpload.txt" placeholder="Write a caption"/> -->
+              <textarea v-model="imgToUpload.txt" placeholder="Write a caption" rows="1" v-textarea></textarea>
             <!-- </form> -->
         </div>
         </section>
