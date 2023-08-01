@@ -77,6 +77,7 @@ export default {
   props: {
     story: { type: Object, required: true },
   },
+  emits:['onCommentStory','like','remove'],
   created() {
     
   },

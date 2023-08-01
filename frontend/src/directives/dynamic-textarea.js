@@ -15,6 +15,9 @@ export const dynamicTextareaDirective = {
         el.setHeight()
         el.addEventListener('input', el.setHeight)
     },
+    updated(el, { value }) {
+        if (!value) el.setHeight()
+    },
     unmounted(el) {
         el.removeEventListener('input', el.setHeight)
     },

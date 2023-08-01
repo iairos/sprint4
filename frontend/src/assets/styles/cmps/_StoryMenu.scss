@@ -1,10 +1,10 @@
 .story-menu{
-    z-index: 30;
+    z-index: 100;
     position: fixed;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
-    background-color: lightblue;
+    // background-color: lightblue;
     border: 1px solid $gray-line;
     border-radius: 10px;
     width: 400px;

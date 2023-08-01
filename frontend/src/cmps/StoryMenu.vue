@@ -13,7 +13,7 @@ export default {
   props: {
     story: { type: Object, required: true },
   },
-
+  emits:['cancel','remove'],
   methods: {
     onCancel() {
       this.$emit("cancel");
