@@ -38,16 +38,19 @@
    
     form{
         display: flex;
-        justify-content: start;
+       align-items: center;
         margin-block-end: 8px;
         textarea{
+            flex: 1;
             width: 100%;
             resize: none;
             font: inherit;
             outline: none;
             border: none;
-            color: #737373;
             padding: 0;
+        }
+        ::placeholder{
+            color: #737373;
         }
 
         .post-btn{
@@ -55,7 +58,15 @@
             color:#0095F6;
             width: 30px;
             padding: 5px;
+            margin: 0 8px;
             font-weight: 600;
+        }
+        span{
+            svg{
+                width: 13px;
+                height: 13px;
+            }
+            margin-inline-end: 6px;
         }
 
     }

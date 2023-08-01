@@ -63,7 +63,9 @@
     <form @submit.prevent="onCommentStory(story._id, txt)" >
       <textarea v-model="txt" v-textarea placeholder="Add a comment..."></textarea>
       <button class="post-btn" v-if="txt">Post</button>
+      <span class="svg-icon btn" v-html="$svg('smallEmoji')"></span>
     </form>
+
   </section>
 
   </article>
