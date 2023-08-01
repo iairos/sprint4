@@ -2,17 +2,20 @@ import { createStore } from 'vuex'
 
 
 import { storyService } from '@/services/story.service.local.js'
+import { userService } from '../services/user.service.js'
+
 import { utilService } from '../services/util.service.js'
 const options = {
     strict: true,
     state() {
         return {
             storys: [],
-            user: {
-                    _id: "u105",
-                    fullname: "Bob",
-                	imgUrl: "https://media.istockphoto.com/id/1435745704/photo/portrait-of-smiling-mid-adult-businessman-standing-at-corporate-office.webp?b=1&s=170667a&w=0&k=20&c=JGtTfOROhAa32AWDQSZwHK0Un0zX5r4QeDf6nb7_6Nc="
-                },
+            user: null
+            // {
+            //         _id: "u105",
+            //         fullname: "Bob",
+            //     	imgUrl: "https://media.istockphoto.com/id/1435745704/photo/portrait-of-smiling-mid-adult-businessman-standing-at-corporate-office.webp?b=1&s=170667a&w=0&k=20&c=JGtTfOROhAa32AWDQSZwHK0Un0zX5r4QeDf6nb7_6Nc="
+            //     },
         }
     },
     mutations: {
@@ -20,6 +23,11 @@ const options = {
             state.storys = storys
         },
         
+        setUser(state, { user }) {
+            console.log('state',state)
+            state.user = user
+        },
+
         removeStory({ storys }, { storyId }) {
             const idx = storys.findIndex(story => story._id === storyId)
             storys.splice(idx, 1)
@@ -41,6 +49,13 @@ const options = {
                 console.log('Could not get storys')
                     // TODO: throw error to display user
             }
+        },
+        loadUser({ commit }){
+            const user = userService.getLoggedinUser()
+            console.log('user',user)
+            commit({ type: 'setUser', user })
+            
+
         },
         async removeStory({ commit }, { storyId }) {
             try{

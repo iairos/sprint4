@@ -1,0 +1,23 @@
+
+{
+  "_id": "u101",
+  "username": "Muko",
+  "password": "mukmuk",
+  "fullname": "Muki Muka",
+  "imgUrl": "https://media.istockphoto.com/id/1432226243/photo/happy-young-woman-of-color-smiling-at-the-camera-in-a-studio.webp?b=1&s=170667a&w=0&k=20&c=HnVO0QRDl31Jb7HI7ly-Kepn58TzM_TwYpHMsktn9do=",
+  "following": [
+    {
+      "_id": "u106",
+      "fullname": "Dob",
+      "imgUrl": "https://media.istockphoto.com/id/1413764595/photo/successful-mature-business-woman-looking-at-camera.webp?b=1&s=170667a&w=0&k=20&c=Rduyi54_Gv7yilBe8Xp8qFrydN6pGL27ap6Jcpk2aCQ="
+    }
+  ],
+  "followers": [
+    {
+      "_id": "u105",
+      "fullname": "Bob",
+      "imgUrl": "https://media.istockphoto.com/id/1453365227/photo/young-female-architect-standing-in-her-office-and-smiling.webp?b=1&s=170667a&w=0&k=20&c=DRcVODcvZo_fnvjdlX9n4lOk3BxiBd9KVY2gwE8gv0w="
+    }
+  ],
+  "savedStoryIds": ["s104", "s111", "s123"]
+}

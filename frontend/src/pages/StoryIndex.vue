@@ -21,6 +21,7 @@ import StoryList from '@/cmps/StoryList.vue'
 export default {
     created() {
         this.loadStorys()
+        this.loadUser()
         
     },
     methods: {
@@ -28,11 +29,15 @@ export default {
             try{
                 this.$store.dispatch({ type: 'loadStorys' })
                 // console.log('storys loaded')
+                
             }
             catch(err){
                 // console.log(err)
                 console.log('cannot load storys')
             }
+        },
+        loadUser(){
+             this.$store.dispatch({ type: 'loadUser' })
         },
         removeStory(storyId){
             try{

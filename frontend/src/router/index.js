@@ -4,6 +4,7 @@ import HomeView from '../pages/HomeView.vue'
 import StoryIndex from '../pages/StoryIndex.vue'
 import StoryDetails from '../pages/StoryDetails.vue'
 import CreateNewStory from '../cmps/CreateNewStory.vue'
+import UserDetails from '../Pages/UserDetails.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -29,6 +30,11 @@ const router = createRouter({
 
     ]
     },
+    {
+      path: '/userProfile',
+      name: 'Profil',
+      component: UserDetails,
+    }
     
    
   ]
