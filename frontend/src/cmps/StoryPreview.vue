@@ -56,7 +56,7 @@
 
     <!-- <router-link  to="/details/story._id" > comments {{ story.comments.length }}</router-link> -->
     <form @submit.prevent="onCommentStory(story._id, txt)" >
-      <textarea v-model="txt" placeholder="Add a comment..."></textarea>
+      <textarea v-model="txt" placeholder="Add a comment..." ></textarea>
       <button class="post-btn" v-if="txt">Post</button>
     </form>
   </article>
