@@ -12,7 +12,7 @@
                  @remove="removeStory"
                  :story="story"/> 
     <!-- <article class="detail-title flex"> -->
-      <article class="user-title">
+      <article class="user-title header">
         <img class="user-img" :src="story.by.imgUrl" alt="" />
         <span class="name">{{ story.by.fullname }}</span>
         <span
