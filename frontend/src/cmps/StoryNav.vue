@@ -76,6 +76,13 @@
                         path: '/newStory',
                         svg: 'create'
                     },
+                    {
+                        id: 4,
+                        isActive: false,
+                        title: 'Profile',
+                        path: '/userProfile',
+                        svg: 'redHeart'
+                    },
                 ]
             }
         },
