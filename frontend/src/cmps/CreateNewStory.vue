@@ -43,16 +43,13 @@
             </div>
                 <input v-model="imgToUpload.txt" placeholder="Write a caption"/>
           </div>
-<<<<<<< HEAD
-=======
             <!-- <form @submit.prevent="onAddStory">             -->
               <!-- <input v-model="imgToUpload.txt" placeholder="Write a caption"/> -->
               <textarea v-model="imgToUpload.txt" placeholder="Write a caption" rows="1" v-textarea></textarea>
             <!-- </form> -->
-        </div>
->>>>>>> d15e52743dd71ec6f7d045ae5b16ec683e5782fc
+        
         </section>
-    </div>
+   </div> 
    
 
   </article>

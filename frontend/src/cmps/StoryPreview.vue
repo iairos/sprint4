@@ -1,11 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <StoryMenu v-if="isMenuOpen"
-             @cancel="closeMenu"
-             @remove="removeStory"
-             :story="story"/> 
-=======
->>>>>>> d15e52743dd71ec6f7d045ae5b16ec683e5782fc
   <article class="story-preview">
               
     <StoryMenu v-if="isMenuOpen"
