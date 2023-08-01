@@ -7,11 +7,19 @@
   <img class="detail-img" :src="story.imgsUrl[0]" alt="" />
 </div>
     <div class="info-wrap">
+      <StoryMenu v-if="isMenuOpen"
+                 @cancel="closeMenu"
+                 @remove="removeStory"
+                 :story="story"/> 
     <!-- <article class="detail-title flex"> -->
       <article class="user-title">
-      <img class="user-img" :src="story.by.imgUrl" alt="" />
-
-      <span class="name">{{ story.by.fullname }}</span>
+        <img class="user-img" :src="story.by.imgUrl" alt="" />
+        <span class="name">{{ story.by.fullname }}</span>
+        <span
+        class="svg-icon btn"
+        v-html="$svg('threePoints')"
+        @click="openMenu()"
+      ></span>
     </article>
 
     <section class="flex column detail-comments">
@@ -32,22 +40,26 @@
     </section>
     <article class="actions">
       <section class="action-btns">
+        <div class="btn-wrapper">
         <span
           v-if="!isLike"
-          class="svg-icon btn"
+          class="svg-icon btn like"
           v-html="$svg('heart')"
           @click="onLikeStory(story._id)"
         ></span>
         <span
           v-if="isLike"
-          class="svg-icon btn"
+          class="svg-icon btn like"
           v-html="$svg('redHeart')"
           @click="onLikeStory(story._id)"
         ></span>
-
         <span class="svg-icon btn" v-html="$svg('comment')"></span>
+      </div>
+      <span class="svg-icon btn save" v-html="$svg('save')"></span>
+
       </section>
-      <span> {{ story.likedBy.length }} likes</span>
+      <span class="likes" v-if="story.likedBy.length>1">{{ story.likedBy.length }} likes</span>
+      <span class="likes" v-if="story.likedBy.length===1">{{ story.likedBy.length }} like</span>
     </article>
     <article class="detail-comment">
       <form @submit.prevent="onCommentStory(story._id, txt)">
@@ -63,93 +75,91 @@
 </template>
 
 <script>
-import { storyService } from "../services/story.service.local.js";
+import StoryMenu from "@/cmps/StoryMenu.vue"
+import { storyService } from "../services/story.service.local.js"
 export default {
-  data() {
-    return {
-      story: null,
-      commentTxt: "",
-      txt: "",
-      // isDisabled:true
-      // isLike: false,
-    };
-  },
-  async created() {
-    await this.loadStory();
-  },
-  methods: {
-    goHome(){
-            this.$router.push('/')
+    data() {
+        return {
+            story: null,
+            commentTxt: "",
+            txt: "",
+            isMenuOpen:false,
+        };
+    },
+    async created() {
+        await this.loadStory();
+    },
+    methods: {
+        goHome() {
+            this.$router.push('/');
         },
-    async loadStory() {
-      try {
-        const { storyId } = this.$route.params;
-        const story = await storyService.getById(storyId);
-        this.story = story;
-      } catch (err) {
-        console.log(err);
-      }
+        async loadStory() {
+            try {
+                const { storyId } = this.$route.params;
+                const story = await storyService.getById(storyId);
+                this.story = story;
+            }
+            catch (err) {
+                console.log(err);
+            }
+        },
+        async onCommentStory(storyId, txt) {
+            try {
+                const updatedStory = await this.$store.dispatch({
+                    type: "commentStory",
+                    storyId,
+                    txt,
+                });
+                this.story = updatedStory;
+                this.txt = "";
+            }
+            catch {
+                console.log("Could not comment Story");
+            }
+        },
+        async onLikeStory(storyId) {
+            try {
+                // this.isLike = !this.isLike
+                const updatedStory = await this.$store.dispatch({
+                    type: "likeStory",
+                    storyId,
+                });
+                // console.log('like from index storyId',storyId)
+                this.story = updatedStory;
+            }
+            catch {
+                console.log("Could not like Story");
+            }
+         },
+         openMenu(){
+          this.isMenuOpen = true
+        },
+        closeMenu(){
+          this.isMenuOpen = false
+          },
+       removeStory(storyId){
+          // console.log('prev',storyId)
+     
+            this.$emit('remove', storyId)
+        },
     },
-    async onCommentStory(storyId, txt) {
-      try {
-        const updatedStory = await this.$store.dispatch({
-          type: "commentStory",
-          storyId,
-          txt,
-        });
-        this.story = updatedStory;
-        this.txt = "";
-      } catch {
-        console.log("Could not comment Story");
-      }
+    computed: {
+        loggedInUser() {
+            return this.$store.getters.getLoggedInUser;
+        },
+        isLike() {
+            if (this.story.likedBy) {
+                const idx = this.story.likedBy.findIndex((user) => user._id === this.loggedInUser._id);
+                return idx > -1;
+            }
+        },
+        isDisabled() {
+            if (!this.txt) {
+                return true;
+            }
+        }
     },
-    async onLikeStory(storyId) {
-      try {
-        // this.isLike = !this.isLike
-        const updatedStory = await this.$store.dispatch({
-          type: "likeStory",
-          storyId,
-        });
-        // console.log('like from index storyId',storyId)
-        this.story = updatedStory;
-      } catch {
-        console.log("Could not like Story");
-      }
-    },
-    // setIsLike(){
-    //   const loggedInUser = this.loggedInUser
-    //   // console.log('user',user)
-    //   if(this.story.likedBy){
-    //     const idx = this.story.likedBy.findIndex(user => user._id===loggedInUser._id)
-    //     // console.log('idx',idx)
-    //     if (idx >-1) this.isLike = true
-    //   }
-    // }
-  },
-   computed: {
-    loggedInUser() {
-      return this.$store.getters.getLoggedInUser;
-    },
-    isLike() {
-      if (this.story.likedBy) {
-        const idx = this.story.likedBy.findIndex(
-          (user) => user._id === this.loggedInUser._id
-        );
-        return idx > -1;
-      }
-    },
-    // disabledBtn(){
-      
-    //   if(!this.txt){
-    //     return this.isDisabled
-    //   }
-    // }
-    isDisabled(){
-      if(!this.txt){
-        return true
-      }
-    }
-  }
+    components: { StoryMenu },
 };
 </script>
 

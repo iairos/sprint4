@@ -29,6 +29,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-top-right-radius: .3em;
+    border-bottom-right-radius: .3em;
 
 
 
@@ -47,6 +49,11 @@
         }
         article{
             gap: 10px;    
+        }
+    }
+    .action-btns{
+        .btn-wrapper{
+
         }
     }
     // .actions{

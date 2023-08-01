@@ -1,28 +1,35 @@
 .story-preview {
     position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
-    // grid-row-gap: 5px;
+    display: flex;
+    flex-direction: column;
     margin-block-start: 40px;
     border-bottom:$gray-line 1px solid;
     font-size: 1em;
     width: 470px;
-   
+    .user-title.header{
+        padding-block-end: 12px;
+    }
     .title {
         display: flex;
-        // grid-area: 1 / 1 / 2 / 2;
         gap: 10px;
         align-items: center;
     }
 
     .img {
-        // grid-area: 2 / 1 / 3 / 2;
         width: 100%;
         height: auto;
         border-radius: 3px;
     }
+    .prev-info{   
+    .user-title{
+        margin-block-start: 8px;
+    }
+    .likes{
+        margin: 0;
+    }
     .action-btns{
-        margin-top: 10px;
+        margin-block: 4px;
+        height: 40px;
 
     }
     
@@ -32,6 +39,7 @@
     form{
         display: flex;
         justify-content: start;
+        margin-block-end: 8px;
         textarea{
             width: 100%;
             resize: none;
@@ -39,7 +47,7 @@
             outline: none;
             border: none;
             color: #737373;
-            padding: 5px;
+            padding: 0;
         }
 
         .post-btn{
@@ -49,13 +57,9 @@
             padding: 5px;
             font-weight: 600;
         }
+
     }
-    .txt {
-        // grid-area: 5 / 1 / 6 / 2;
-        gap: 10px;
-        align-items: center;
-        margin-bottom: 10px;
-    }
+
 
     .comments {
         
@@ -67,11 +71,13 @@
         color: #737373;
         background-color: white;
         cursor: pointer;
-        margin-bottom: 5px;
 
     }
 
-
+    &>*{
+        margin-block: 2px;
+    }
+}
 }
 
 

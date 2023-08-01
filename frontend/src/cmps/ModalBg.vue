@@ -3,6 +3,10 @@
         <span @click.stop>
             <slot></slot>
         </span>
+        
+        <span
+        class="svg-icon btn exit"
+        v-html="$svg('exit')"></span>
     </section>
 </template>
 

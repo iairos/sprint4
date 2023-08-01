@@ -7,7 +7,7 @@
                :story="story"/> 
              
     <!-- <pre>{{story}}</pre> -->
-    <div class="user-title">
+    <div class="user-title header">
       <img class="user-img" :src="story.by.imgUrl" alt="" />
       <span class="name">{{ story.by.fullname }}</span>
       <span
@@ -17,7 +17,10 @@
       ></span>
     </div>
     <img class="img" :src="story.imgsUrl[0]" alt="" />
+    <section class="prev-info flex column">
+
     <div class="action-btns">
+      <div class="btn-wrapper flex">
       <span
         v-if="!isLike"     
         class="svg-icon btn"
@@ -35,6 +38,8 @@
         @click="goToDetail"
         v-html="$svg('comment')"
       ></span>
+      </div>
+        <span class="svg-icon btn save" v-html="$svg('save')"></span>
     </div>
     <span class="likes" v-if="story.likedBy.length>1">{{ story.likedBy.length }} likes</span>
     <span class="likes" v-if="story.likedBy.length===1">{{ story.likedBy.length }} like</span>
@@ -42,9 +47,9 @@
     
 
    
-    <div class="txt flex">
+    <div class="user-title">
       <span class="name">{{ story.by.fullname }} </span>
-      <span class="txt-msg">{{ story.txt }}</span>
+      <pre style="" class="txt">{{ story.txt }}</pre>
     </div>
     <span  v-if="story.comments.length>1" @click="goToDetail" class="comments-btn">
       View all {{ story.comments.length }} comments
@@ -59,6 +64,8 @@
       <textarea v-model="txt" v-textarea placeholder="Add a comment..."></textarea>
       <button class="post-btn" v-if="txt">Post</button>
     </form>
+  </section>
+
   </article>
   
 </template>
@@ -99,9 +106,14 @@ export default {
       this.isMenuOpen = false
     },
     removeStory(storyId){
-          // console.log('prev',storyId)
-     
-            this.$emit('remove', storyId)
+            try{
+                this.$store.dispatch({ type: 'removeStory', storyId })
+                console.log('Story removed')
+            }
+            catch{
+                console.log('Could not remove Story')
+            }
+            
         },
    
   },
