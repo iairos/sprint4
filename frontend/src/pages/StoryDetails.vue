@@ -33,9 +33,13 @@
         v-if="story.comments"
         v-for="comment in story.comments"
       >
+      <div class="flex">
         <img class="user-img" :src="comment.by.imgUrl" alt="" />
         <span class="name">{{ comment?.by.fullname }}</span>
         <pre style="" class="txt">{{ comment?.txt }}</pre>
+      </div>
+      <span class="svg-icon btn" v-html="$svg('heart')"></span>
+        
       </article>
     </section>
     <article class="actions">
@@ -58,8 +62,10 @@
       <span class="svg-icon btn save" v-html="$svg('save')"></span>
 
       </section>
-      <span class="likes" v-if="story.likedBy.length>1">{{ story.likedBy.length }} likes</span>
-      <span class="likes" v-if="story.likedBy.length===1">{{ story.likedBy.length }} like</span>
+      <div>
+        <span class="likes" v-if="story.likedBy.length>1">{{ story.likedBy.length }} likes</span>
+        <span class="likes" v-if="story.likedBy.length===1">{{ story.likedBy.length }} like</span>
+      </div>
     </article>
     <article class="detail-comment">
       <form @submit.prevent="onCommentStory(story._id, txt)">
