@@ -1,6 +1,6 @@
 <template>
   <section v-if="user" class="user-details">
-    <!-- <pre>{{ user }}</pre> -->
+    
     <section class="profil-header">
         <div class="img-contaner">
           <img class="profil-img" :src="user.imgUrl" alt="" />
@@ -21,6 +21,14 @@
       v-html="$svg('plus')"
       @click="onPlus"
       ></span>
+    </section>
+    <section class="action">
+      <span 
+      class="svg-icon"
+      v-html="$svg('postTable')"
+      @click=""
+      ></span>
+      <span>POSTS</span>
     </section>
   </section>
 </template>

@@ -11,11 +11,6 @@ const options = {
         return {
             storys: [],
             user: null
-            // {
-            //         _id: "u105",
-            //         fullname: "Bob",
-            //     	imgUrl: "https://media.istockphoto.com/id/1435745704/photo/portrait-of-smiling-mid-adult-businessman-standing-at-corporate-office.webp?b=1&s=170667a&w=0&k=20&c=JGtTfOROhAa32AWDQSZwHK0Un0zX5r4QeDf6nb7_6Nc="
-            //     },
         }
     },
     mutations: {
@@ -24,7 +19,7 @@ const options = {
         },
         
         setUser(state, { user }) {
-            console.log('state',state)
+            // console.log('state',state)
             state.user = user
         },
 
@@ -135,6 +130,43 @@ const options = {
             }
             
             console.log('storyToUpdate',storyToUpdate)
+            try{
+                const savedStory = await storyService.save(storyToUpdate) 
+                
+                commit({ type: 'saveStory',  savedStory })
+                console.log('Story updated')
+                return savedStory
+            }
+            catch(err){
+                console.log('Could not update story')
+            }  
+        },
+        async likeComment( {commit, getters } , { storyId , commentId}) {
+            
+            const loggedUser = getters.getLoggedInUser
+            const user ={  
+                _id: loggedUser._id,
+                fullname:loggedUser.fullname,
+                imgUrl: loggedUser.imgUrl
+            }
+            const story = getters.storys.find(story => story._id === storyId)
+            const storyToUpdate = JSON.parse(JSON.stringify(story))
+            if(storyToUpdate.comments){
+                const commentIdx = storyToUpdate.comments
+                    .findIndex(comment => comment.id===commentId)
+                // console.log('storyToUpdate',storyToUpdate)
+                // console.log('commentIdx',commentIdx)
+                
+
+                if (commentIdx>-1){
+                    const likedBy = storyToUpdate.comments[commentIdx].likedBy
+                    const idx = likedBy.findIndex(user => user._id===loggedUser._id)
+                    if (idx ===-1) likedBy.push(user)
+                    else likedBy.splice(idx,1)
+                }
+            }
+            
+            // console.log('storyToUpdate',storyToUpdate)
             try{
                 const savedStory = await storyService.save(storyToUpdate) 
                 

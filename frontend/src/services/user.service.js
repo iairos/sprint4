@@ -8,5 +8,5 @@ export const userService = {
 }
 
 function getLoggedinUser() {
-  return users[4]
+  return users[1]
 }
