@@ -2,10 +2,11 @@
     <section class="story-index">
         <div class="flex justify-center">
             <StoryList 
+            v-if="stories"
             @remove="removeStory" 
             @like="likeStory"
             @onCommentStory="onCommentStory" 
-            :storys="storys"/>
+            :stories="stories"/>
             
             <div class="suggestions">
 
@@ -19,13 +20,13 @@
 import StoryList from '@/cmps/StoryList.vue'
 
 export default {
-    created() {
-        this.loadStorys()
-        this.loadUser()
+     created() {
+         this.loadStories()
+     
         
     },
     methods: {
-        loadStorys(){
+        loadStories(){
             try{
                 this.$store.dispatch({ type: 'loadStorys' })
                 // console.log('storys loaded')
@@ -71,7 +72,7 @@ export default {
         }
     },
     computed: {
-        storys(){ return this.$store.getters.storys }
+        stories(){ return this.$store.getters.storys }
     },
     components: {
     StoryList,

@@ -1,6 +1,10 @@
 <script>
 import StoryNav from '@/cmps/StoryNav.vue';
 export default {
+
+    created(){
+        this.$store.dispatch({ type: 'loadUser' })
+    },
     components: {
 
         StoryNav,
