@@ -1,5 +1,5 @@
 
-import user from '../../data/users.json' assert { type: 'json' }
+import users from '../../data/users.json' assert { type: 'json' }
 
 export const userService = {
   
@@ -8,5 +8,5 @@ export const userService = {
 }
 
 function getLoggedinUser() {
-  return user
+  return users[4]
 }

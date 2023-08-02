@@ -24,7 +24,7 @@
 
     <section class="flex column detail-comments">
       <div class="user-title">
-        <img class="user-img" :src="story.by.imgsUrl" alt="" />
+        <img class="user-img" :src="story.by.imgUrl" alt="" />
         <span class="name">{{ story.by.fullname }}</span>
         <pre>{{ story.txt }}</pre>
       </div>
@@ -38,8 +38,8 @@
         <span class="name">{{ comment?.by.fullname }}</span>
         <pre style="" class="txt">{{ comment?.txt }}</pre>
       </div>
-      <span class="svg-icon btn" v-html="$svg('heart')"></span>
-        
+      <span class="svg-icon btn" v-html="$svg('heart')" @click="likeComment"></span>
+       
       </article>
     </section>
     <article class="actions">

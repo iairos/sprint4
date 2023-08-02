@@ -1,23 +1,181 @@
+[
 
 {
   "_id": "u101",
-  "username": "Muko",
-  "password": "mukmuk",
-  "fullname": "Muki Muka",
+  "username": "juliaiboberts",
+  "password": "abc",
+  "fullname": "Julia Boberts",
   "imgUrl": "https://media.istockphoto.com/id/1432226243/photo/happy-young-woman-of-color-smiling-at-the-camera-in-a-studio.webp?b=1&s=170667a&w=0&k=20&c=HnVO0QRDl31Jb7HI7ly-Kepn58TzM_TwYpHMsktn9do=",
   "following": [
     {
-      "_id": "u106",
-      "fullname": "Dob",
-      "imgUrl": "https://media.istockphoto.com/id/1413764595/photo/successful-mature-business-woman-looking-at-camera.webp?b=1&s=170667a&w=0&k=20&c=Rduyi54_Gv7yilBe8Xp8qFrydN6pGL27ap6Jcpk2aCQ="
+      "_id": "u102", 
+      "fullname": "Gal Gabot",
+      "imgUrl": "https://media.istockphoto.com/id/1453365227/photo/young-female-architect-standing-in-her-office-and-smiling.webp?b=1&s=170667a&w=0&k=20&c=DRcVODcvZo_fnvjdlX9n4lOk3BxiBd9KVY2gwE8gv0w="
+    },
+    {
+      "_id": "u103",
+      "fullname": "Angelina Toly",
+      "imgUrl": "https://media.istockphoto.com/id/1416048929/photo/woman-working-on-laptop-online-checking-emails-and-planning-on-the-internet-while-sitting-in.webp?b=1&s=170667a&w=0&k=20&c=XCzSqjgn02etddi527fy6Q9Dz_MtPYKKc-MMbhS3kK0="
     }
   ],
   "followers": [
     {
+      "_id": "u104",
+      "fullname": "Brad Tip",
+      "imgUrl": "https://media.istockphoto.com/id/1364917563/photo/businessman-smiling-with-arms-crossed-on-white-background.webp?b=1&s=170667a&w=0&k=20&c=KDO6yy-rASso-b0tI6Euv2um6GxXJ6QoQr0qioETwJE="
+    },
+    {
       "_id": "u105",
-      "fullname": "Bob",
+      "fullname": "Boris Mayson",
+      "imgUrl": "https://media.istockphoto.com/id/1427847593/photo/multiracial-portuguese-jamaican-mid-adult-businessman-with-beard-standing-smiling-at-desk.webp?b=1&s=170667a&w=0&k=20&c=yVdITq3oNrZj21IvsUPPbGGH6jmwaD8D5WR-9CmcVk4="
+    }
+  ],
+  "savedStoryIds": ["s104", "s111", "s123"]
+},
+{
+  "_id": "u102",
+  "username": "galgabot",
+  "password": "abc",
+  "fullname": "Gal Gabot",
+  "imgUrl": "https://media.istockphoto.com/id/1453365227/photo/young-female-architect-standing-in-her-office-and-smiling.webp?b=1&s=170667a&w=0&k=20&c=DRcVODcvZo_fnvjdlX9n4lOk3BxiBd9KVY2gwE8gv0w=",
+  "following": [
+    {
+      "_id": "u103",
+      "fullname": "Angelina Toly",
+      "imgUrl": "https://media.istockphoto.com/id/1416048929/photo/woman-working-on-laptop-online-checking-emails-and-planning-on-the-internet-while-sitting-in.webp?b=1&s=170667a&w=0&k=20&c=XCzSqjgn02etddi527fy6Q9Dz_MtPYKKc-MMbhS3kK0="
+    },
+    {
+      "_id": "u104",
+      "fullname": "Brad Tip",
+      "imgUrl": "https://media.istockphoto.com/id/1364917563/photo/businessman-smiling-with-arms-crossed-on-white-background.webp?b=1&s=170667a&w=0&k=20&c=KDO6yy-rASso-b0tI6Euv2um6GxXJ6QoQr0qioETwJE="
+    },
+    {
+      "_id": "u105",
+      "fullname": "Boris Mayson",
+      "imgUrl": "https://media.istockphoto.com/id/1427847593/photo/multiracial-portuguese-jamaican-mid-adult-businessman-with-beard-standing-smiling-at-desk.webp?b=1&s=170667a&w=0&k=20&c=yVdITq3oNrZj21IvsUPPbGGH6jmwaD8D5WR-9CmcVk4="
+    }
+  ],
+  "followers": [
+    {
+      "_id": "u101",
+      "fullname": "Julia Boberts",
+      "imgUrl": "https://media.istockphoto.com/id/1432226243/photo/happy-young-woman-of-color-smiling-at-the-camera-in-a-studio.webp?b=1&s=170667a&w=0&k=20&c=HnVO0QRDl31Jb7HI7ly-Kepn58TzM_TwYpHMsktn9do="
+    }
+  ],
+  "savedStoryIds": ["s104", "s111", "s123"]
+},
+{
+  "_id": "u103",
+  "username": "angelinatoli",
+  "password": "abc",
+  "fullname": "Angelina Toly",
+  "imgUrl": "https://media.istockphoto.com/id/1416048929/photo/woman-working-on-laptop-online-checking-emails-and-planning-on-the-internet-while-sitting-in.webp?b=1&s=170667a&w=0&k=20&c=XCzSqjgn02etddi527fy6Q9Dz_MtPYKKc-MMbhS3kK0=",
+  "following": [
+    {
+      "_id": "u101",
+      "fullname": "Julia Boberts",
+      "imgUrl": "https://media.istockphoto.com/id/1432226243/photo/happy-young-woman-of-color-smiling-at-the-camera-in-a-studio.webp?b=1&s=170667a&w=0&k=20&c=HnVO0QRDl31Jb7HI7ly-Kepn58TzM_TwYpHMsktn9do="
+    },
+    
+    {
+      "_id": "u102", 
+      "fullname": "Gal Gabot",
+      "imgUrl": "https://media.istockphoto.com/id/1453365227/photo/young-female-architect-standing-in-her-office-and-smiling.webp?b=1&s=170667a&w=0&k=20&c=DRcVODcvZo_fnvjdlX9n4lOk3BxiBd9KVY2gwE8gv0w="
+    }
+  ],
+  "followers": [
+    {
+      "_id": "u101",
+      "fullname": "Julia Boberts",
+      "imgUrl": "https://media.istockphoto.com/id/1432226243/photo/happy-young-woman-of-color-smiling-at-the-camera-in-a-studio.webp?b=1&s=170667a&w=0&k=20&c=HnVO0QRDl31Jb7HI7ly-Kepn58TzM_TwYpHMsktn9do="
+    },
+    
+    {
+      "_id": "u102", 
+      "fullname": "Gal Gabot",
       "imgUrl": "https://media.istockphoto.com/id/1453365227/photo/young-female-architect-standing-in-her-office-and-smiling.webp?b=1&s=170667a&w=0&k=20&c=DRcVODcvZo_fnvjdlX9n4lOk3BxiBd9KVY2gwE8gv0w="
     }
   ],
   "savedStoryIds": ["s104", "s111", "s123"]
+},
+{
+  "_id": "u104",
+  "username": "bradtip",
+  "password": "abc",
+  "fullname": "Brad Tip",
+  "imgUrl": "https://media.istockphoto.com/id/1364917563/photo/businessman-smiling-with-arms-crossed-on-white-background.webp?b=1&s=170667a&w=0&k=20&c=KDO6yy-rASso-b0tI6Euv2um6GxXJ6QoQr0qioETwJE=",
+  "following": [
+    {
+      "_id": "u101",
+      "fullname": "Julia Boberts",
+      "imgUrl": "https://media.istockphoto.com/id/1432226243/photo/happy-young-woman-of-color-smiling-at-the-camera-in-a-studio.webp?b=1&s=170667a&w=0&k=20&c=HnVO0QRDl31Jb7HI7ly-Kepn58TzM_TwYpHMsktn9do="
+    },
+    
+   
+    {
+      "_id": "u103",
+      "fullname": "Angelina Toly",
+      "imgUrl": "https://media.istockphoto.com/id/1416048929/photo/woman-working-on-laptop-online-checking-emails-and-planning-on-the-internet-while-sitting-in.webp?b=1&s=170667a&w=0&k=20&c=XCzSqjgn02etddi527fy6Q9Dz_MtPYKKc-MMbhS3kK0="
+    }
+  ],
+  "followers": [
+    {
+      "_id": "u101",
+      "fullname": "Julia Boberts",
+      "imgUrl": "https://media.istockphoto.com/id/1432226243/photo/happy-young-woman-of-color-smiling-at-the-camera-in-a-studio.webp?b=1&s=170667a&w=0&k=20&c=HnVO0QRDl31Jb7HI7ly-Kepn58TzM_TwYpHMsktn9do="
+    },
+    
+    {
+      "_id": "u102", 
+      "fullname": "Gal Gabot",
+      "imgUrl": "https://media.istockphoto.com/id/1453365227/photo/young-female-architect-standing-in-her-office-and-smiling.webp?b=1&s=170667a&w=0&k=20&c=DRcVODcvZo_fnvjdlX9n4lOk3BxiBd9KVY2gwE8gv0w="
+    }
+  ],
+  "savedStoryIds": ["s104", "s111", "s123"]
+},
+{
+  "_id": "u105",
+  "username": "borismayson",
+  "password": "abc",
+  "fullname": "Boris Mayson",
+  "imgUrl": "https://media.istockphoto.com/id/1427847593/photo/multiracial-portuguese-jamaican-mid-adult-businessman-with-beard-standing-smiling-at-desk.webp?b=1&s=170667a&w=0&k=20&c=yVdITq3oNrZj21IvsUPPbGGH6jmwaD8D5WR-9CmcVk4=",
+  "following": [
+    {
+      "_id": "u101",
+      "fullname": "Julia Boberts",
+      "imgUrl": "https://media.istockphoto.com/id/1432226243/photo/happy-young-woman-of-color-smiling-at-the-camera-in-a-studio.webp?b=1&s=170667a&w=0&k=20&c=HnVO0QRDl31Jb7HI7ly-Kepn58TzM_TwYpHMsktn9do="
+    },
+    
+    {
+      "_id": "u102", 
+      "fullname": "Gal Gabot",
+      "imgUrl": "https://media.istockphoto.com/id/1453365227/photo/young-female-architect-standing-in-her-office-and-smiling.webp?b=1&s=170667a&w=0&k=20&c=DRcVODcvZo_fnvjdlX9n4lOk3BxiBd9KVY2gwE8gv0w="
+    },
+    {
+      "_id": "u103",
+      "fullname": "Angelina Toly",
+      "imgUrl": "https://media.istockphoto.com/id/1416048929/photo/woman-working-on-laptop-online-checking-emails-and-planning-on-the-internet-while-sitting-in.webp?b=1&s=170667a&w=0&k=20&c=XCzSqjgn02etddi527fy6Q9Dz_MtPYKKc-MMbhS3kK0="
+    },
+    {
+      "_id": "u104",
+      "fullname": "Brad Tip",
+      "imgUrl": "https://media.istockphoto.com/id/1364917563/photo/businessman-smiling-with-arms-crossed-on-white-background.webp?b=1&s=170667a&w=0&k=20&c=KDO6yy-rASso-b0tI6Euv2um6GxXJ6QoQr0qioETwJE="
+    }
+  ],
+  "followers": [
+    {
+      "_id": "u102", 
+      "fullname": "Gal Gabot",
+      "imgUrl": "https://media.istockphoto.com/id/1453365227/photo/young-female-architect-standing-in-her-office-and-smiling.webp?b=1&s=170667a&w=0&k=20&c=DRcVODcvZo_fnvjdlX9n4lOk3BxiBd9KVY2gwE8gv0w="
+    },
+    {
+      "_id": "u103",
+      "fullname": "Angelina Toly",
+      "imgUrl": "https://media.istockphoto.com/id/1416048929/photo/woman-working-on-laptop-online-checking-emails-and-planning-on-the-internet-while-sitting-in.webp?b=1&s=170667a&w=0&k=20&c=XCzSqjgn02etddi527fy6Q9Dz_MtPYKKc-MMbhS3kK0="
+    }
+  ],
+  "savedStoryIds": ["s104", "s111", "s123"]
 }
+
+]
+
