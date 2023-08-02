@@ -30,24 +30,48 @@
       ></span>
       <span>POSTS</span>
     </section>
+    <!-- <pre>{{stories}}</pre> -->
+    <section class="stories-list">
+      <ul class="clean-list">
+            <li v-for="story in stories" :key="story._id">
+                <!-- <MiniStoryPreview :story="story"/> -->
+                <!-- <pre>{{ story }}</pre> -->
+               
+            </li>
+        </ul>
+    </section>
   </section>
 </template>
 <script>
+import MiniStoryPreview from '../cmps/MiniStoryPreview.vue'
 
 export default {
-  async created() {
+  data() {
+    return {
+      stories: null,
+      
+    };
+  },
     
+  created() {
+    this.stories = this.getStories()
   },
   methods:{
     onPlus(){
       this.$router.push('/newStory')
+    },
+    getStories(){
+      return this.$store.getters.storys
     }
   },
   computed: {
     user() {
       return this.$store.getters.getLoggedInUser
     },
+  }
+    
+    
    
-  },
+  
 }
 </script>
