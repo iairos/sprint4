@@ -28,6 +28,14 @@
         align-items: center;
         min-width: 48px;
         gap: 10px;
+        &.active{
+            font-weight: 600;
+            .svg-icon{
+                svg{
+                    fill: #000;
+                }
+            }
+        }
     
     }
 
@@ -44,3 +52,8 @@
         padding: 10px;
     }
 }
+// @media (max-width:$nav-breakpoint){
+//     .story-nav{
+//         width: $nav-narrow-width;
+//     }
+// }

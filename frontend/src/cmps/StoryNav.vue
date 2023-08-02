@@ -6,8 +6,11 @@
                     <span class="svg-icon" v-html="$svg('logo')" ></span>
                 </div>
                 <div  v-for="btn, idx in btns" class="nav-btn" :class="{active: btn.isActive}" @click="onChangeRoute(idx, btn.path)">
-                    <span class="svg-icon" v-html="$svg(btn.svg)" ></span>
-                    <span>{{ btn.title }}</span>
+                    <span v-if="btn.svg" class="svg-icon" v-html="$svg(btn.svg)" ></span>
+                    <img v-else class="user-img" :src="btn.imgUrl" alt="" />
+                    
+                    <span class="btn-title">{{ btn.title }}</span>
+                    
                 </div>
                 <!-- <div  class="nav-btn" @click="$router.push('/')">
                     <span class="svg-icon" v-html="$svg('home')" ></span>
@@ -81,7 +84,7 @@
                         isActive: false,
                         title: 'Profile',
                         path: '/userProfile',
-                        svg: 'redHeart'
+                        imgUrl:this.$store.getters.getLoggedInUser.imgUrl
                     },
                 ]
             }
@@ -90,9 +93,17 @@
             onChangeRoute(idx, path){
                 this.btns.forEach(btn => btn.isActive = false)
                 this.btns[idx].isActive = true
+                // this.btns[idx].svg = `${this.btns[idx].svg}-fill` 
                 this.$router.push(path)
-            }
-        }
+            },
+            user() {
+            console.log(this.$store.getters.getLoggedInUser)
+            return this.$store.getters.getLoggedInUser
+            },
+        },
+        computed: {
+        
+                },
     }
 </script>
 
