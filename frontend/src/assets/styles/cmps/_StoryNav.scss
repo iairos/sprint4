@@ -12,6 +12,9 @@
         height: 80px;
         // align-items: start;
         // justify-items: start;
+        .logo-small{
+            display: none;
+        }
         span{
             svg{
 
@@ -36,6 +39,10 @@
                 }
             }
         }
+        .user-img{
+            width: 24px;
+            height: 24px;
+        }
     
     }
 
@@ -52,8 +59,22 @@
         padding: 10px;
     }
 }
-// @media (max-width:$nav-breakpoint){
-//     .story-nav{
-//         width: $nav-narrow-width;
-//     }
-// }
+@media (max-width:$nav-breakpoint){
+    .story-nav{
+        width: $nav-narrow-width;
+        .svg-icon.logo-small{
+            svg{
+                width: 24px;
+                height: 24px;
+            }
+            display: block;
+        }
+        .svg-icon.logo{
+            display: none;
+        }
+        .btn-title{
+            display: none;
+        }
+    }
+
+}

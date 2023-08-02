@@ -3,7 +3,8 @@
 
 
                 <div  class="logo flex" @click="$router.push('/')">
-                    <span class="svg-icon" v-html="$svg('logo')" ></span>
+                    <span class="svg-icon logo" v-html="$svg('logo')" ></span>
+                    <span class="svg-icon nav-btn logo-small" v-html="$svg('logoIcon')" ></span>
                 </div>
                 <div  v-for="btn, idx in btns" class="nav-btn" :class="{active: btn.isActive}" @click="onChangeRoute(idx, btn.path)">
                     <span v-if="btn.svg" class="svg-icon" v-html="$svg(btn.svg)" ></span>
@@ -100,6 +101,9 @@
             console.log(this.$store.getters.getLoggedInUser)
             return this.$store.getters.getLoggedInUser
             },
+        },
+        watch:{
+        
         },
         computed: {
         
