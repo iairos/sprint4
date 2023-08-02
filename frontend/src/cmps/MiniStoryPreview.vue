@@ -1,7 +1,7 @@
 <template>
+  
   <article class="mini-story-preview"> 
-    <pre>{{story}}</pre>
-    <!-- <img class="img" :src="story.imgsUrl[0]" alt="" /> -->
+    <img class="img" :src="story.imgsUrl[0]" alt="" />
     <div class="action">
       <span    
         class="svg-icon btn"
@@ -23,11 +23,6 @@
 
 
 export default {
-  data() {
-    return {
-      
-    };
-  },
   props: {
     story: { type: Object, required: true },
   },
@@ -39,9 +34,9 @@ export default {
    
   },
   computed: {
-    loggedInUser() {
-      return this.$store.getters.getLoggedInUser;
-    },
+    // loggedInUser() {
+    //   return this.$store.getters.getLoggedInUser;
+    // },
   },
 
 };
