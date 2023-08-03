@@ -6,7 +6,7 @@
                     <span class="svg-icon logo" v-html="$svg('logo')" ></span>
                     <span class="svg-icon nav-btn logo-small" v-html="$svg('logoIcon')" ></span>
                 </div>
-                <div  v-for="btn, idx in btns" class="nav-btn" :class="{active: btn.isActive}" @click="onChangeRoute(idx, btn.path)">
+                <div  v-for="btn, idx in btns" class="nav-btn" :class="{active: btn.name ===$route.name}" @click="onChangeRoute(idx, btn.path)">
                     <span v-if="btn.svg" class="svg-icon" v-html="$svg(btn.svg)" ></span>
                     <img v-else class="user-img" :src="btn.imgUrl" alt="" />
                     
@@ -63,20 +63,23 @@
                         id: 1,
                         isActive: true,
                         title: 'Home',
+                        name:'Home',
                         path: '/',
                         svg: 'home'
                     },
-                    {
-                        id: 2,
-                        isActive: false,
-                        title: 'Search',
-                        path: '/',
-                        svg: 'search'
-                    },
+                        // {
+                        //     id: 2,
+                        //     isActive: false,
+                        //     title: 'Search',
+                        //     name:'',
+                        //     path: '/',
+                        //     svg: 'search'
+                        // },
                     {
                         id: 3,
                         isActive: false,
                         title: 'Create',
+                        name:'newStory',
                         path: '/newStory',
                         svg: 'create'
                     },
@@ -84,6 +87,7 @@
                         id: 4,
                         isActive: false,
                         title: 'Profile',
+                        name:'Profile',
                         path: '/userProfile',
                         imgUrl:this.$store.getters.getLoggedInUser.imgUrl
                     },
