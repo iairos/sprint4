@@ -154,8 +154,7 @@ const options = {
             if(storyToUpdate.comments){
                 const commentIdx = storyToUpdate.comments
                     .findIndex(comment => comment.id===commentId)
-                // console.log('storyToUpdate',storyToUpdate)
-                // console.log('commentIdx',commentIdx)
+                
                 
 
                 if (commentIdx>-1){
