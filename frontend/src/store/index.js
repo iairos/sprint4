@@ -114,22 +114,30 @@ const options = {
             } 
         },
         async likeStory( {commit, getters } , { storyId }) {
-            
+            // get logged in user from getters
             const loggedUser = getters.getLoggedInUser
+
+            // Create a small user object
             const user ={  
                 _id: loggedUser._id,
                 fullname:loggedUser.fullname,
                 imgUrl: loggedUser.imgUrl
             }
+            // Search Story
             const story = getters.storys.find(story => story._id === storyId)
+
+            // Deep copy the story
             const storyToUpdate = JSON.parse(JSON.stringify(story))
+
+            
             if(storyToUpdate.likedBy){
                 const idx = storyToUpdate.likedBy.findIndex(user => user._id===loggedUser._id)
+                // if user not found push to array
                 if (idx ===-1) storyToUpdate.likedBy.push(user)
+                // else remove from array
                 else storyToUpdate.likedBy.splice(idx,1)
             }
-            
-            console.log('storyToUpdate',storyToUpdate)
+            //save to DB 
             try{
                 const savedStory = await storyService.save(storyToUpdate) 
                 
@@ -137,8 +145,10 @@ const options = {
                 console.log('Story updated')
                 return savedStory
             }
+            // if Could not save, throw error msg.
             catch(err){
                 console.log('Could not update story')
+                throw new Error('Service is current not available')
             }  
         },
         async likeComment( {commit, getters } , { storyId , commentId}) {

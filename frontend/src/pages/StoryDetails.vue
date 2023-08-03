@@ -98,7 +98,6 @@
       </section>
     </div>
   </ModalBg>
-  <!-- </div> -->
 </template>
 
 <script>

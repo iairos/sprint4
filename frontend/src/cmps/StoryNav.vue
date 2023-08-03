@@ -97,7 +97,7 @@
         methods: {
             onChangeRoute(idx, path){
                 this.btns.forEach(btn => btn.isActive = false)
-                this.btns[idx].isActive = true
+                this.btns[idx].isActive = true   
                 // this.btns[idx].svg = `${this.btns[idx].svg}-fill` 
                 this.$router.push(path)
             },
