@@ -1,0 +1,28 @@
+@media (max-width:$mobile-breakpoint){
+.main-layout{
+    display: grid;
+    grid-template-columns: 1fr 470px 1fr;
+}
+.suggestions{
+    display: none;
+}
+  .story-nav{
+    z-index: 40;
+    bottom: 0;
+    position: fixed;
+    flex-direction: row;
+    width: 100vw;
+    height: 48px;
+    background-color: #ffffff;
+    justify-content: space-around;
+    .logo{
+        display: none;
+    }
+  }
+  .story-list{
+    padding: 0;
+  }
+   .prev-info{
+    padding-inline: 16px;
+   }
+}

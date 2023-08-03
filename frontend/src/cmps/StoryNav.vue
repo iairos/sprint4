@@ -6,7 +6,7 @@
                     <span class="svg-icon logo" v-html="$svg('logo')" ></span>
                     <span class="svg-icon nav-btn logo-small" v-html="$svg('logoIcon')" ></span>
                 </div>
-                <div  v-for="btn, idx in btns" class="nav-btn" :class="{active: btn.name ===$route.name}" @click="onChangeRoute(idx, btn.path)">
+                <div  v-for="btn, idx in btns" class="nav-btn"  :class="{active: btn.name ===$route.name}" @click="onChangeRoute(idx, btn.path)">
                     <span v-if="btn.svg" class="svg-icon" v-html="$svg(btn.svg)" ></span>
                     <img v-else class="user-img" :src="btn.imgUrl" alt="" />
                     
