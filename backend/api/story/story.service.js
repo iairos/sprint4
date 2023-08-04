@@ -9,7 +9,15 @@ const PAGE_SIZE = 3
 
 async function query(filterBy={txt:''}) {
     try {
-        
+        const criteria = {
+            // vendor: { $regex: filterBy.txt, $options: 'i' }
+        }
+        const collection = await dbService.getCollection('story')
+        var storyCursor = await collection.find(criteria)
+
+        if (filterBy.pageIdx !== undefined) {
+            storyCursor.skip(filterBy.pageIdx * PAGE_SIZE).limit(PAGE_SIZE)     
+        }
 
         const stories = storyCursor.toArray()
         return stories
@@ -18,7 +26,6 @@ async function query(filterBy={txt:''}) {
         throw err
     }
 }
-
 async function getById(storyId) {
     try {
         const collection = await dbService.getCollection('story')
