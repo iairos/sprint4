@@ -1,5 +1,5 @@
 <template>
-  <article class="story-preview">
+  <article class="story-preview" @click="isPopped = false">
               
     <StoryMenu v-if="isMenuOpen"
                @cancel="closeMenu"
@@ -66,7 +66,9 @@
     <form @submit.prevent="onCommentStory(story._id, txt)" >
       <textarea v-model="txt" v-textarea placeholder="Add a comment..."></textarea>
       <button class="post-btn" v-if="txt">Post</button>
-      <span class="svg-icon btn" v-html="$svg('smallEmoji')"></span>
+      <span class="svg-icon btn" v-html="$svg('smallEmoji')" @click.stop="isPopped = !isPopped">
+      </span>
+      <emoji-picker v-if="isPopped" @click.stop @emoji-click="emoji"></emoji-picker>
     </form>
 
   </section>
@@ -78,12 +80,12 @@
 
 <script>
 import StoryMenu from '@/cmps/StoryMenu.vue'
-
 export default {
   data() {
     return {
       txt: "",
-      isMenuOpen:false
+      isMenuOpen:false,
+      isPopped:false
     };
   },
   props: {
@@ -94,6 +96,10 @@ export default {
     
   },
   methods: {
+    emoji(ev){
+      console.log(ev.detail)
+      this.txt += ev.detail.emoji.unicode
+    },
     goToDetail() {
       this.$router.push(`/details/${this.story._id}`);
     },
