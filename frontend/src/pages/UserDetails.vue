@@ -15,13 +15,13 @@
         <span class="fullname">{{ user.fullname }}</span>
     </div>
     </section>
-    <section class="add">
+    <!-- <section class="add">
       <span 
       class="svg-icon"
       v-html="$svg('plus')"
       @click="onPlus"
       ></span>
-    </section>
+    </section> -->
     <section class="action">
       <span 
       class="svg-icon"
@@ -65,8 +65,11 @@ export default {
       this.$router.push('/newStory')
     },
     getStories(){
-      
-      return this.$store.getters.storys
+      const stories =this.$store.getters.storys
+      // console.log('stories',stories)
+      const userStories = stories.filter(story => story.by._id === this.user._id)
+      // console.log('userStories',userStories)
+      return userStories
     }
   },
   computed: {

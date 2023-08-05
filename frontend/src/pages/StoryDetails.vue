@@ -42,7 +42,7 @@
                 <img class="user-img" :src="comment.by.imgUrl" alt="" />
                 <div class="nameAndLike">
                   <span class="name">{{ comment?.by.fullname }}</span>
-                  <span class="like">{{ comment?.likedBy.length }} likes</span>
+                  <span class="like">{{ comment?.likedBy?.length }} likes</span>
                 </div>
                 <pre style="" class="txt">{{ comment?.txt }}</pre>
               </div>
