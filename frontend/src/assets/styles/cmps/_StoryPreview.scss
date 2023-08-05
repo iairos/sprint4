@@ -3,19 +3,22 @@
     display: flex;
     flex-direction: column;
     margin-block-start: 40px;
+    padding-block-end: 16px;
     border-bottom: $gray-line 1px solid;
     font-size: 1em;
     width: 470px;
 
     .user-title.header {
         padding-block-end: 12px;
+        div{
+            flex: 1;
+        }
     }
 
     .title {
         display: flex;
         gap: 10px;
         align-items: center;
-        width: 390px;
     }
 
     .location{
@@ -49,7 +52,6 @@
         form {
             display: flex;
             align-items: center;
-            margin-block-end: 8px;
 
             textarea {
                 flex: 1;

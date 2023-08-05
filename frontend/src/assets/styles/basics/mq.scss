@@ -1,4 +1,4 @@
-@media (max-width:$mobile-breakpoint){
+@media (max-width:$narrow-breakpoint){
 .main-layout{
     display: grid;
     grid-template-columns: 1fr 470px 1fr;
@@ -25,4 +25,13 @@
    .prev-info{
     padding-inline: 16px;
    }
+}
+@media (max-width:$mobile-breakpoint){
+  .story-preview{
+    width:100vw ;
+    .user-title.header{
+      padding-inline: 16px;
+    }
+  }
+
 }
