@@ -11,8 +11,7 @@
         class="svg-icon btn"
         v-html="$svg('comment')"
       ></span>
-      
-    
+        
 </div>
 </article>
      

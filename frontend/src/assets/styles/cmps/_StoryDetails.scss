@@ -62,7 +62,7 @@
 
                     div {
                         gap: 10px;
-                        align-items: center;
+                        align-items: start;
                     }
 
                     span {
@@ -71,6 +71,18 @@
                             height: 12px;
                         }
                     }
+
+                    .nameAndLike{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+
+                        .like{
+                            color: $gray-txt;
+                            font-size: 12px;
+                        }
+                    }
+                    
                 }
             }
 

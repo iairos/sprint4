@@ -40,11 +40,10 @@
             >
               <div class="flex">
                 <img class="user-img" :src="comment.by.imgUrl" alt="" />
-                <!-- <div class="nameAndLike"> -->
-
+                <div class="nameAndLike">
                   <span class="name">{{ comment?.by.fullname }}</span>
-                  <!-- <span class="like">{{ comment?.likedBy.length }} likes</span>
-                </div> -->
+                  <span class="like">{{ comment?.likedBy.length }} likes</span>
+                </div>
                 <pre style="" class="txt">{{ comment?.txt }}</pre>
               </div>
               <span
@@ -161,21 +160,19 @@ export default {
         console.log("Could not like Story");
       }
     },
-    async onLikeComment(storyId , commentId)  {
-      console.log('storyId',storyId)
-      console.log('commentId',commentId)
+    async onLikeComment(storyId, commentId) {
+      console.log("storyId", storyId);
+      console.log("commentId", commentId);
       try {
         const updatedStory = await this.$store.dispatch({
           type: "likeComment",
           storyId,
           commentId,
         });
-        this.story = updatedStory;       
+        this.story = updatedStory;
       } catch {
         console.log("Could not like comment");
       }
-
-    
     },
     openMenu() {
       this.isMenuOpen = true;
@@ -188,13 +185,15 @@ export default {
 
       this.$emit("remove", storyId);
     },
-    isCommentLike(likedBy){
+    isCommentLike(likedBy) {
       // console.log('likedBy',likedBy)
       // console.log('user',this.loggedInUser._id)
-      if (!likedBy) return false
-      const idx = likedBy.findIndex((user) => user._id === this.loggedInUser._id);
-      return idx>-1
-    }
+      if (!likedBy) return false;
+      const idx = likedBy.findIndex(
+        (user) => user._id === this.loggedInUser._id
+      );
+      return idx > -1;
+    },
   },
   computed: {
     loggedInUser() {
@@ -213,7 +212,6 @@ export default {
         return true;
       }
     },
-    
   },
   components: { StoryMenu },
 };

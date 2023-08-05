@@ -1,12 +1,21 @@
 
 .user-details{
 
+    padding: 30px 20px 0;
+
     .profil-header{
         display: flex;
+        width: 760px;
         height: 190px;
         padding: 30px 20px;
         
         .img-contaner{
+            width: 234px;
+            height: 150px;
+            align-self: center;
+            display: flex;
+            justify-content: center;
+            
             .profil-img{
                 width: 150px;
                 height: 150px;
@@ -73,4 +82,8 @@
             height: 12px;
         }
     }
+
+   .stories-list{
+    gap: 5px;
+   }
 }

@@ -31,9 +31,10 @@
       <span>POSTS</span>
     </section>
    
-    <section class="stories-list">
-      <ul class="clean-list flex">
+    <section>
+      <ul class="stories-list clean-list flex">
             <li v-for="story in stories" :key="story._id">
+              
               <MiniStoryPreview :story="story"/>
                
     
@@ -64,6 +65,7 @@ export default {
       this.$router.push('/newStory')
     },
     getStories(){
+      
       return this.$store.getters.storys
     }
   },
