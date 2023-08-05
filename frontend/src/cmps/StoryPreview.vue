@@ -11,7 +11,7 @@
       <img class="user-img" :src="story.by.imgUrl" alt="" />
       <div>
         <span class="name title">{{ story.by.fullname }}</span>
-        <span class="location">{{ story.loc.name }}</span>
+        <span class="location">{{ story.loc?.name }}</span>
       </div>
         <span
         class="svg-icon btn"

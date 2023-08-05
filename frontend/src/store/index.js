@@ -70,7 +70,12 @@ const options = {
                 imgsUrl:storyToUpload.imgsUrl,
                 by:loggedUser,
                 comments:[],
-                likedBy:[]
+                likedBy:[],
+                loc: {
+                    lat: 11.11,
+                    lng: 22.22,
+                    name: "Tel Aviv"
+                  }
             }
             const storyToAdd = JSON.parse(JSON.stringify(story))
             try{
