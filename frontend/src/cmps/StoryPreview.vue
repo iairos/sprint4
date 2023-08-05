@@ -9,12 +9,15 @@
     <!-- <pre>{{story}}</pre> -->
     <div class="user-title header">
       <img class="user-img" :src="story.by.imgUrl" alt="" />
-      <span class="name title">{{ story.by.fullname }}</span>
-      <span
+      <div>
+        <span class="name title">{{ story.by.fullname }}</span>
+        <span class="location">{{ story.loc.name }}</span>
+      </div>
+        <span
         class="svg-icon btn"
         v-html="$svg('threePoints')"
         @click="openMenu()"
-      ></span>
+        ></span>
     </div>
     <img class="img" :src="story.imgsUrl[0]" alt="" />
     <section class="prev-info flex column">

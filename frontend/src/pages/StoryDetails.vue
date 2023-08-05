@@ -16,7 +16,10 @@
           <!-- <article class="detail-title flex"> -->
           <article class="user-title header">
             <img class="user-img" :src="story.by.imgUrl" alt="" />
-            <span class="name title">{{ story.by.fullname }}</span>
+            <div class="nameAndLoc">
+              <span class="name title">{{ story.by.fullname }}</span>
+              <span class="location">{{ story.loc.name }}</span>
+            </div>
             <span
               class="svg-icon btn"
               v-html="$svg('threePoints')"
@@ -37,7 +40,11 @@
             >
               <div class="flex">
                 <img class="user-img" :src="comment.by.imgUrl" alt="" />
-                <span class="name">{{ comment?.by.fullname }}</span>
+                <!-- <div class="nameAndLike"> -->
+
+                  <span class="name">{{ comment?.by.fullname }}</span>
+                  <!-- <span class="like">{{ comment?.likedBy.length }} likes</span>
+                </div> -->
                 <pre style="" class="txt">{{ comment?.txt }}</pre>
               </div>
               <span
