@@ -47,7 +47,7 @@ const options = {
         },
         loadUser({ commit }){
             const user = userService.getLoggedinUser()
-            console.log('user',user)
+            // console.log('user',user)
             commit({ type: 'setUser', user })
             
 
@@ -96,7 +96,8 @@ const options = {
             const comment = {
                 id:utilService.makeId(),
                 by:user,
-                txt
+                txt,
+                likedBy:[]
             }
             const story = getters.storys.find(story => story._id === storyId)
             const storyToUpdate = JSON.parse(JSON.stringify(story))
@@ -161,14 +162,14 @@ const options = {
             }
             const story = getters.storys.find(story => story._id === storyId)
             const storyToUpdate = JSON.parse(JSON.stringify(story))
+            // console.log('storyToUpdate',storyToUpdate)
             if(storyToUpdate.comments){
                 const commentIdx = storyToUpdate.comments
                     .findIndex(comment => comment.id===commentId)
-                
-                
-
+                // console.log('commentIdx',commentIdx)    
                 if (commentIdx>-1){
                     const likedBy = storyToUpdate.comments[commentIdx].likedBy
+                    // console.log('likedBy',likedBy)  
                     const idx = likedBy.findIndex(user => user._id===loggedUser._id)
                     if (idx ===-1) likedBy.push(user)
                     else likedBy.splice(idx,1)
