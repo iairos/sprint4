@@ -26,6 +26,7 @@ async function query(filterBy={txt:''}) {
         throw err
     }
 }
+
 async function getById(storyId) {
     try {
         const collection = await dbService.getCollection('story')
