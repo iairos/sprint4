@@ -31,10 +31,11 @@ const router = createRouter({
     ]
     },
     {
-      path: '/userProfile',
+      path: '/userProfile/:userId',
       name: 'Profile',
       component: UserDetails,
     }
+    // path: '/userProfile',
     
    
   ]

@@ -8,7 +8,7 @@
              
     <!-- <pre>{{story}}</pre> -->
     <div class="user-title header">
-      <img class="user-img" :src="story.by.imgUrl" alt="" />
+      <img class="user-img" :src="story.by.imgUrl" alt="" @click="onUserProfile"/>
       <div>
         <span class="name title">{{ story.by.fullname }}</span>
         <span class="location">{{ story.loc?.name }}</span>
@@ -102,6 +102,9 @@ export default {
     },
     goToDetail() {
       this.$router.push(`/details/${this.story._id}`);
+    },
+    onUserProfile() {
+      this.$router.push(`/userProfile/${this.story.by._id}`);
     },
     like(storyId) {
       this.$emit("like", storyId);

@@ -1,7 +1,8 @@
 import { createStore } from 'vuex'
 
 
-import { storyService } from '@/services/story.service.local.js'
+import { storyService } from '@/services/story.service.js'
+// import { storyService } from '@/services/story.service.local.js'
 import { userService } from '../services/user.service.js'
 
 import { utilService } from '../services/util.service.js'
@@ -45,12 +46,10 @@ const options = {
                     // TODO: throw error to display user
             }
         },
-        loadUser({ commit }){
-            const user = userService.getLoggedinUser()
+        async loadUser({ commit }){
+            const user = await userService.login({username:'jeniferbabiston', password:'abc'})
             // console.log('user',user)
             commit({ type: 'setUser', user })
-            
-
         },
         async removeStory({ commit }, { storyId }) {
             try{
@@ -143,6 +142,7 @@ const options = {
                 // else remove from array
                 else storyToUpdate.likedBy.splice(idx,1)
             }
+            console.log('storyToUpdate',storyToUpdate)
             //save to DB 
             try{
                 const savedStory = await storyService.save(storyToUpdate) 

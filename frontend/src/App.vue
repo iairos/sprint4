@@ -1,9 +1,11 @@
 <script>
 import StoryNav from '@/cmps/StoryNav.vue';
+import { userService } from './services/user.service';
 export default {
 
     created(){
         this.$store.dispatch({ type: 'loadUser' })
+        // userService.login({username:'jeniferbabiston', password:'abc'})        
     },
     components: {
 

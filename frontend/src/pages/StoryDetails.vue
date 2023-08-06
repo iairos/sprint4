@@ -111,7 +111,8 @@
 
 <script>
 import StoryMenu from "@/cmps/StoryMenu.vue";
-import { storyService } from "../services/story.service.local.js";
+// import { storyService } from "../services/story.service.local.js";
+import { storyService } from "../services/story.service.js";
 export default {
   data() {
     return {

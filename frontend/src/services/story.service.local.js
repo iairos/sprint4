@@ -63,15 +63,15 @@ function _createStorys() {
 	return story
 }
 
-function _createUsers()
-{
+// function _createUsers()
+// {
 
-	let users = utilService.loadFromStorage(USER_KEY)
-	if (!users || !users.length) {
-		users = gUser
-		utilService.saveToStorage(USER_KEY, users)
-	}
-	return users[0]
-}
+// 	let users = utilService.loadFromStorage(USER_KEY)
+// 	if (!users || !users.length) {
+// 		users = gUser
+// 		utilService.saveToStorage(USER_KEY, users)
+// 	}
+// 	return users[0]
+// }
 
 	

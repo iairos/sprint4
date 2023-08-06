@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import { storyService } from "../services/story.service.local.js";
+// import { storyService } from "../services/story.service.local.js";
 // import { uploadImg } from '../services/upload.service.js';
 import {uploadService} from '@/services/upload.service.js'
 
