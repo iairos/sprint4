@@ -8,9 +8,9 @@
             @onCommentStory="onCommentStory" 
             :stories="stories"/>
             
-            <div class="suggestions">
+            <!-- <div class="suggestions">
 
-            </div>
+            </div> -->
         </div>
         <RouterView />
     </section>

@@ -2,7 +2,7 @@
   <!-- <div @click="goHome" class="modal-bg"> -->
   <ModalBg>
     <div class="detail-wrap">
-      <section v-if="story" class="story-details">
+      <section v-if="story" class="story-details" @click="isPopped = false">
         <div>
           <img class="detail-img" :src="story.imgsUrl[0]" alt="" />
         </div>
@@ -90,7 +90,8 @@
           </article>
           <article class="detail-comment">
             <form @submit.prevent="onCommentStory(story._id, txt)">
-              <span class="svg-icon btn" v-html="$svg('Emoji')"></span>
+              <emoji-picker v-if="isPopped" @click.stop @emoji-click="addEmoji"></emoji-picker>
+              <span class="svg-icon btn" v-html="$svg('Emoji')" @click.stop="isPopped = !isPopped"></span>
               <textarea
                 v-model="txt"
                 v-textarea
@@ -116,12 +117,17 @@ export default {
       commentTxt: "",
       txt: "",
       isMenuOpen: false,
+      isPopped:false
     };
   },
   async created() {
     await this.loadStory();
   },
   methods: {
+    addEmoji(ev){
+      console.log(ev.detail)
+      this.txt += ev.detail.emoji.unicode
+    },
     goHome() {
       this.$router.push("/");
     },

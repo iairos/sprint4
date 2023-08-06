@@ -68,7 +68,7 @@
       <button class="post-btn" v-if="txt">Post</button>
       <span class="svg-icon btn" v-html="$svg('smallEmoji')" @click.stop="isPopped = !isPopped">
       </span>
-      <emoji-picker v-if="isPopped" @click.stop @emoji-click="emoji"></emoji-picker>
+      <emoji-picker v-if="isPopped" @click.stop @emoji-click="addEmoji"></emoji-picker>
     </form>
 
   </section>
@@ -96,7 +96,7 @@ export default {
     
   },
   methods: {
-    emoji(ev){
+    addEmoji(ev){
       console.log(ev.detail)
       this.txt += ev.detail.emoji.unicode
     },

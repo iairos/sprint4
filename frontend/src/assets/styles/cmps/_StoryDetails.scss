@@ -97,6 +97,7 @@
             }
 
             form {
+                position: relative;
                 display: flex;
                 justify-content: start;
                 align-items: center;
@@ -128,6 +129,11 @@
                     width: 30px;
                     padding: 5px;
                     font-weight: 600;
+                }
+                emoji-picker{
+                    left: 0;
+                    translate: 0% -102% ;
+                    top: none;
                 }
             }
 

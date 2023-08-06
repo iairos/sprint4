@@ -21,17 +21,50 @@
   }
   .story-list{
     padding: 0;
+    padding-block-end: 10%;
+  }
+  .story-preview{
+    margin-block-start: 0;
   }
    .prev-info{
     padding-inline: 16px;
+
    }
 }
 @media (max-width:$mobile-breakpoint){
+  .modal-bg{
+    width: 0;
+    height: 0;
+  }
   .story-preview{
     width:100vw ;
     .user-title.header{
       padding-inline: 16px;
     }
+    .prev-info{
+      form{
+        display: none;
+      }
+    }
   }
-
+  .detail-wrap{
+    padding: 0;
+    max-height: 0;
+    
+    .story-details{
+      position: fixed;
+      top: 0;
+      left: 0;
+      max-width: none;
+      max-height: none;
+      width: 100vw;
+      height: 100vh;
+      padding-block-end: 10%;
+      div{
+        .detail-img{
+          display: none;
+        }
+      }
+    }
+  }
 }
