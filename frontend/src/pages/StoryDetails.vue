@@ -92,6 +92,9 @@
             </div>
           </article>
           <article class="detail-comment">
+            <span>
+              <img class="user-img" :src="story.by.imgUrl" alt="" />
+            </span>
             <form @submit.prevent="onCommentStory(story._id, txt)">
               <emoji-picker v-if="isPopped" @click.stop @emoji-click="addEmoji"></emoji-picker>
               <span class="svg-icon btn" v-html="$svg('Emoji')" @click.stop="isPopped = !isPopped"></span>

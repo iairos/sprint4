@@ -183,10 +183,11 @@ const options = {
             
             // console.log('storyToUpdate',storyToUpdate)
             try{
+                console.log('storyToUpdate', storyToUpdate);
                 const savedStory = await storyService.save(storyToUpdate) 
                 
-                commit({ type: 'saveStory',  savedStory })
                 console.log('Story updated')
+                commit({ type: 'saveStory',  savedStory })
                 return savedStory
             }
             catch(err){
