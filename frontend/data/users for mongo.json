@@ -1,6 +1,6 @@
 [
   {
-    "_id": "u106",
+    
     "username": "jeniferbabiston",
     "password": "abc",
     "fullname": "Jenifer Babiston",
@@ -315,7 +315,7 @@
     "savedStoryIds": ["st103", "st104", "st106", "st107","st108"]
   },
 {
-  "_id": "u101",
+  
   "username": "juliaiboberts",
   "password": "abc",
   "fullname": "Julia Boberts",
@@ -347,7 +347,7 @@
   "savedStoryIds": ["s104", "s111", "s123"]
 },
 {
-  "_id": "u102",
+ 
   "username": "galgabot",
   "password": "abc",
   "fullname": "Gal Gabot",
@@ -379,7 +379,7 @@
   "savedStoryIds": ["s104", "s111", "s123"]
 },
 {
-  "_id": "u103",
+  
   "username": "angelinatoli",
   "password": "abc",
   "fullname": "Angelina Toly",
@@ -413,7 +413,7 @@
   "savedStoryIds": ["s104", "s111", "s123"]
 },
 {
-  "_id": "u104",
+ 
   "username": "bradtip",
   "password": "abc",
   "fullname": "Brad Tip",
@@ -448,7 +448,7 @@
   "savedStoryIds": ["s104", "s111", "s123"]
 },
 {
-  "_id": "u105",
+  
   "username": "borismayson",
   "password": "abc",
   "fullname": "Boris Mayson",
@@ -492,7 +492,7 @@
 },
 
 {
-  "_id": "u107",
+ 
   "username": "mathudetty",
   "password": "abc",
   "fullname": "Mathu Detty",
@@ -535,7 +535,7 @@
   "savedStoryIds": ["s104", "s111", "s123"]
 },
 {
-  "_id": "u108",
+ 
   "username": "monicageller",
   "password": "abc",
   "fullname": "Monica Geller",
@@ -578,7 +578,7 @@
   "savedStoryIds": ["s104", "s111", "s123"]
 },
 {
-  "_id": "u109",
+ 
   "username": "rachelgreen",
   "password": "abc",
   "fullname": "Rachel Green",
@@ -621,7 +621,7 @@
   "savedStoryIds": ["s104", "s111", "s123"]
 },
 {
-  "_id": "u110",
+ 
   "username": "rosgeller",
   "password": "abc",
   "fullname": "Ros Geller",
@@ -664,7 +664,7 @@
   "savedStoryIds": ["s104", "s111", "s123"]
 },
 {
-  "_id": "u111",
+
   "username": "joeitribiani",
   "password": "abc",
   "fullname": "Joei Tribiani",

@@ -18,7 +18,7 @@
             <img class="user-img" :src="story.by.imgUrl" alt="" />
             <div class="nameAndLoc">
               <span class="name title">{{ story.by.fullname }}</span>
-              <span class="location">{{ story.loc.name }}</span>
+              <span class="location">{{ story.loc?.name }}</span>
             </div>
             <span
               class="svg-icon btn"
@@ -42,7 +42,10 @@
                 <img class="user-img" :src="comment.by.imgUrl" alt="" />
                 <div class="nameAndLike">
                   <span class="name">{{ comment?.by.fullname }}</span>
-                  <span class="like">{{ comment?.likedBy.length }} likes</span>
+                  <span class="like" v-if="comment?.likedBy?.length > 1"
+                    >{{ comment?.likedBy?.length }} likes</span>
+                  <span class="like" v-if="comment?.likedBy?.length === 1"
+                    >{{ comment?.likedBy?.length }} like</span>
                 </div>
                 <pre style="" class="txt">{{ comment?.txt }}</pre>
               </div>
@@ -109,7 +112,8 @@
 
 <script>
 import StoryMenu from "@/cmps/StoryMenu.vue";
-import { storyService } from "../services/story.service.local.js";
+// import { storyService } from "../services/story.service.local.js";
+import { storyService } from "../services/story.service.js";
 export default {
   data() {
     return {

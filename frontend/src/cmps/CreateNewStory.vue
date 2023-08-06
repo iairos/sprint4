@@ -51,7 +51,11 @@
                 <span
                 class="svg-icon btn"
                 v-html="$svg('Emoji')"
+                @click.stop="isPopped = !isPopped"
                 ></span>
+                <!-- <span class="svg-icon btn" v-html="$svg('smallEmoji')" >
+                </span> -->
+                 <emoji-picker v-if="isPopped" @click.stop @emoji-click="emoji"></emoji-picker>
                 <span>{{ txtLen }}</span>    
               </div> 
           </div>
@@ -65,7 +69,7 @@
 </template>
 
 <script>
-import { storyService } from "../services/story.service.local.js";
+// import { storyService } from "../services/story.service.local.js";
 // import { uploadImg } from '../services/upload.service.js';
 import {uploadService} from '@/services/upload.service.js'
 
@@ -80,6 +84,7 @@ export default {
       },
       // file: null,
       url: null,
+      isPopped:false,
     };
   },
   methods: {
@@ -97,6 +102,10 @@ export default {
     //     reader.readAsDataURL(file);
     //   });
     // },
+    emoji(ev){
+      console.log(ev.detail)
+      this.imgToUpload.txt += ev.detail.emoji.unicode
+    },
     async onAddStory() {
       console.log('onAddStory')
       // if (this.file) {

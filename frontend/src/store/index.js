@@ -1,7 +1,8 @@
 import { createStore } from 'vuex'
 
 
-import { storyService } from '@/services/story.service.local.js'
+import { storyService } from '@/services/story.service.js'
+// import { storyService } from '@/services/story.service.local.js'
 import { userService } from '../services/user.service.js'
 
 import { utilService } from '../services/util.service.js'
@@ -45,12 +46,10 @@ const options = {
                     // TODO: throw error to display user
             }
         },
-        loadUser({ commit }){
-            const user = userService.getLoggedinUser()
-            console.log('user',user)
+        async loadUser({ commit }){
+            const user = await userService.login({username:'jeniferbabiston', password:'abc'})
+            // console.log('user',user)
             commit({ type: 'setUser', user })
-            
-
         },
         async removeStory({ commit }, { storyId }) {
             try{
@@ -70,7 +69,12 @@ const options = {
                 imgsUrl:storyToUpload.imgsUrl,
                 by:loggedUser,
                 comments:[],
-                likedBy:[]
+                likedBy:[],
+                loc: {
+                    lat: 11.11,
+                    lng: 22.22,
+                    name: "Tel Aviv"
+                  }
             }
             const storyToAdd = JSON.parse(JSON.stringify(story))
             try{
@@ -96,7 +100,8 @@ const options = {
             const comment = {
                 id:utilService.makeId(),
                 by:user,
-                txt
+                txt,
+                likedBy:[]
             }
             const story = getters.storys.find(story => story._id === storyId)
             const storyToUpdate = JSON.parse(JSON.stringify(story))
@@ -137,6 +142,7 @@ const options = {
                 // else remove from array
                 else storyToUpdate.likedBy.splice(idx,1)
             }
+            console.log('storyToUpdate',storyToUpdate)
             //save to DB 
             try{
                 const savedStory = await storyService.save(storyToUpdate) 
@@ -161,14 +167,14 @@ const options = {
             }
             const story = getters.storys.find(story => story._id === storyId)
             const storyToUpdate = JSON.parse(JSON.stringify(story))
+            // console.log('storyToUpdate',storyToUpdate)
             if(storyToUpdate.comments){
                 const commentIdx = storyToUpdate.comments
                     .findIndex(comment => comment.id===commentId)
-                
-                
-
+                // console.log('commentIdx',commentIdx)    
                 if (commentIdx>-1){
                     const likedBy = storyToUpdate.comments[commentIdx].likedBy
+                    // console.log('likedBy',likedBy)  
                     const idx = likedBy.findIndex(user => user._id===loggedUser._id)
                     if (idx ===-1) likedBy.push(user)
                     else likedBy.splice(idx,1)

@@ -4,7 +4,6 @@
     "fullname": "Julia Boberts",
     "imgUrl": "https://media.istockphoto.com/id/1432226243/photo/happy-young-woman-of-color-smiling-at-the-camera-in-a-studio.webp?b=1&s=170667a&w=0&k=20&c=HnVO0QRDl31Jb7HI7ly-Kepn58TzM_TwYpHMsktn9do="
   },
-
   {
     "_id": "u102",
     "fullname": "Gal Gabot",
@@ -25,7 +24,6 @@
     "fullname": "Boris Mayson",
     "imgUrl": "https://media.istockphoto.com/id/1427847593/photo/multiracial-portuguese-jamaican-mid-adult-businessman-with-beard-standing-smiling-at-desk.webp?b=1&s=170667a&w=0&k=20&c=yVdITq3oNrZj21IvsUPPbGGH6jmwaD8D5WR-9CmcVk4="
   },
-
   {
     "_id": "u106",
     "fullname": "Jenifer Babiston",
@@ -55,5 +53,106 @@
     "_id": "u111",
     "fullname": "Joei Tribiani",
     "imgUrl": "https://images.unsplash.com/photo-1588731247530-4076fc99173e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bWFuJTIwaXRhbGlhbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=400&q=60"
+  },
+  {
+    "_id": "u10001",
+    "fullname": "John Doe",
+    "imgUrl": "https://example.com/john_doe_profile.jpg"
+  },
+  {
+    "_id": "u10002",
+    "fullname": "Emma Smith",
+    "imgUrl": "https://example.com/emma_smith_profile.jpg"
+  },
+  {
+    "_id": "u10003",
+    "fullname": "Michael Johnson",
+    "imgUrl": "https://example.com/michael_johnson_profile.jpg"
+  },
+  {
+    "_id": "u10004",
+    "fullname": "Emily Lee",
+    "imgUrl": "https://example.com/emily_lee_profile.jpg"
+  },
+  {
+    "_id": "u10005",
+    "fullname": "William Wang",
+    "imgUrl": "https://example.com/william_wang_profile.jpg"
+  },
+  {
+    "_id": "u10006",
+    "fullname": "Olivia Kim",
+    "imgUrl": "https://media.istockphoto.com/id/1413764595/photo/successful-mature-business-woman-looking-at-camera.jpg?s=612x612&w=0&k=20&c=DVfYfFYbvKszddAufZo3XLxtx1WgzeiIZ6cSxAmlB5Y="
+  },
+  {
+    "_id": "u10007",
+    "fullname": "James Chen",
+    "imgUrl": "https://media.istockphoto.com/id/1464605251/photo/portrait-of-a-senior-black-man-on-the-tennis-court.webp?b=1&s=170667a&w=0&k=20&c=gmZ4_OjEegMnxTJCDq5o0H_BkC1gWs9AMee812hxUTA="
+  },
+  {
+    "_id": "u10008",
+    "fullname": "Sophia Garcia",
+    "imgUrl": "https://media.istockphoto.com/id/1394347360/photo/confident-young-black-businesswoman-standing-at-a-window-in-an-office-alone.jpg?s=612x612&w=0&k=20&c=tOFptpFTIaBZ8LjQ1NiPrjKXku9AtERuWHOElfBMBvY="
+  },
+  {
+    "_id": "u10009",
+    "fullname": "Alexander Martin",
+    "imgUrl": "https://media.istockphoto.com/id/1440149723/photo/happy-man-social-media-phone-and-living-room-relax-typing-smartphone-and-online-communication.jpg?s=612x612&w=0&k=20&c=tCGby5hd5RN0bQLupoD19GCKsp4A5wvxNOFWkwajA1M="
+  },
+  {
+    "_id": "u10010",
+    "fullname": "Isabella Wilson",
+    "imgUrl": "https://media.istockphoto.com/id/1401269015/photo/concentrated-asian-middle-aged-female-businesswoman-using-portable-computer.jpg?s=612x612&w=0&k=20&c=mJMKgkKkZXdFCq53RxuTuVjhOYwETWaIVKC3TCkpCJ0="
+  },
+  {
+    "_id": "u10011",
+    "fullname": "Ethan Thompson",
+    "imgUrl": "https://media.istockphoto.com/id/1389465862/photo/shot-of-a-young-businessman-working-on-his-laptop-at-his-desk.jpg?s=612x612&w=0&k=20&c=YZEk5hp1E8cv8y-xXLumH4H5zIVyyf4UdETZvsuH8Vk="
+  },
+  {
+    "_id": "u10012",
+    "fullname": "Mia Anderson",
+    "imgUrl": "https://media.istockphoto.com/id/1400838584/photo/one-happy-young-mixed-race-woman-standing-in-her-kitchen-at-home-and-using-smartphone-to.jpg?s=612x612&w=0&k=20&c=2VYHWRx0hCMTgnGTbsp27JHsJ6pknE5Vv7c7MHHeSCQ="
+  },
+  {
+    "_id": "u10013",
+    "fullname": "Noah Martinez",
+    "imgUrl": "https://example.com/noah_martinez_profile.jpg"
+  },
+  {
+    "_id": "u10014",
+    "fullname": "Ava Harris",
+    "imgUrl": "https://example.com/ava_harris_profile.jpg"
+  },
+  {
+    "_id": "u10015",
+    "fullname": "Liam Clark",
+    "imgUrl": "https://example.com/liam_clark_profile.jpg"
+  },
+  {
+    "_id": "u10016",
+    "fullname": "Harper Lewis",
+    "imgUrl": "https://example.com/harper_lewis_profile.jpg"
+  },
+  {
+    "_id": "u10017",
+    "fullname": "Benjamin Scott",
+    "imgUrl": "https://example.com/benjamin_scott_profile.jpg"
+  },
+  {
+    "_id": "u10018",
+    "fullname": "Abigail Allen",
+    "imgUrl": "https://example.com/abigail_allen_profile.jpg"
+  },
+  {
+    "_id": "u10019",
+    "fullname": "Elijah Green",
+    "imgUrl": "https://example.com/elijah_green_profile.jpg"
+  },
+  {
+    "_id": "u10020",
+    "fullname": "Elizabeth Baker",
+    "imgUrl": "https://example.com/elizabeth_baker_profile.jpg"
   }
+  
 ]

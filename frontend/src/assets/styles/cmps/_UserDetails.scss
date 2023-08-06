@@ -84,6 +84,9 @@
     }
 
    .stories-list{
+    display: flex;
+    // flex-wrap: 1;
+    
     gap: 5px;
    }
 }

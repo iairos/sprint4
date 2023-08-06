@@ -8,20 +8,20 @@
         <div class="main">
             <span class="name">{{ user.username }}</span>
         <div class="info">
-          <span>{{ user.savedStoryIds.length }} posts</span>
-          <span>{{ user.followers.length }} followers</span>
-          <span>{{ user.following.length }} following</span>
+          <span>{{ user.savedStoryIds?.length }} posts</span>
+          <span>{{ user.followers?.length }} followers</span>
+          <span>{{ user.following?.length }} following</span>
         </div>
         <span class="fullname">{{ user.fullname }}</span>
     </div>
     </section>
-    <section class="add">
+    <!-- <section class="add">
       <span 
       class="svg-icon"
       v-html="$svg('plus')"
       @click="onPlus"
       ></span>
-    </section>
+    </section> -->
     <section class="action">
       <span 
       class="svg-icon"
@@ -46,18 +46,19 @@
 </template>
 <script>
 import MiniStoryPreview from '../cmps/MiniStoryPreview.vue'
-
+import { userService } from "../services/user.service.js"
 
 export default {
   data() {
     return {
       stories: null,
+      user:null
       
     };
   },
     
   created() {
-    this.stories = this.getStories()
+    // this.stories = this.getStories()
     
   },
   methods:{
@@ -65,19 +66,42 @@ export default {
       this.$router.push('/newStory')
     },
     getStories(){
-      
-      return this.$store.getters.storys
-    }
+      const stories =this.$store.getters.storys
+      // console.log('stories',stories)
+      const userStories = stories.filter(story => story.by._id === this.user._id)
+      console.log('userStories',userStories)
+      return userStories
+    },
+    async loadUser() {
+      // console.log('loadUser')
+      try {
+        const { userId } = this.$route.params;
+        console.log('userId', userId)
+        const user = await userService.getById(userId);
+        this.user = user;
+        console.log('user',user)
+        this.stories = this.getStories()
+      } catch (err) {
+        console.log(err);
+      }
+    },
   },
   computed: {
-    user() {
-      return this.$store.getters.getLoggedInUser
-    },
+    // loggedInUser() {
+    //   return this.$store.getters.getLoggedInUser
+    // },
   },
   components: {
     MiniStoryPreview,
-    }
-    
+    },
+    watch: {
+    '$route.params': {
+      handler() {
+        this.loadUser()
+      },
+      immediate: true,
+    },
+  },
     
    
   
