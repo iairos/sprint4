@@ -66,6 +66,7 @@ async function update(story) {
             txt: story.txt,
             imgsUrl: story.imgsUrl,
             comments: story.comments,
+            likedBy: story.likedBy,
         }
         const collection = await dbService.getCollection('story')
         await collection.updateOne({ _id: ObjectId(story._id) }, { $set: storyToSave })
