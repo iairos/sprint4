@@ -1,19 +1,18 @@
 <template>
   <section v-if="user" class="user-details">
-    
     <section class="profil-header">
-        <div class="img-contaner">
-          <img class="profil-img" :src="user.imgUrl" alt="" />
-        </div>
-        <div class="main">
-            <span class="name">{{ user.username }}</span>
+      <div class="img-contaner">
+        <img class="profil-img" :src="user.imgUrl" alt="" />
+      </div>
+      <div class="main">
+        <span class="name">{{ user.username }}</span>
         <div class="info">
           <span>{{ user.savedStoryIds?.length }} posts</span>
           <span>{{ user.followers?.length }} followers</span>
           <span>{{ user.following?.length }} following</span>
         </div>
         <span class="fullname">{{ user.fullname }}</span>
-    </div>
+      </div>
     </section>
     <!-- <section class="add">
       <span 
@@ -23,64 +22,81 @@
       ></span>
     </section> -->
     <section class="action">
-      <span 
-      class="svg-icon"
-      v-html="$svg('postTable')"
-      @click=""
+      <span
+        class="svg-icon"
+        v-html="$svg('postTable')"
+        @click="getUserStories"
       ></span>
       <span>POSTS</span>
+      <span
+        class="svg-icon"
+        v-html="$svg('save')"
+        @click="getSavedStories"
+      ></span>
+      <span>SAVED</span>
     </section>
-   
+
     <section>
       <ul class="stories-list clean-list flex">
-            <li v-for="story in stories" :key="story._id">
-              
-              <MiniStoryPreview :story="story"/>
-               
-    
-               
-            </li>
-        </ul>
+        <li v-for="story in stories" :key="story._id">
+          <MiniStoryPreview :story="story" />
+        </li>
+      </ul>
     </section>
   </section>
 </template>
 <script>
-import MiniStoryPreview from '../cmps/MiniStoryPreview.vue'
-import { userService } from "../services/user.service.js"
+import MiniStoryPreview from "../cmps/MiniStoryPreview.vue";
+import { userService } from "../services/user.service.js";
 
 export default {
   data() {
     return {
       stories: null,
-      user:null
-      
+      user: null,
     };
   },
-    
-  created() {
-    // this.stories = this.getStories()
-    
-  },
-  methods:{
-    onPlus(){
-      this.$router.push('/newStory')
+
+  created() {},
+  methods: {
+    onPlus() {
+      this.$router.push("/newStory");
     },
-    getStories(){
-      const stories =this.$store.getters.storys
-      // console.log('stories',stories)
-      const userStories = stories.filter(story => story.by._id === this.user._id)
-      console.log('userStories',userStories)
-      return userStories
+    getUserStories() {
+      const stories = this.$store.getters.storys;
+      
+      const userStories = stories.filter(
+        (story) => story.by._id === this.user._id
+      );
+      
+      this.stories = userStories;
+      return userStories;
     },
+    getSavedStories() {
+      const stories = this.$store.getters.storys;
+      const savedStoryIds = this.user.savedStoryIds;
+      var savedStories = [];
+      var story;
+      if (savedStoryIds.length > 0) {
+        savedStoryIds.forEach((storyId) => {
+          story = stories.find((story) => story._id === storyId);
+          savedStories.push(story);
+        });
+      }
+
+      console.log("savedStories", savedStories);
+      this.stories = savedStories;
+      return savedStories;
+    },
+
     async loadUser() {
-      // console.log('loadUser')
+     
       try {
         const { userId } = this.$route.params;
-        console.log('userId', userId)
+        
         const user = await userService.getById(userId);
         this.user = user;
-        console.log('user',user)
-        this.stories = this.getStories()
+        this.getUserStories();
       } catch (err) {
         console.log(err);
       }
@@ -93,17 +109,14 @@ export default {
   },
   components: {
     MiniStoryPreview,
-    },
-    watch: {
-    '$route.params': {
+  },
+  watch: {
+    "$route.params": {
       handler() {
-        this.loadUser()
+        this.loadUser();
       },
       immediate: true,
     },
   },
-    
-   
-  
-}
+};
 </script>

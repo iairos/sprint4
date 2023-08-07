@@ -5,6 +5,7 @@
                 <StoryPreview 
                 @like="likeStory"
                 @remove="removeStory"
+                @save="saveStory"
                 @onCommentStory="onCommentStory"
                  :story="story"/>
                 <!-- <section class="actions">
@@ -29,6 +30,10 @@ export default {
         likeStory(storyId){
             
             this.$emit('like', storyId)
+        },
+        saveStory(storyId){
+            console.log('storyId',storyId)
+            this.$emit('save', storyId)
         },
         onCommentStory(storyId,txt){
             this.$emit('onCommentStory', storyId,txt)
