@@ -5,10 +5,10 @@ export default {
 
     created(){
         this.$store.dispatch({ type: 'loadUser' })
+        this.$store.dispatch({ type: 'loadStorys' })
         // userService.login({username:'jeniferbabiston', password:'abc'})        
     },
     components: {
-
         StoryNav,
     },
     methods:{
