@@ -33,8 +33,13 @@
             border-top-right-radius: .3em;
             border-bottom-right-radius: .3em;
 
+            .user-title.header{
+                height: 60px;
+            }
 
-
+            .small-title{
+                display: none;
+            }
             .detail-title {
                 align-self: start;
                 display: flex;
@@ -56,8 +61,13 @@
                 overflow: auto;
                 flex: 1;
                 gap: 20px;
-
+                div.user-title{
+                    margin-block-start: -5px;
+                    padding: 5px 16px 16px 0;
+                }
                 article {
+                    margin-block-start: -5px;
+                    padding-block-start: 12px;
                     gap: 10px;
                     justify-content: space-between;
 

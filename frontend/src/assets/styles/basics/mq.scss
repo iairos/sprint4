@@ -65,6 +65,29 @@
           display: none;
         }
         &.info-wrap{
+            .user-title.header{
+              display: none;
+            }
+            .small-title{
+              display: flex;
+              height: 44px;
+              align-items: center;
+              padding-block: 0;
+              justify-content: space-between;
+              .svg-icon{
+                margin-block-start: 3px;
+                transform: rotate(-90deg);
+              }
+              .title-txt{
+                flex-grow: 1;
+                flex-shrink: 1;
+                text-align: center;
+                justify-self: center;
+                font-size: em(16px,14px);
+                font-weight: 600;
+                margin-inline-end: 32px;
+              }
+            }
             .actions{
               display: none;
             }
@@ -73,7 +96,7 @@
               // align-self: start;
               display: flex;
               align-items: center;
-              background-color: #efefef;
+              // background-color: #efefef;
               span{
                 margin-inline-end: 16px;
                 .user-img{
