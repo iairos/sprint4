@@ -7,7 +7,7 @@
       <div class="main">
         <span class="name">{{ user.username }}</span>
         <div class="info">
-          <span>{{ user.savedStoryIds?.length }} posts</span>
+          <span>{{ userStoriesLength }} posts</span>
           <span>{{ user.followers?.length }} followers</span>
           <span>{{ user.following?.length }} following</span>
         </div>
@@ -28,12 +28,12 @@
         @click="getUserStories"
       ></span>
       <span>POSTS</span>
-      <span
+      <span v-if="isLoggedInUser"
         class="svg-icon"
         v-html="$svg('save')"
         @click="getSavedStories"
       ></span>
-      <span>SAVED</span>
+      <span v-if="isLoggedInUser">SAVED</span>
     </section>
 
     <section>
@@ -54,6 +54,7 @@ export default {
     return {
       stories: null,
       user: null,
+      userStoriesLength:0
     };
   },
 
@@ -96,16 +97,16 @@ export default {
         
         const user = await userService.getById(userId);
         this.user = user;
-        this.getUserStories();
+        this.userStoriesLength = this.getUserStories().length;
       } catch (err) {
         console.log(err);
       }
     },
   },
   computed: {
-    // loggedInUser() {
-    //   return this.$store.getters.getLoggedInUser
-    // },
+    isLoggedInUser() {
+      return (this.$store.getters.getLoggedInUser._id === this.user._id)
+    },
   },
   components: {
     MiniStoryPreview,

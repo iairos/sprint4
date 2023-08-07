@@ -22,7 +22,7 @@ import StoryList from '@/cmps/StoryList.vue'
 
 export default {
      created() {
-         this.loadStories()
+        //  this.loadStories()
      
         
     },
