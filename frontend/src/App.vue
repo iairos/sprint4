@@ -5,7 +5,7 @@ export default {
 
     created(){
         this.$store.dispatch({ type: 'loadUser' })
-        this.$store.dispatch({ type: 'loadStorys' })
+        this.$store.dispatch({ type: 'loadStories' })
         // userService.login({username:'jeniferbabiston', password:'abc'})        
     },
     components: {

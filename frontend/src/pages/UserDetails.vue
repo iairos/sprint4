@@ -1,4 +1,10 @@
 <template>
+  <StoryMenu
+      v-if="isMenuOpen"
+      @cancel="closeMenu"
+      @logout="closeMenu"
+      :user="user"
+    />
   <section v-if="user" class="user-details">
     <section class="profil-header">
       <div class="img-contaner">
@@ -6,6 +12,12 @@
       </div>
       <div class="main">
         <span class="name">{{ user.username }}</span>
+        <span
+          v-if="isLoggedInUser"
+          class="svg-icon"
+          v-html="$svg('options')"
+          @click="openMenu"
+      ></span>
         <div class="info">
           <span>{{ userStoriesLength }} posts</span>
           <span>{{ user.followers?.length }} followers</span>
@@ -48,23 +60,25 @@
 <script>
 import MiniStoryPreview from "../cmps/MiniStoryPreview.vue";
 import { userService } from "../services/user.service.js";
-
+import StoryMenu from "../cmps/StoryMenu.vue";
 export default {
   data() {
     return {
       stories: null,
       user: null,
-      userStoriesLength:0
+      userStoriesLength:0,
+      isMenuOpen:false
     };
   },
 
   created() {},
   methods: {
+    
     onPlus() {
       this.$router.push("/newStory");
     },
     getUserStories() {
-      const stories = this.$store.getters.storys;
+      const stories = this.$store.getters.stories;
       
       const userStories = stories.filter(
         (story) => story.by._id === this.user._id
@@ -74,7 +88,7 @@ export default {
       return userStories;
     },
     getSavedStories() {
-      const stories = this.$store.getters.storys;
+      const stories = this.$store.getters.stories;
       const savedStoryIds = this.user.savedStoryIds;
       var savedStories = [];
       var story;
@@ -89,7 +103,6 @@ export default {
       this.stories = savedStories;
       return savedStories;
     },
-
     async loadUser() {
      
       try {
@@ -102,6 +115,13 @@ export default {
         console.log(err);
       }
     },
+    openMenu() {
+      console.log('openMenu')
+      this.isMenuOpen = true;
+    },
+    closeMenu() {
+      this.isMenuOpen = false;
+    },
   },
   computed: {
     isLoggedInUser() {
@@ -110,6 +130,7 @@ export default {
   },
   components: {
     MiniStoryPreview,
+    StoryMenu
   },
   watch: {
     "$route.params": {

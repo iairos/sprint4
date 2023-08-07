@@ -4,9 +4,9 @@ import { storageService } from './async-storage.service.js'
 const STORY_KEY = 'storyDB'
 // const USER_KEY = 'userDB'
 
-import storyList from '../../data/storys.json' assert { type: 'json' }
+import storyList from '../../data/stories.json' assert { type: 'json' }
 
-_createStorys()
+_createStories()
 
 
 export const storyService = {
@@ -54,7 +54,7 @@ function getEmptyStory(txt,imgUrl) {
 	};
   }
 
-function _createStorys() {
+function _createStories() {
 	let story = utilService.loadFromStorage(STORY_KEY)
 	if (!story || !story.length) {
 		story = storyList
