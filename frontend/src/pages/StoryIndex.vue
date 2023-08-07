@@ -29,13 +29,13 @@ export default {
     methods: {
         loadStories(){
             try{
-                this.$store.dispatch({ type: 'loadStorys' })
-                // console.log('storys loaded')
+                this.$store.dispatch({ type: 'loadStories' })
+                // console.log('stories loaded')
                 
             }
             catch(err){
                 // console.log(err)
-                console.log('cannot load storys')
+                console.log('cannot load stories')
             }
         },
         loadUser(){
@@ -81,7 +81,7 @@ export default {
         }
     },
     computed: {
-        stories(){ return this.$store.getters.storys }
+        stories(){ return this.$store.getters.stories }
     },
     components: {
     StoryList,

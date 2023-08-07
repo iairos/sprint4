@@ -10,13 +10,13 @@ const options = {
     strict: true,
     state() {
         return {
-            storys: [],
+            stories: [],
             user: null
         }
     },
     mutations: {
-        setStorys(state, { storys }) {
-            state.storys = storys
+        setStories(state, { stories }) {
+            state.stories = stories
         },
         
         setUser(state, { user }) {
@@ -24,25 +24,39 @@ const options = {
             state.user = user
         },
 
-        removeStory({ storys }, { storyId }) {
-            const idx = storys.findIndex(story => story._id === storyId)
-            storys.splice(idx, 1)
+        removeStory({ stories }, { storyId }) {
+            const idx = stories.findIndex(story => story._id === storyId)
+            stories.splice(idx, 1)
         },
 
-        saveStory({ storys }, { savedStory }) {  
-            const idx = storys.findIndex(story => story._id === savedStory._id)
-            if (idx !== -1) storys.splice(idx, 1, savedStory)  
-            else storys.unshift(savedStory)
+        saveStory({ stories }, { savedStory }) {  
+            const idx = stories.findIndex(story => story._id === savedStory._id)
+            if (idx !== -1) stories.splice(idx, 1, savedStory)  
+            else stories.unshift(savedStory)
         },
+        deleteUser({user}){
+            user=null
+        }
     },
     actions: {
-        async loadStorys({ commit }) {
+        async logout({ commit }) {
             try{        
-                const storys = await storyService.query()
-                commit({ type: 'setStorys', storys })              
+                 await userService.logout()
+                 console.log('user logout')
+                commit({ type: 'deleteUser' })              
                 }           
             catch (err) {
-                console.log('Could not get storys')
+                console.log('Could not logout')
+                    // TODO: throw error to display user
+            }
+        },
+        async loadStories({ commit }) {
+            try{        
+                const stories = await storyService.query()
+                commit({ type: 'setStories', stories })              
+                }           
+            catch (err) {
+                console.log('Could not get stories')
                     // TODO: throw error to display user
             }
         },
@@ -103,7 +117,7 @@ const options = {
                 txt,
                 likedBy:[]
             }
-            const story = getters.storys.find(story => story._id === storyId)
+            const story = getters.stories.find(story => story._id === storyId)
             const storyToUpdate = JSON.parse(JSON.stringify(story))
             storyToUpdate.comments.push(comment)
             try{
@@ -129,7 +143,7 @@ const options = {
                 imgUrl: loggedUser.imgUrl
             }
             // Search Story
-            const story = getters.storys.find(story => story._id === storyId)
+            const story = getters.stories.find(story => story._id === storyId)
 
             // Deep copy the story
             const storyToUpdate = JSON.parse(JSON.stringify(story))
@@ -189,7 +203,7 @@ const options = {
                 fullname:loggedUser.fullname,
                 imgUrl: loggedUser.imgUrl
             }
-            const story = getters.storys.find(story => story._id === storyId)
+            const story = getters.stories.find(story => story._id === storyId)
             const storyToUpdate = JSON.parse(JSON.stringify(story))
             // console.log('storyToUpdate',storyToUpdate)
             if(storyToUpdate.comments){
@@ -220,7 +234,7 @@ const options = {
         }
     },
     getters: {
-        storys({ storys }) { return storys },
+        stories({ stories }) { return stories },
         getLoggedInUser({user}) {return user}
 
     },

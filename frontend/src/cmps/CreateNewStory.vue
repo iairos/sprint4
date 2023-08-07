@@ -45,7 +45,7 @@
                 <span class="name">{{ loggedInUser.fullname }}</span>
               </div> 
               <div class="area-holder">
-                <textarea v-model="imgToUpload.txt" placeholder="Write a caption" rows="1" v-textarea></textarea>
+                <textarea v-model="imgToUpload.txt" placeholder="Write a caption..." rows="1" v-textarea></textarea>
               </div>   
               <div class="icons">
                 <span
