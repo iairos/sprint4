@@ -122,7 +122,7 @@ export default {
   props: {
     story: { type: Object, required: true },
   },
-  emits: ["onCommentStory", "like", "remove"],
+  emits: ["onCommentStory", "like", "remove", "save"],
   created() {},
   methods: {
     addEmoji(ev) {
