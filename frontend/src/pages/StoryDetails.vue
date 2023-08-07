@@ -84,7 +84,19 @@
                 ></span>
                 <span class="svg-icon btn" v-html="$svg('comment')"></span>
               </div>
-              <span class="svg-icon btn save" v-html="$svg('save')"></span>
+              <span
+                  v-if="isSaved"
+                  class="svg-icon btn save"
+                  v-html="$svg('fillSave')"
+                  @click="onSave()"
+                ></span>
+                <span
+                  v-if="!isSaved"
+                  class="svg-icon btn save"
+                  v-html="$svg('save')"
+                  @click="onSave()"
+                ></span>
+              <!-- <span class="svg-icon btn save" v-html="$svg('save')"></span> -->
             </section>
             <div>
               <span class="likes" v-if="story.likedBy.length > 1"
@@ -177,6 +189,16 @@ export default {
         console.log("Could not like Story");
       }
     },
+    async onSave() {
+      try{
+          const storyId = this.story._id 
+            this.$store.dispatch({ type: 'addStoryToUserLIst', storyId})               
+        }
+        catch{
+            console.log('Could not save Story to user saved story')
+        } 
+      // this.$emit("save", this.story._id);
+    },
     async onLikeComment(storyId, commentId) {
       console.log("storyId", storyId);
       console.log("commentId", commentId);
@@ -227,6 +249,15 @@ export default {
     isDisabled() {
       if (!this.txt) {
         return true;
+      }
+    },
+    isSaved() {
+      const userSavedStories = this.loggedInUser.savedStoryIds;
+      // console.log('userSavedStories',userSavedStories)
+      if (userSavedStories) {
+        const idx = userSavedStories.findIndex(storyId => storyId === this.story._id
+        );
+        return idx > -1;
       }
     },
   },
