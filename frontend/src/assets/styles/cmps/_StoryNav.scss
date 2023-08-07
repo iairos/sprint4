@@ -2,14 +2,16 @@
     // grid-row: 2;
     height: 100vh;
     width: 244px;
-    padding-inline-start: em(15px,14px);
     display: flex;
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.15) 1px  0.5px;
     font-size: em(16px,14px);
-    
+    padding: 8px 12px 20px;
     .logo {
-        height: 80px;
+        width: 220px;
+        height: 92px;
+        margin-block-end: 19px;
+        padding: 25px 12px 16px;
         // align-items: start;
         // justify-items: start;
         .logo-small{
@@ -29,8 +31,7 @@
         border: none;
         display: flex;
         align-items: center;
-        min-width: 48px;
-        gap: 10px;
+        gap: 16px;
         &.active{
             font-weight: 600;
             .svg-icon{
@@ -39,6 +40,12 @@
                 }
             }
         }
+        .svg-icon{
+            padding-block-start: 5px;
+    }
+        // #newStory{
+        //     padding-block-start: 7px;
+        // }
         .user-img{
             width: 24px;
             height: 24px;
@@ -52,25 +59,35 @@
 
     &>*:hover:not(.logo) {
         border-radius: 10px;
-        background-color: rgba(188, 195, 206, 0.481);
+        background-color:$clr-hover;
     }
-    &>*{
+    &>*:not(.logo){
         cursor: pointer;
-        padding: 10px;
+        padding: 12px;
+        margin-block: 4px;
     }
 }
 @media (max-width:$nav-breakpoint){
     .story-nav{
         width: $nav-narrow-width;
-        .svg-icon.logo-small{
-            svg{
-                width: 24px;
-                height: 24px;
+        .logo{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 96px;
+            margin: 12px 0 0 0;
+            padding: 0 0 23px;
+            .svg-icon.logo-small{
+                svg{
+                    width: 24px;
+                    height: 24px;
+                }
+                display: block;
             }
-            display: block;
-        }
-        .svg-icon.logo{
-            display: none;
+            .svg-icon.logo-icon{
+                display: none;
+            }
         }
         .btn-title{
             display: none;

@@ -11,12 +11,23 @@
     bottom: 0;
     position: fixed;
     flex-direction: row;
+    border-block-start: $gray-line 1px solid;
+    padding: 0;
     width: 100vw;
     height: 48px;
     background-color: #ffffff;
     justify-content: space-around;
     .logo{
         display: none;
+    }
+    .nav-btn{
+      display: flex;
+      align-items: center;
+      justify-items: center;
+      width: 48px;
+      height: 48px;
+      margin: 0;
+    
     }
   }
   .story-list{

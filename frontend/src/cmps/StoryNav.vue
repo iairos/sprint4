@@ -1,7 +1,7 @@
 <template>
   <section class="story-nav">
     <div class="logo flex" @click="$router.push('/')">
-      <span class="svg-icon logo" v-html="$svg('logo')"></span>
+      <span class="svg-icon logo-icon" v-html="$svg('logo')"></span>
       <span
         class="svg-icon nav-btn logo-small"
         v-html="$svg('logoIcon')"
