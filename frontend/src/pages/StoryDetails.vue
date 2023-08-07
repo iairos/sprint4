@@ -96,7 +96,7 @@
             </div>
           </article>
           <article class="detail-comment">
-            <span>
+            <span class="user-icon">
               <img class="user-img" :src="story.by.imgUrl" alt="" />
             </span>
             <form @submit.prevent="onCommentStory(story._id, txt)">

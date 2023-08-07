@@ -104,6 +104,9 @@
             .detail-comment {
                 align-self: end;
                 justify-self: end;
+                .user-icon{
+                    display: none;
+                }
             }
 
             form {

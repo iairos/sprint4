@@ -68,6 +68,13 @@
             .user-title.header{
               display: none;
             }
+            .detail-comments{
+              padding: 16px;
+              .user-title{
+                margin: -5px -2px 0 0;
+                padding: 12px 28px 0 0;
+              }
+            }
             .small-title{
               display: flex;
               height: 44px;
@@ -94,14 +101,12 @@
             &
             .detail-comment{
               // align-self: start;
+              margin-inline-end: -2px;
               display: flex;
               align-items: center;
               // background-color: #efefef;
-              span{
-                margin-inline-end: 16px;
-                .user-img{
-                  display: block;
-                }
+              .user-icon{
+                display: block;
               }
               form{
                 
