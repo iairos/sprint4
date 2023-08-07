@@ -31,8 +31,9 @@ function remove(userId) {
 }
 
 async function update(user) {
-    user = await httpService.put(`user/${user._id}`, user)
-  
+    // console.log('user service',user)
+     user = await httpService.put(`user/${user._id}`, user)
+    // console.log('saved user', user);
     // Handle case in which admin updates other user's details
     if (getLoggedinUser()._id === user._id) saveLocalUser(user)
     return user
@@ -40,6 +41,7 @@ async function update(user) {
 
 async function login(userCred) {
     const user = await httpService.post('auth/login', userCred)
+    // console.log('login user',user)
     if (user) {
         // socketService.login(user._id)
         return saveLocalUser(user)
@@ -69,7 +71,7 @@ async function changeScore(by) {
 
 
 function saveLocalUser(user) {
-    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl}
+    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, savedStoryIds: user.savedStoryIds}
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }

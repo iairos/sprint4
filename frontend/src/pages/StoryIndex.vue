@@ -5,6 +5,7 @@
             v-if="stories"
             @remove="removeStory" 
             @like="likeStory"
+            @save="addStoryToUserLIst"
             @onCommentStory="onCommentStory" 
             :stories="stories"/>
             
@@ -59,6 +60,14 @@ export default {
                 console.log('Could not like Story')
             }
             
+        },
+        addStoryToUserLIst(storyId){
+            try{
+                this.$store.dispatch({ type: 'addStoryToUserLIst', storyId })               
+            }
+            catch{
+                console.log('Could not save Story')
+            }     
         },
         async onCommentStory(storyId,txt){
             try{

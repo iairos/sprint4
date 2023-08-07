@@ -114,7 +114,7 @@ export default {
   watch: {},
   computed: {
     user() {
-      console.log(this.$store.getters.getLoggedInUser);
+      // console.log(this.$store.getters.getLoggedInUser);
       return this.$store.getters.getLoggedInUser;
     },
   },

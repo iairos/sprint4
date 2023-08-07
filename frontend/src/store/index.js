@@ -157,6 +157,30 @@ const options = {
                 throw new Error('Service is current not available')
             }  
         },
+        async addStoryToUserLIst( {commit, getters } , { storyId }) {
+            const loggedUser = getters.getLoggedInUser
+            const user = JSON.parse(JSON.stringify(loggedUser))
+            // Search Story
+            // console.log('user',user)
+            const idx = user.savedStoryIds.findIndex(savedStoryId => savedStoryId === storyId)
+            
+            if (idx ===-1) user.savedStoryIds.push(storyId)
+            else user.savedStoryIds.splice(idx,1)
+            
+            console.log('user',user)
+            //save to DB 
+            try{
+                const savedUser = await userService.update(user)  
+                commit({ type: 'setUser',  user: savedUser })
+                console.log('Story saved in user saved stories list')
+                return savedUser
+            }
+            // if Could not save, throw error msg.
+            catch(err){
+                console.log('Could not add story to user saved stories list')
+                throw new Error('Service is current not available')
+            }  
+        },
         async likeComment( {commit, getters } , { storyId , commentId}) {
             
             const loggedUser = getters.getLoggedInUser

@@ -1,7 +1,7 @@
 <template>
   <ModalBg closeAction="closeModal" @closed="onCancel">
   <article class="story-menu">
-    <h2 @click="onDelete" class="red-txt">Delete</h2>
+    <h2 v-if="isOwner" @click="onDelete" class="red-txt">Delete</h2>
     <!-- <h2 @click="onEdit">Edit</h2> -->
     <h2 @click="onCancel">Cancel</h2>
   </article>
@@ -19,11 +19,19 @@ export default {
       this.$emit("cancel");
     },
     onDelete() {
-        // console.log('menu',this.story._id)
       this.$emit("remove", this.story._id);
     },
   },
-};
+  computed: {
+    isOwner() {
+      const userId = this.$store.getters.getLoggedInUser._id
+      // console.log('userId',userId)
+      // console.log('story by id',this.story.by._id )
+      return (this.story.by._id === userId) 
+       
+    },
+  }
+}
 </script>
 
 <style lang="scss"></style>
