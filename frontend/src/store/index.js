@@ -41,8 +41,8 @@ const options = {
     actions: {
         async logout({ commit }) {
             try{        
-                 await userService.logout()
-                 console.log('user logout')
+                 const user = await userService.logout()
+                 console.log('user logout', user)
                 commit({ type: 'deleteUser' })              
                 }           
             catch (err) {
@@ -156,11 +156,11 @@ const options = {
                 // else remove from array
                 else storyToUpdate.likedBy.splice(idx,1)
             }
-            console.log('storyToUpdate',storyToUpdate)
+            console.log('story before save',storyToUpdate)
             //save to DB 
             try{
                 const savedStory = await storyService.save(storyToUpdate) 
-                
+                console.log('story after save', savedStory)
                 commit({ type: 'saveStory',  savedStory })
                 console.log('Story updated')
                 return savedStory

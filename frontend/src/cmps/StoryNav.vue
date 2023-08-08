@@ -99,6 +99,15 @@ export default {
         //     path: `/userProfile/${this.$store.getters.getLoggedInUser._id}`,
         //     imgUrl:this.$store.getters.getLoggedInUser.imgUrl
         // },
+        // {
+        //     id: 4,
+            
+        //     title: 'login',
+        //     name:'login',
+        //     path: `/login`,
+        //     svg: "heart",
+            
+        // },
       ],
     };
   },

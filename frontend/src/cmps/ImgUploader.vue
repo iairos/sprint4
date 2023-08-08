@@ -5,8 +5,11 @@
       <img :src="img" alt="" />
     </label> -->
   <div className="upload-preview">
+    <label @drop.prevent="uploadImg" @dragover.prevent>
     <img v-if="imgUrl" :src="imgUrl" :style="{ maxWidth: '200px', float: 'right' }" />
     <input type="file" @change="uploadImg" accept="img/*" id="imgUpload" />
+    <!-- <input type="file" @change="handleFile" accept="img/*" id="imgUpload" /> -->
+  </label> 
   </div>
 </template>
 
@@ -31,7 +34,12 @@ export default {
       this.height = height
       this.width = width
       this.$emit('uploaded', this.imgUrl)
-    }
+    },
+    async handleFile(ev) {
+            console.log("ev:", ev)
+            const { url ,height, width} = await uploadService.uploadImg(ev)
+            this.imgUrl = url
+        }
   },
   computed: {
     uploadMsg() {

@@ -5,6 +5,7 @@ import StoryIndex from '../pages/StoryIndex.vue'
 import StoryDetails from '../pages/StoryDetails.vue'
 import CreateNewStory from '../cmps/CreateNewStory.vue'
 import UserDetails from '../Pages/UserDetails.vue'
+import LoginSignUp from '../Pages/LoginSignUp.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -34,7 +35,13 @@ const router = createRouter({
       path: '/userProfile/:userId',
       name: 'Profile',
       component: UserDetails,
-    }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginSignUp,
+    },
+
     // path: '/userProfile',
     
    
