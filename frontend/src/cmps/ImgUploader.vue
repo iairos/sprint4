@@ -36,7 +36,7 @@ export default {
       this.$emit('uploaded', this.imgUrl)
     },
     async handleFile(ev) {
-            console.log("ev:", ev)
+            // console.log("ev:", ev)
             const { url ,height, width} = await uploadService.uploadImg(ev)
             this.imgUrl = url
         }

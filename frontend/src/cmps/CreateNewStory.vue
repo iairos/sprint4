@@ -103,22 +103,22 @@ export default {
     //   });
     // },
     emoji(ev){
-      console.log(ev.detail)
+      // console.log(ev.detail)
       this.imgToUpload.txt += ev.detail.emoji.unicode
     },
     async onAddStory() {
-      console.log('onAddStory')
+      // console.log('onAddStory')
       // if (this.file) {
         try {
           // this.imgToUpload.imgsUrl.push(await this.uploadImage(this.file));
           this.imgToUpload.imgsUrl.push(this.url);
           const storyToUpload = JSON.parse(JSON.stringify(this.imgToUpload));
-          console.log('storyToUpload', storyToUpload)
+          // console.log('storyToUpload', storyToUpload)
           const savedStory = await this.$store.dispatch({
             type: "AddStory",
             storyToUpload,
           });
-          console.log("story saved", savedStory);
+          // console.log("story saved", savedStory);
           this.url = null;
           this.imgToUpload.txt = "";
           this.$router.push("/");
@@ -136,9 +136,9 @@ export default {
 
     },
     async handleFile(ev) {
-            console.log(" ev:", ev)
+            // console.log(" ev:", ev)
             const { url } = await uploadService.uploadImg(ev)
-            console.log(" url:", url)
+            // console.log(" url:", url)
             this.url = url
             this.stage = 2;
         }

@@ -1,15 +1,20 @@
 <script>
-import StoryNav from '@/cmps/StoryNav.vue';
-import { userService } from './services/user.service';
+import StoryNav from '@/cmps/StoryNav.vue'
+// import { userService } from '@/services/user.service.js'
+import LoginSignUp from '@/Pages/LoginSignUp.vue';
+
 export default {
 
-    created(){
-        this.$store.dispatch({ type: 'loadUser' })
+    async created(){
+        const user = await this.$store.dispatch({ type: 'loadUser' })
         this.$store.dispatch({ type: 'loadStories' })
         // userService.login({username:'jeniferbabiston', password:'abc'})        
     },
     components: {
         StoryNav,
+        LoginSignUp
+        
+        
     },
     methods:{
         goHome(){

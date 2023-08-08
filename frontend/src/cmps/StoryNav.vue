@@ -26,7 +26,11 @@
     >
       <img class="user-img" :src="user.imgUrl" alt="" />
       <span class="btn-title">Profile</span>
+    
     </div>
+    <!-- <div v-if="!user">
+      <LoginSignUp />
+    </div> -->
     <!-- <div  class="nav-btn" @click="$router.push('/')">
                     <span class="svg-icon" v-html="$svg('home')" ></span>
                     <span>Home</span>
@@ -63,70 +67,71 @@
 </template>
 
 <script>
+import LoginSignUp from '../Pages/LoginSignUp.vue';
+
 export default {
-  data() {
-    return {
-      btns: [
-        {
-          id: 1,
-          isActive: true,
-          title: "Home",
-          name: "Home",
-          path: "/",
-          svg: "home",
-        },
-        // {
-        //     id: 2,
-        //     isActive: false,
-        //     title: 'Search',
-        //     name:'',
-        //     path: '/',
-        //     svg: 'search'
-        // },
-        {
-          id: 3,
-          isActive: false,
-          title: "Create",
-          name: "newStory",
-          path: "/newStory",
-          svg: "create",
-        },
-        // {
-        //     id: 4,
-        //     isActive: false,
-        //     title: 'Profile',
-        //     name:'Profile',
-        //     path: `/userProfile/${this.$store.getters.getLoggedInUser._id}`,
-        //     imgUrl:this.$store.getters.getLoggedInUser.imgUrl
-        // },
-        // {
-        //     id: 4,
-            
-        //     title: 'login',
-        //     name:'login',
-        //     path: `/login`,
-        //     svg: "heart",
-            
-        // },
-      ],
-    };
-  },
-  // path: `/userProfile/:${this.$store.getters.getLoggedInUser._id}`,
-  methods: {
-    onChangeRoute(idx, path) {
-      // this.btns.forEach(btn => btn.isActive = false)
-      // this.btns[idx].isActive = true
-      // this.btns[idx].svg = `${this.btns[idx].svg}-fill`
-      this.$router.push(path);
+    data() {
+        return {
+            btns: [
+                {
+                    id: 1,
+                    isActive: true,
+                    title: "Home",
+                    name: "Home",
+                    path: "/",
+                    svg: "home",
+                },
+                // {
+                //     id: 2,
+                //     isActive: false,
+                //     title: 'Search',
+                //     name:'',
+                //     path: '/',
+                //     svg: 'search'
+                // },
+                {
+                    id: 3,
+                    isActive: false,
+                    title: "Create",
+                    name: "newStory",
+                    path: "/newStory",
+                    svg: "create",
+                },
+                // {
+                //     id: 4,
+                //     isActive: false,
+                //     title: 'Profile',
+                //     name:'Profile',
+                //     path: `/userProfile/${this.$store.getters.getLoggedInUser._id}`,
+                //     imgUrl:this.$store.getters.getLoggedInUser.imgUrl
+                // },
+                // {
+                //     id: 4,
+                //     title: 'login',
+                //     name:'login',
+                //     path: `/login`,
+                //     svg: "heart",
+                // },
+            ],
+        };
     },
-  },
-  watch: {},
-  computed: {
-    user() {
-      // console.log(this.$store.getters.getLoggedInUser);
-      return this.$store.getters.getLoggedInUser;
+    // path: `/userProfile/:${this.$store.getters.getLoggedInUser._id}`,
+    methods: {
+        onChangeRoute(idx, path) {
+            // this.btns.forEach(btn => btn.isActive = false)
+            // this.btns[idx].isActive = true
+            // this.btns[idx].svg = `${this.btns[idx].svg}-fill`
+            this.$router.push(path);
+        },
     },
-  },
+    watch: {},
+    computed: {
+        user() {
+            // console.log(this.$store.getters.getLoggedInUser);
+            return this.$store.getters.getLoggedInUser;
+        },
+    },
+    components: { LoginSignUp }
 };
 </script>
 

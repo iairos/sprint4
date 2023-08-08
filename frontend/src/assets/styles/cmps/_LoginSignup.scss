@@ -1,0 +1,30 @@
+.main{
+    z-index: 20;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background-color: white;
+    border: 1px solid black;
+    // border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .logo{
+        justify-self: center;
+        svg{
+            height: 50px;
+            width: 174px;
+
+        }
+    }
+    button{
+        background-color: $blue-btn;
+        color: white;
+        font-size: 14px;
+        padding: 10px 16px;
+        
+        border-radius: 10px;
+
+    }
+}
