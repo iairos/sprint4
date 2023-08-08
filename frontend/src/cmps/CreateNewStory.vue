@@ -5,15 +5,15 @@
       <div class="header">
         <h2>Create new post</h2>
       </div>   
+      <label  @drop.prevent="handleFile" @dragover.prevent>
       <div class="main">
-        <span class="drag-icon" v-html="$svg('newPost')"></span>
-        <h3>Drag photos and videos here</h3>
-        <label for="upload-file" class="select-btn"> Select from computer </label>
-        <!-- <input type="file" @change="onFileChange" id="upload-file" hidden /> -->
-        
-        <input type="file" @change="handleFile" id="upload-file" hidden />
-        
-      </div>
+          <span class="drag-icon" v-html="$svg('newPost')"></span>
+          <h3>Drag photos and videos here</h3>
+          <label for="upload-file" class="select-btn"> Select from computer </label> 
+          <input type="file" @change="handleFile" id="upload-file" hidden />
+          
+        </div>
+      </label>
     </div>
     <div class="stage2" v-if="stage===2">
         <div class="header" v-if="mode==='create'">

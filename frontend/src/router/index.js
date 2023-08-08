@@ -36,11 +36,11 @@ const router = createRouter({
       name: 'Profile',
       component: UserDetails,
     },
-    // {
-    //   path: '/login',
-    //   name: 'login',
-    //   component: LoginSignUp,
-    // },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginSignUp,
+    },
 
     // path: '/userProfile',
     
