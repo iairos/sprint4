@@ -1,24 +1,19 @@
 <template>
   
-  <section v-if="user" class="user-details">
     <StoryMenu
       v-if="isMenuOpen"
       @cancel="closeMenu"
       @logout="closeMenu"
       :user="user"
     />
-<<<<<<< HEAD
   <div class="user-wrap">
   <section v-if="user" class="user-details">
-=======
->>>>>>> a94109ff140d85b731f192e30f6dfcf4005fe87a
     <section class="profil-header">
       <div class="img-container">
         <img class="profil-img" :src="user.imgUrl" alt="" />
       </div>
-      <div class="main">
+      <div class="main-info">
         <div class="main-header">
-
           <span class="name">{{ user.username }}</span>
           <span
           v-if="isLoggedInUser"
@@ -166,7 +161,8 @@ export default {
   computed: {
     isLoggedInUser() {
       return (this.$store.getters.getLoggedInUser?._id === this.user?._id)
-    
+    },
+ 
   },
   components: {
     MiniStoryPreview,
