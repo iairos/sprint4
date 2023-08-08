@@ -6,7 +6,7 @@
         <h2>Create new post</h2>
       </div>   
       <label  @drop.prevent="handleFile" @dragover.prevent>
-      <div class="main">
+      <div class="create-main">
           <span class="drag-icon" v-html="$svg('newPost')"></span>
           <h3>Drag photos and videos here</h3>
           <label for="upload-file" class="select-btn"> Select from computer </label> 
@@ -39,7 +39,7 @@
             <img v-if="url" :src="url" alt="" />
             
           </div>
-          <div class="main">
+          <div class="create-x">
               <div class="user-title">
                 <img class="user-img" :src="loggedInUser.imgUrl" alt="" />
                 <span class="name">{{ loggedInUser.fullname }}</span>
