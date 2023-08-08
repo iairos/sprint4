@@ -148,7 +148,7 @@ export default {
   },
   methods: {
     addEmoji(ev){
-      console.log(ev.detail)
+      // console.log(ev.detail)
       this.txt += ev.detail.emoji.unicode
     },
     goHome() {
@@ -200,8 +200,8 @@ export default {
       // this.$emit("save", this.story._id);
     },
     async onLikeComment(storyId, commentId) {
-      console.log("storyId", storyId);
-      console.log("commentId", commentId);
+      // console.log("storyId", storyId);
+      // console.log("commentId", commentId);
       try {
         const updatedStory = await this.$store.dispatch({
           type: "likeComment",

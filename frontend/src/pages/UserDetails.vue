@@ -1,11 +1,12 @@
 <template>
-  <StoryMenu
+  
+  <section v-if="user" class="user-details">
+    <StoryMenu
       v-if="isMenuOpen"
       @cancel="closeMenu"
       @logout="closeMenu"
       :user="user"
     />
-  <section v-if="user" class="user-details">
     <section class="profil-header">
       <div class="img-contaner">
         <img class="profil-img" :src="user.imgUrl" alt="" />
@@ -58,9 +59,10 @@
   </section>
 </template>
 <script>
-import MiniStoryPreview from "../cmps/MiniStoryPreview.vue";
-import { userService } from "../services/user.service.js";
-import StoryMenu from "../cmps/StoryMenu.vue";
+import MiniStoryPreview from "../cmps/MiniStoryPreview.vue"
+import { userService } from "../services/user.service.js"
+import StoryMenu from "../cmps/StoryMenu.vue"
+
 export default {
   data() {
     return {
@@ -99,7 +101,7 @@ export default {
         });
       }
 
-      console.log("savedStories", savedStories);
+      // console.log("savedStories", savedStories);
       this.stories = savedStories;
       return savedStories;
     },
@@ -116,7 +118,7 @@ export default {
       }
     },
     openMenu() {
-      console.log('openMenu')
+      // console.log('openMenu')
       this.isMenuOpen = true;
     },
     closeMenu() {
@@ -125,8 +127,9 @@ export default {
   },
   computed: {
     isLoggedInUser() {
-      return (this.$store.getters.getLoggedInUser._id === this.user._id)
+      return (this.$store.getters.getLoggedInUser?._id === this.user?._id)
     },
+ 
   },
   components: {
     MiniStoryPreview,

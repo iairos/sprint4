@@ -126,7 +126,7 @@ export default {
   created() {},
   methods: {
     addEmoji(ev) {
-      console.log(ev.detail);
+      // console.log(ev.detail);
       this.txt += ev.detail.emoji.unicode;
     },
     goToDetail() {

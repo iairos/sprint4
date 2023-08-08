@@ -33,10 +33,10 @@ export default {
     },
     onLogout() {
       
-      console.log('logout')
+      // console.log('logout')
       try{
             this.$store.dispatch({ type: 'logout'})
-            console.log('logout from user')
+            // console.log('logout from user')
             this.$emit("logout");
         }
         catch{

@@ -32,7 +32,7 @@ export default {
             this.$emit('like', storyId)
         },
         saveStory(storyId){
-            console.log('storyId',storyId)
+            // console.log('storyId',storyId)
             this.$emit('save', storyId)
         },
         onCommentStory(storyId,txt){
