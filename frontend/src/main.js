@@ -12,7 +12,7 @@ import router from './router'
 import store from './store'
 
 const app = createApp(App)
-
+app.config.globalProperties.window = window
 app.component('ModalBg', ModalBg)
 app.directive('textarea', dynamicTextareaDirective)
 

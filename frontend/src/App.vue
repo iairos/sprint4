@@ -14,13 +14,14 @@ export default {
     methods:{
         goHome(){
             this.$router.push('/')
-        }
+        },
+
     }
 }
 </script>
 
 <template>
-    <section class="main-layout">
+    <section class="main-layout" >
         <StoryNav/>
         <RouterView />
         <!-- <div @click="goHome" :class="{'screen-open':$route.name==='storyDetails' || $route.name==='newStory'}" class="screen"></div> -->

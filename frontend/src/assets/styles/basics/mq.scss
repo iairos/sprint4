@@ -47,6 +47,29 @@
   //   width: 0;
   //   height: 0;
   // }
+  .story-index{
+    #nav-test{
+      display: flex;
+  
+    }
+    .mobile-nav{
+      background-color: blue;
+      z-index: 60;
+      height: 50px;
+      width: 100vw;
+      position: fixed;
+      top: 0;
+      transition: top .3s ease-in-out ;
+
+    }
+    .test{
+      top: -50px;
+    }
+
+  }
+  .story-list{
+    padding-top: 40px;
+  }
   .story-preview{
     width:100vw ;
     .user-title.header{

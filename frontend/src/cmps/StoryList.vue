@@ -1,5 +1,5 @@
 <template>
-    <section class="story-list">
+    <section ref="story" class="story-list" >
         <ul class="clean-list">
             <li v-for="story in stories" :key="story._id">
                 <StoryPreview 
@@ -18,11 +18,19 @@
 
 <script>
 import StoryPreview from '@/cmps/StoryPreview.vue'
+
 export default {
     props: {
         stories: { type: Array, required: true }
     },
+    data(){
+        return {
+    }
+    },
+    
+  
     methods: {
+
         removeStory(storyId){
             // console.log('list',storyId)
             this.$emit('remove', storyId)
@@ -37,8 +45,10 @@ export default {
         },
         onCommentStory(storyId,txt){
             this.$emit('onCommentStory', storyId,txt)
-        }
-    },
+        },
+  },
+
+    
     components: {
         StoryPreview,
     }
