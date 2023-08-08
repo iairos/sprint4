@@ -1,5 +1,8 @@
     .user-wrap{
-    margin: 0 auto;
+        flex: 1;
+        overflow-y: auto;   
+        display: flex;
+        justify-content: center; 
         .user-details{  
         display: block;
         margin: 0 25px;
@@ -79,14 +82,31 @@
         }
 
         .action{
+
+            display: flex;
+            justify-content: center;
+            letter-spacing: 1px;
             padding-bottom: 19px;
             text-align: center;
-            font-size: 12px;
-            border-bottom: 1px solid $gray-line;
+            font-size: em(12px,14px);
+            color: $gray1;
+            border-top: 1px solid $gray-line;
             // height: 53px;
-            svg{
-                width: 12px;
-                height: 12px;
+            gap: 60px;
+            article{
+                display: flex;
+                align-items: center;
+                height: 52px;
+                .svg-icon{
+                    margin-block-start: 5px;
+                    svg{
+                        width: 12px;
+                        height: 12px;
+                    }
+                    }
+                .action-txt{
+                    margin-inline-start: 6px;
+                }
             }
         }
 

@@ -17,7 +17,7 @@
           <span class="name">{{ user.username }}</span>
           <span
           v-if="isLoggedInUser"
-          class="svg-icon"
+          class="svg-icon btn"
           v-html="$svg('options')"
           @click="openMenu"
           ></span>
@@ -37,19 +37,24 @@
       @click="onPlus"
       ></span>
     </section> -->
-    <section class="action">
-      <span
-        class="svg-icon"
-        v-html="$svg('postTable')"
-        @click="getUserStories"
-      ></span>
-      <span>POSTS</span>
-      <span v-if="isLoggedInUser"
-        class="svg-icon"
-        v-html="$svg('save')"
-        @click="getSavedStories"
-      ></span>
-      <span v-if="isLoggedInUser">SAVED</span>
+    <section class="action bold">
+      <article class="btn">
+        <span
+          class="svg-icon"
+          v-html="$svg('postTable')"
+          @click="getUserStories"
+        ></span>
+        <span class="action-txt">POSTS</span>
+      </article>
+      <article class="btn">
+
+        <span v-if="isLoggedInUser"
+          class="svg-icon"
+          v-html="$svg('save')"
+          @click="getSavedStories"
+        ></span>
+        <span v-if="isLoggedInUser" class="action-txt">SAVED</span>
+      </article>
       <!-- <article v-for="btn in btns">
         <span v-if="btn.available"
         class="svg-icon"
