@@ -133,11 +133,11 @@ export default {
       if (savedStoryIds.length > 0) {
         savedStoryIds.forEach((storyId) => {
           story = stories.find((story) => story._id === storyId);
-          savedStories.push(story);
+          if (story) savedStories.push(story);
         });
       }
 
-      // console.log("savedStories", savedStories);
+      console.log("savedStories", savedStories);
       this.stories = savedStories;
       return savedStories;
     },
