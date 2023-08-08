@@ -10,7 +10,9 @@
         max-height: 90vh;
         width: 100%;
         max-width: 100vw;
-
+        ::-webkit-scrollbar{
+            display: none;
+        }
 
 
         .detail-img {

@@ -13,7 +13,7 @@ import store from './store'
 // import store from './store/store.js'
 
 const app = createApp(App)
-
+app.config.globalProperties.window = window
 app.component('ModalBg', ModalBg)
 app.directive('textarea', dynamicTextareaDirective)
 

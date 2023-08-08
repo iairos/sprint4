@@ -1,7 +1,8 @@
 
 .user-details{
-
-    padding: 30px 20px 0;
+display: grid;
+grid-template-columns: 1fr 975px 1fr;
+    // padding: 30px 20px 0;
 
     .profil-header{
         display: flex;
