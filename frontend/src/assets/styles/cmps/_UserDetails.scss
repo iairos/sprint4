@@ -1,93 +1,103 @@
-
-.user-details{
-display: grid;
-grid-template-columns: 1fr 975px 1fr;
-    // padding: 30px 20px 0;
-
-    .profil-header{
-        display: flex;
-        width: 760px;
-        height: 190px;
-        padding: 30px 20px;
-        
-        .img-contaner{
-            width: 234px;
-            height: 150px;
-            align-self: center;
+    .user-wrap{
+    margin: 0 auto;
+        .user-details{  
+        display: block;
+        margin: 0 25px;
+        padding: 30px 20px 0;
+        .profil-header{
             display: flex;
-            justify-content: center;
+            align-items: stretch;
+            margin-block-end: 44px;
             
-            .profil-img{
-                width: 150px;
-                height: 150px;
-                border-radius: 50%;
-                object-fit: cover;
-                margin: 0 30px 0 0;
+            .img-container{
+                flex-grow: 1;
+                flex-basis: 0;
+                flex-shrink: 0;
+                display: flex;
+                justify-content: center;
+                margin-inline-end: 30px;
                 
+                .profil-img{
+                    display: block;
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    margin: 0 auto;
+                    
+                }
+            }
+            .main{
+                flex-grow: 2;
+                flex-shrink: 1;
+                flex-basis: 30px;
+                min-width: 500px;
+                display: flex;
+                flex-direction: column;
+                gap:20px;
+            .main-header{
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                .name{
+                    font-weight: normal;
+                    font-size: 20px;
+                    height: 40px;
+                }
+            }
+            .info{
+                display: flex;
+                font-size: em(16px,14px);
+                gap:40px ;
+                margin: 0;
+                padding: 0;
+            }
+            .fullname{
+                font-size: 1em;
             }
         }
-        .main{
-            min-width: 500px;
-        display: flex;
-        flex-direction: column;
-        gap:20px;
         
-        .name{
-            font-size: 20px;
-            height: 40px;
-        }
-        .info{
+        }   
+
+        .add{
             display: flex;
-            margin-bottom: 20px;
-            font-size: 16px;
-            span{
-                margin: 0 40px 0 0;
+            width: 77px;
+            height: 77px;
+            margin: 20px;
+            border: $gray-icon 1px solid ;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            
+            svg{
+                width: 44px;
+                height: 44px;
+            }
+                
+            
+        }
+
+        .action{
+            padding-bottom: 19px;
+            text-align: center;
+            font-size: 12px;
+            border-bottom: 1px solid $gray-line;
+            // height: 53px;
+            svg{
+                width: 12px;
+                height: 12px;
             }
         }
-        .fullname{
-            font-size: 14px;
-            
-        }
-    }
-    
-    }   
 
-    .add{
+    .stories-list{
         display: flex;
-        width: 77px;
-        height: 77px;
-        margin: 20px;
-        border: $gray-icon 1px solid ;
-        border-radius: 50%;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-
-        
-        svg{
-            width: 44px;
-            height: 44px;
-        }
-            
-        
+        flex-wrap: wrap;
+        gap: 5px;
     }
-
-    .action{
-        padding-bottom: 19px;
-        text-align: center;
-        font-size: 12px;
-        border-bottom: 1px solid $gray-line;
-        // height: 53px;
-        svg{
-            width: 12px;
-            height: 12px;
-        }
+    &>*{
+        max-width: 935px;  
     }
-
-   .stories-list{
-    display: flex;
-    // flex-wrap: 1;
-    
-    gap: 5px;
-   }
+    }
 }

@@ -5,25 +5,29 @@
       @logout="closeMenu"
       :user="user"
     />
+  <div class="user-wrap">
   <section v-if="user" class="user-details">
     <section class="profil-header">
-      <div class="img-contaner">
+      <div class="img-container">
         <img class="profil-img" :src="user.imgUrl" alt="" />
       </div>
       <div class="main">
-        <span class="name">{{ user.username }}</span>
-        <span
+        <div class="main-header">
+
+          <span class="name">{{ user.username }}</span>
+          <span
           v-if="isLoggedInUser"
           class="svg-icon"
           v-html="$svg('options')"
           @click="openMenu"
-      ></span>
-        <div class="info">
-          <span>{{ userStoriesLength }} posts</span>
-          <span>{{ user.followers?.length }} followers</span>
-          <span>{{ user.following?.length }} following</span>
+          ></span>
         </div>
-        <span class="fullname">{{ user.fullname }}</span>
+        <div class="info">
+          <div><span class="bold">{{ userStoriesLength }}</span> posts</div>
+          <div><span class="bold">{{ user.followers?.length }}</span> followers</div>
+          <div><span class="bold">{{ user.following?.length }}</span> following</div>
+        </div>
+        <span class="fullname bold">{{ user.fullname }}</span>
       </div>
     </section>
     <!-- <section class="add">
@@ -46,6 +50,15 @@
         @click="getSavedStories"
       ></span>
       <span v-if="isLoggedInUser">SAVED</span>
+      <!-- <article v-for="btn in btns">
+        <span v-if="btn.available"
+        class="svg-icon"
+        v-html="$svg(btn.svg)"
+        @click="btn.func"
+      ></span>
+      <span v-if="btn.available">{{ btn.title }}</span>
+
+      </article> -->
     </section>
 
     <section>
@@ -56,6 +69,7 @@
       </ul>
     </section>
   </section>
+</div>
 </template>
 <script>
 import MiniStoryPreview from "../cmps/MiniStoryPreview.vue";
@@ -67,7 +81,25 @@ export default {
       stories: null,
       user: null,
       userStoriesLength:0,
-      isMenuOpen:false
+      isMenuOpen:false,
+      // btns:[
+      //   {
+      //     id: 1,
+      //     available:true,
+      //     isActive: true,
+      //     title: "Posts",
+      //     svg: "postTable",
+      //     func:this.getUserStories
+      //   },
+      //   {
+      //     id: 2,
+      //     available:isLoggedInUser,
+      //     isActive: false,
+      //     title: "Saved",
+      //     svg: "save",
+      //     func:this.getSavedStories
+      //   },
+      // ]
     };
   },
 
@@ -110,6 +142,7 @@ export default {
         
         const user = await userService.getById(userId);
         this.user = user;
+        console.log(this.user)
         this.userStoriesLength = this.getUserStories().length;
       } catch (err) {
         console.log(err);
@@ -122,12 +155,13 @@ export default {
     closeMenu() {
       this.isMenuOpen = false;
     },
+
   },
   computed: {
     isLoggedInUser() {
       return (this.$store.getters.getLoggedInUser._id === this.user._id)
     },
-  },
+    },
   components: {
     MiniStoryPreview,
     StoryMenu
