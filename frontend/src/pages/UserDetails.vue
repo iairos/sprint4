@@ -6,7 +6,7 @@
       @logout="closeMenu"
       :user="user"
     />
-  <div class="user-wrap">
+  <div class="user-wrap" >
   <section v-if="user" class="user-details">
     <section class="profil-header">
       <div class="img-container">
@@ -38,20 +38,17 @@
       ></span>
     </section> -->
     <section class="action bold">
-      <article class="btn">
+      <article class="btn" @click="getUserStories">
         <span
           class="svg-icon"
           v-html="$svg('postTable')"
-          @click="getUserStories"
         ></span>
         <span class="action-txt">POSTS</span>
       </article>
-      <article class="btn">
-
+      <article class="btn" @click="getSavedStories">
         <span v-if="isLoggedInUser"
           class="svg-icon"
           v-html="$svg('save')"
-          @click="getSavedStories"
         ></span>
         <span v-if="isLoggedInUser" class="action-txt">SAVED</span>
       </article>
@@ -109,14 +106,17 @@ export default {
     };
   },
 
-  created() {},
+  created() {
+  },
+  mounted(){
+  },
   methods: {
     
     onPlus() {
       this.$router.push("/newStory");
     },
     getUserStories() {
-      const stories = this.$store.getters.stories;
+      const stories = this.getStories
       
       const userStories = stories.filter(
         (story) => story.by._id === this.user._id
@@ -167,6 +167,10 @@ export default {
     isLoggedInUser() {
       return (this.$store.getters.getLoggedInUser?._id === this.user?._id)
     },
+    getStories(){
+      console.log('hi',this.$store.getters.stories)
+      return this.$store.getters.stories
+    }
  
   },
   components: {
