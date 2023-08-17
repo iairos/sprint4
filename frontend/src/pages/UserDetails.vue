@@ -38,14 +38,14 @@
       ></span>
     </section> -->
     <section class="action bold">
-      <article class="btn" @click="getUserStories">
+      <article class="btn" :class="{active:currShown==='stories'}" @click="getUserStories">
         <span
           class="svg-icon"
           v-html="$svg('postTable')"
         ></span>
         <span class="action-txt">POSTS</span>
       </article>
-      <article class="btn" @click="getSavedStories">
+      <article class="btn" :class="{active:currShown==='savedStories'}"  @click="getSavedStories">
         <span v-if="isLoggedInUser"
           class="svg-icon"
           v-html="$svg('save')"
@@ -85,6 +85,7 @@ export default {
       user: null,
       userStoriesLength:0,
       isMenuOpen:false,
+      currShown:'stories'
       // btns:[
       //   {
       //     id: 1,
@@ -123,6 +124,7 @@ export default {
       );
       
       this.stories = userStories;
+      this.currShown='stories'
       return userStories;
     },
     getSavedStories() {
@@ -139,6 +141,7 @@ export default {
 
       console.log("savedStories", savedStories);
       this.stories = savedStories;
+      this.currShown='savedStories'
       return savedStories;
     },
     async loadUser() {

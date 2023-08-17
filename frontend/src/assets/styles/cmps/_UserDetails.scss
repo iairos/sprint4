@@ -85,7 +85,7 @@
 
             display: flex;
             justify-content: center;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             padding-bottom: 19px;
             text-align: center;
             font-size: em(12px,14px);
@@ -102,10 +102,17 @@
                     svg{
                         width: 12px;
                         height: 12px;
+                        color: $gray1;
                     }
                     }
                 .action-txt{
                     margin-inline-start: 6px;
+                }
+                &.active{
+                    color: $clr1;
+                    svg{
+                        color: $clr1;
+                    }
                 }
             }
         }
