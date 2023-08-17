@@ -40,6 +40,7 @@ app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/review', reviewRoutes)
 app.use('/api/story', storyRoutes)
+app.use(express.static('public'));
 setupSocketAPI(server)
 
 // Make every server-side-route to match the index.html
@@ -55,3 +56,4 @@ const port = process.env.PORT || 3030
 server.listen(port, () => {
     logger.info('Server is running on port: ' + port)
 })
+
